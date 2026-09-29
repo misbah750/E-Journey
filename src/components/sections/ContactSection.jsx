@@ -1,0 +1,107 @@
+import { useState } from 'react';
+import { MapPin, Phone, Smartphone, Mail, ExternalLink, Map } from 'lucide-react';
+import Reveal from '../ui/Reveal.jsx';
+import Section, { SectionHeading } from '../ui/Section.jsx';
+import { WhatsAppIcon } from '../ui/BrandIcons.jsx';
+import InquiryForm from '../forms/InquiryForm.jsx';
+import { site, whatsappUrl, mapEmbedUrl, mapLinkUrl } from '../../data/site.js';
+
+export function ContactCards() {
+  return (
+    <ul className="contact-cards">
+      <li className="contact-card contact-card--wide">
+        <span className="contact-card__icon"><MapPin size={20} aria-hidden="true" /></span>
+        <span>
+          <strong>Office</strong>
+          <address>{site.address.lines.map((l) => <span key={l}>{l}</span>)}</address>
+          <a href={mapLinkUrl} target="_blank" rel="noopener noreferrer" className="link-arrow">
+            Get directions <ExternalLink size={14} aria-hidden="true" />
+          </a>
+        </span>
+      </li>
+      <li className="contact-card">
+        <span className="contact-card__icon"><Phone size={20} aria-hidden="true" /></span>
+        <span>
+          <strong>Phone</strong>
+          {site.phones.map((p) => <a key={p.tel} href={`tel:${p.tel}`}>{p.label}</a>)}
+        </span>
+      </li>
+      <li className="contact-card">
+        <span className="contact-card__icon"><Smartphone size={20} aria-hidden="true" /></span>
+        <span>
+          <strong>Mobile</strong>
+          {site.mobiles.map((p) => <a key={p.tel} href={`tel:${p.tel}`}>{p.label}</a>)}
+        </span>
+      </li>
+      <li className="contact-card contact-card--wide">
+        <span className="contact-card__icon"><Mail size={20} aria-hidden="true" /></span>
+        <span>
+          <strong>Email</strong>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </span>
+      </li>
+      <li className="contact-card contact-card--wa contact-card--wide">
+        <span className="contact-card__icon"><WhatsAppIcon size={20} /></span>
+        <span>
+          <strong>WhatsApp</strong>
+          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Chat with a consultant</a>
+        </span>
+      </li>
+    </ul>
+  );
+}
+
+/** Google Map that loads only when requested (privacy- and performance-friendly). */
+export function MapEmbed() {
+  const [load, setLoad] = useState(false);
+  return (
+    <div className="map">
+      {load ? (
+        <iframe
+          title="Map showing the e-Journey office in Gulshan-e-Iqbal, Karachi"
+          src={mapEmbedUrl}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      ) : (
+        <button type="button" className="map__placeholder" onClick={() => setLoad(true)}>
+          <span className="map__pin"><Map size={22} aria-hidden="true" /></span>
+          <strong>Akbar Paradise, Gulshan-e-Iqbal</strong>
+          <small>Main Rashid Minhas Road, Karachi</small>
+          <span className="map__cta">Show interactive map</span>
+        </button>
+      )}
+    </div>
+  );
+}
+
+export default function ContactSection({ variant = 'short', tone = 'white', eyebrow = 'Contact', title, lead, defaults }) {
+  return (
+    <Section id="contact" tone={tone} className="contact">
+      <div className="contact__layout">
+        <div>
+          <SectionHeading
+            eyebrow={eyebrow}
+            title={title || <>Talk to a <em>Travel Consultant</em></>}
+            lead={lead || 'Visit our Karachi office, call, or send a request — we’ll respond personally.'}
+          />
+          <Reveal delay={100}>
+            <ContactCards />
+          </Reveal>
+          <Reveal delay={160}>
+            <MapEmbed />
+          </Reveal>
+        </div>
+        <Reveal delay={120} className="contact__form">
+          <InquiryForm
+            variant={variant}
+            source="Contact section"
+            defaults={defaults}
+            title="Send a travel request"
+            intro="Share a few details and a consultant will get back to you."
+          />
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
