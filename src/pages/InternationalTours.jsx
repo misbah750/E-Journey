@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import Packages from '../components/sections/Packages.jsx';
@@ -58,7 +59,9 @@ export default function InternationalTours() {
             eyebrow="Plan an International Trip"
             title={<>Let’s Create a Journey <em>Designed Around You</em></>}
             lead="Tell us where you’d like to go and when. We’ll come back with flights, stays and experiences that fit."
-          />
+          >
+            <FormAside image={images.istanbul} />
+          </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm variant="full" source="International tours page" defaults={{ travelType: 'Holiday' }} />
           </Reveal>

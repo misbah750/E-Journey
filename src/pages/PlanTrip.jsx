@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import TripBuilderSection from '../components/sections/TripBuilderSection.jsx';
@@ -64,6 +65,7 @@ export default function PlanTrip() {
                 <Phone size={18} aria-hidden="true" /> {site.phones[0].label}
               </a>
             </div>
+            <FormAside image={images.wing} />
           </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm

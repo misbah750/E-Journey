@@ -1,5 +1,5 @@
 const PLACES = [
-  'Makkah', 'Madinah', 'Hunza', 'Skardu', 'Dubai', 'Istanbul', 'Cappadocia', 'Najaf', 'Karbala',
+  'Makkah', 'Madinah', 'Hunza', 'Skardu', 'Dubai', 'Istanbul', 'Cappadocia', 'Naran',
   'Doha', 'Fairy Meadows', 'Kuala Lumpur', 'Phuket', 'Swiss Alps', 'Paris', 'The Maldives', 'Lahore', 'Swat',
 ];
 

@@ -3,6 +3,8 @@ import { MapPin, Phone, Smartphone, Mail, ExternalLink, Map } from 'lucide-react
 import Reveal from '../ui/Reveal.jsx';
 import Section, { SectionHeading } from '../ui/Section.jsx';
 import { WhatsAppIcon } from '../ui/BrandIcons.jsx';
+import Img from '../ui/Img.jsx';
+import { images } from '../../data/images.js';
 import InquiryForm from '../forms/InquiryForm.jsx';
 import { site, whatsappUrl, mapEmbedUrl, mapLinkUrl } from '../../data/site.js';
 
@@ -75,6 +77,27 @@ export function MapEmbed() {
   );
 }
 
+/** Photo card with direct call / WhatsApp actions. */
+export function TalkCard() {
+  return (
+    <div className="talk-card">
+      <Img image={images.wingSunset} sizes="(max-width: 1000px) 100vw, 40vw" maxWidth={1080} />
+      <div className="talk-card__body">
+        <p className="eyebrow eyebrow--light">Prefer to talk?</p>
+        <p className="talk-card__title">Our consultants are a message away.</p>
+        <div className="talk-card__actions">
+          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp btn--sm">
+            <WhatsAppIcon size={16} /> WhatsApp
+          </a>
+          <a href={`tel:${site.phones[0].tel}`} className="btn btn--ghost-light btn--sm">
+            <Phone size={16} aria-hidden="true" /> {site.phones[0].label}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ContactSection({ variant = 'short', tone = 'white', eyebrow = 'Contact', title, lead, defaults }) {
   return (
     <Section id="contact" tone={tone} className="contact">
@@ -100,6 +123,7 @@ export default function ContactSection({ variant = 'short', tone = 'white', eyeb
             title="Send a travel request"
             intro="Share a few details and a consultant will get back to you."
           />
+          <TalkCard />
         </Reveal>
       </div>
     </Section>

@@ -51,7 +51,7 @@
   /* Layout */
   --container: 1280px;
   --gutter: clamp(16px, 4vw, 40px);
-  --section-y: clamp(80px, 10vw, 136px);
+  --section-y: clamp(64px, 7.2vw, 108px);
   --nav-h: 88px;
 
   /* Shape & depth */
@@ -409,10 +409,17 @@ input, select, textarea { font: inherit; }
 .reveal--left { transform: translate3d(-40px, 0, 0); }
 .reveal--right { transform: translate3d(40px, 0, 0); }
 .reveal--scale { transform: scale(0.96); }
-.reveal--mask { opacity: 1; clip-path: inset(0 0 100% 0 round var(--radius-lg)); }
+/* Mask reveals clip the element's children, never the observed element itself:
+   a fully clipped target reports zero visibility to IntersectionObserver and would never reveal. */
+.reveal--mask { opacity: 1; }
+.reveal--mask > * {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.2s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal--mask.is-visible > * { clip-path: inset(0 0 0 0); }
 .reveal--mask .img { transform: scale(1.14); transition: opacity 0.8s ease, transform 1.8s var(--ease-out); }
 .reveal.is-visible { opacity: 1; transform: none; }
-.reveal--mask.is-visible { clip-path: inset(0 0 0 0 round var(--radius-lg)); }
 .reveal--mask.is-visible .img { transform: scale(1); }
 
 .hero-anim {
@@ -437,6 +444,6 @@ input, select, textarea { font: inherit; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal, .hero-anim { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .reveal, .hero-anim, .reveal--mask > * { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .reveal--mask .img { transform: none !important; }
 }

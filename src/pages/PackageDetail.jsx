@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
 import Img from '../components/ui/Img.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import PackageCard from '../components/sections/PackageCard.jsx';
@@ -226,7 +227,9 @@ export default function PackageDetail() {
             eyebrow="Request Booking"
             title={<>Reserve Your <em>{pkg.shortTitle}</em></>}
             lead="Send your details and preferred dates. A consultant will confirm availability, hotels and the final price with you before anything is booked."
-          />
+          >
+            <FormAside image={pkg.images[1] || pkg.images[0]} />
+          </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm
               key={config}

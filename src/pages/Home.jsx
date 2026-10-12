@@ -13,6 +13,7 @@ import HajjBand from '../components/sections/HajjBand.jsx';
 import VisaBand from '../components/sections/VisaBand.jsx';
 import Accommodation from '../components/sections/Accommodation.jsx';
 import WhyUs from '../components/sections/WhyUs.jsx';
+import PhotoMosaic from '../components/sections/PhotoMosaic.jsx';
 import Process from '../components/sections/Process.jsx';
 import Testimonials from '../components/sections/Testimonials.jsx';
 import FAQ from '../components/sections/FAQ.jsx';
@@ -47,6 +48,7 @@ export default function Home() {
       <VisaBand />
       <Accommodation />
       <WhyUs />
+      <PhotoMosaic />
       <Process />
       <Testimonials />
       <FAQ />

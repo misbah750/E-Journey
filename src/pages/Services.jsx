@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import Img from '../components/ui/Img.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import Process from '../components/sections/Process.jsx';
@@ -53,6 +54,9 @@ export default function Services() {
             const dedicated = !s.to.startsWith('/services');
             return (
               <Reveal as="li" key={s.id} id={s.id} delay={(i % 2) * 100} className="service-detail">
+                <div className="service-detail__media">
+                  <Img image={s.image} sizes="(max-width: 900px) 100vw, 50vw" maxWidth={1080} />
+                </div>
                 <div className="service-detail__head">
                   <span className="service-detail__icon"><Icon size={26} aria-hidden="true" /></span>
                   <span className="service-detail__no">{s.no}</span>

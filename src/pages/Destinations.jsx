@@ -20,7 +20,7 @@ export default function Destinations() {
   useSeo({
     title: 'Destinations & Tour Packages',
     description:
-      'Explore e-Journey destinations — Umrah and Najaf & Karbala Ziyarat packages, Dubai and Qatar escapes, Hunza, Skardu and Northern Pakistan tours, Türkiye, Malaysia, Thailand and Europe.',
+      'Explore e-Journey destinations — Umrah packages, Dubai and Qatar escapes, Hunza, Skardu and Northern Pakistan tours, Türkiye, Malaysia, Thailand and Europe.',
   });
 
   return (
@@ -29,7 +29,7 @@ export default function Destinations() {
         image={images.dubaiSunset}
         eyebrow="Destinations Catalog"
         title={<>Explore Our <em>Journeys.</em></>}
-        lead="From tranquil spiritual pathways in Makkah, Madinah, Najaf and Karbala to dynamic city retreats in Dubai and Qatar and the mountain valleys of Pakistan — every destination is planned with care and peace of mind."
+        lead="From tranquil spiritual pathways in Makkah and Madinah to dynamic city retreats in Dubai and Qatar and the mountain valleys of Pakistan — every destination is planned with care and peace of mind."
         crumbs={[{ label: 'Destinations' }]}
       />
 

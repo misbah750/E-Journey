@@ -1,5 +1,7 @@
 import { ArrowRight, MapPin, Wallet, Users, Target } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
+import Img from '../components/ui/Img.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import Accommodation from '../components/sections/Accommodation.jsx';
@@ -57,6 +59,9 @@ export default function Hotels() {
                 ))}
               </ul>
             </Reveal>
+            <Reveal variant="mask" delay={160} className="hotels-photo">
+              <Img image={images.dubaiDesert} sizes="(max-width: 960px) 100vw, 45vw" maxWidth={1080} />
+            </Reveal>
           </div>
           <ul className="region-list">
             {regions.map((r, i) => (
@@ -78,7 +83,9 @@ export default function Hotels() {
             eyebrow="Accommodation Request"
             title={<>Tell Us About <em>Your Stay</em></>}
             lead="Share your destination, dates and preferences — we’ll suggest options across categories for you to choose from."
-          />
+          >
+            <FormAside image={images.shangrila} />
+          </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm variant="hotel" source="Hotels page" defaults={{ travelType: 'Hotel' }} submitLabel="Find Accommodation" />
           </Reveal>

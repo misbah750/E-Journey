@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import FlightPath from '../ui/FlightPath.jsx';
 import { useMontage, MontageLayers, MontageControls } from '../ui/HeroMontage.jsx';
-import InquiryWidget from '../forms/InquiryWidget.jsx';
 import { heroClips } from '../../data/heroVideos.js';
 import { useParallax } from '../../lib/hooks.js';
 
@@ -44,13 +43,6 @@ export default function Hero() {
         </div>
       </section>
 
-      <div className="hero-widget">
-        <div className="container">
-          <div className="hero-anim" style={{ '--i': 4 }}>
-            <InquiryWidget />
-          </div>
-        </div>
-      </div>
     </>
   );
 }

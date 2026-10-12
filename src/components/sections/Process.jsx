@@ -1,4 +1,6 @@
+import Img from '../ui/Img.jsx';
 import Section, { SectionHeading } from '../ui/Section.jsx';
+import { images } from '../../data/images.js';
 import { processSteps } from '../../data/content.js';
 import { useScrollProgress } from '../../lib/hooks.js';
 
@@ -8,6 +10,9 @@ export default function Process({ tone = 'forest', steps = processSteps, eyebrow
   const n = steps.length;
   return (
     <Section id="process" tone={tone} className="process">
+      <div className="process__bg" aria-hidden="true">
+        <Img image={images.wing} sizes="100vw" alt="" />
+      </div>
       <SectionHeading
         eyebrow={eyebrow}
         title={title || <>Your Journey, <em>Step by Step</em></>}

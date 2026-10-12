@@ -42,11 +42,11 @@ export const trustItems = [
 ];
 
 export const aboutPillars = [
+  'Hajj & Umrah Services',
   'Experienced Travel Team',
   'Domestic & International',
   'Customized Journeys',
   'Corporate Solutions',
-  'Hajj & Umrah Services',
 ];
 
 export const audiences = [

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Heart, GraduationCap, Mountain, BriefcaseBusiness, Home } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import DestinationRows from '../components/sections/DestinationRows.jsx';
@@ -75,6 +76,7 @@ export default function PakistanTours() {
             <Link to="/plan-your-trip?destination=Northern%20Pakistan" className="link-arrow link-arrow--strong">
               Or use the step-by-step trip builder <ArrowRight size={16} aria-hidden="true" />
             </Link>
+            <FormAside image={images.passu} />
           </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm variant="full" source="Pakistan tours page" defaults={{ travelType: 'Holiday', destination: 'Northern Pakistan' }} />

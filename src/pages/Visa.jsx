@@ -1,5 +1,7 @@
 import { ArrowRight, Info, FileSearch, ClipboardList, FolderCheck, Truck, BellRing, BriefcaseBusiness, Palmtree } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
+import Img from '../components/ui/Img.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import Process from '../components/sections/Process.jsx';
@@ -46,15 +48,21 @@ export default function Visa() {
 
       <Section tone="ivory">
         <SectionHeading eyebrow="How We Help" title={<>Guidance at <em>Every Step</em></>} align="center" />
-        <ul className="benefit-grid benefit-grid--4">
-          {visaHelp.map(({ icon: Icon, title, text }, i) => (
-            <Reveal as="li" key={title} delay={(i % 4) * 80} className="benefit-card">
-              <span className="benefit-card__icon"><Icon size={22} aria-hidden="true" /></span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </Reveal>
-          ))}
-        </ul>
+        <div className="benefit-layout">
+          <Reveal variant="mask" className="benefit-layout__photo">
+            <Img image={images.passportClose} sizes="(max-width: 960px) 100vw, 40vw" maxWidth={1080} />
+            <span>Guidance from checklist to passport return</span>
+          </Reveal>
+          <ul className="benefit-grid benefit-grid--2">
+            {visaHelp.map(({ icon: Icon, title, text }, i) => (
+              <Reveal as="li" key={title} delay={(i % 4) * 80} className="benefit-card">
+                <span className="benefit-card__icon"><Icon size={22} aria-hidden="true" /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
         <Reveal className="notice">
           <Info size={20} aria-hidden="true" />
           <p>
@@ -73,7 +81,9 @@ export default function Visa() {
             eyebrow="Visa Inquiry"
             title={<>Tell Us Where You’re <em>Heading</em></>}
             lead="Share your destination, visa type and travel date. A consultant will explain the requirements and next steps."
-          />
+          >
+            <FormAside image={images.paris} />
+          </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm variant="visa" source="Visa assistance page" defaults={{ travelType: 'Visa' }} submitLabel="Get Visa Assistance" />
           </Reveal>

@@ -1,7 +1,9 @@
 import { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Phone } from 'lucide-react';
+import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
+import { images } from '../../data/images.js';
 import Section from '../ui/Section.jsx';
 import { WhatsAppIcon } from '../ui/BrandIcons.jsx';
 import { faqs as defaultFaqs } from '../../data/content.js';
@@ -55,6 +57,10 @@ export default function FAQ({ items = defaultFaqs, tone = 'ivory', title }) {
             </a>
           </div>
           <Link to="/contact" className="link-arrow link-arrow--strong">Talk to a travel consultant</Link>
+          <div className="faq__photo">
+            <Img image={images.planning} sizes="(max-width: 960px) 100vw, 34vw" maxWidth={1080} />
+            <span>Every journey starts with a conversation.</span>
+          </div>
         </Reveal>
         <Reveal delay={120}>
           <Accordion items={items} />

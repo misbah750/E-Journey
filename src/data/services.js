@@ -3,11 +3,13 @@ import {
   Camera, UsersRound, Globe2, CalendarCheck,
 } from 'lucide-react';
 import { KaabaIcon } from '../components/ui/BrandIcons.jsx';
+import { images } from './images.js';
 
 /** The twelve services from the e-Journey service portfolio. */
 export const services = [
   {
     id: 'international-tickets',
+    image: images.wing,
     no: '01',
     title: 'International Tickets',
     icon: Plane,
@@ -19,6 +21,7 @@ export const services = [
   },
   {
     id: 'domestic-tickets',
+    image: images.skardu,
     no: '02',
     title: 'Domestic Tickets',
     icon: PlaneTakeoff,
@@ -30,6 +33,7 @@ export const services = [
   },
   {
     id: 'holidays',
+    image: images.beachPalms,
     no: '03',
     title: 'Holiday & Leisure Travel',
     icon: TreePalm,
@@ -41,6 +45,7 @@ export const services = [
   },
   {
     id: 'corporate',
+    image: images.businessAirport,
     no: '04',
     title: 'Corporate Travel',
     icon: BriefcaseBusiness,
@@ -52,6 +57,7 @@ export const services = [
   },
   {
     id: 'hotels',
+    image: images.hotelLuxury,
     no: '05',
     title: 'Hotels & Accommodation',
     icon: BedDouble,
@@ -63,6 +69,7 @@ export const services = [
   },
   {
     id: 'visa',
+    image: images.passport,
     no: '06',
     title: 'Visa Assistance',
     icon: Stamp,
@@ -74,6 +81,7 @@ export const services = [
   },
   {
     id: 'insurance',
+    image: images.wingSunset,
     no: '07',
     title: 'Travel Insurance',
     icon: ShieldCheck,
@@ -85,17 +93,19 @@ export const services = [
   },
   {
     id: 'hajj-umrah',
+    image: images.kaaba,
     no: '08',
     title: 'Hajj & Umrah',
     icon: KaabaIcon,
     short: 'Specialized pilgrimage travel packages and support.',
     long: 'Pilgrimage packages with accommodation, meals and transport, with religious scholars providing guidance before and during Hajj and Umrah.',
-    points: ['Umrah packages', 'Hajj packages', 'Iraq Ziyarat', 'Scholar guidance'],
+    points: ['Umrah packages', 'Hajj packages', 'Hotels near the Haramain', 'Scholar guidance'],
     to: '/hajj-umrah',
     travelType: 'Umrah',
   },
   {
     id: 'sightseeing',
+    image: images.istanbul,
     no: '09',
     title: 'Sightseeing Tours',
     icon: Camera,
@@ -107,6 +117,7 @@ export const services = [
   },
   {
     id: 'groups',
+    image: images.familyMountains,
     no: '10',
     title: 'Group & Incentive Travel',
     icon: UsersRound,
@@ -118,6 +129,7 @@ export const services = [
   },
   {
     id: 'worldwide',
+    image: images.paris,
     no: '11',
     title: 'Worldwide Tourism',
     icon: Globe2,
@@ -129,6 +141,7 @@ export const services = [
   },
   {
     id: 'reservations',
+    image: images.planning,
     no: '12',
     title: 'Reservation Services',
     icon: CalendarCheck,

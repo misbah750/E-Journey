@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
+import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
+import { images } from '../../data/images.js';
 import Section, { SectionHeading } from '../ui/Section.jsx';
 import { testimonials } from '../../data/content.js';
 
@@ -20,6 +22,18 @@ export default function Testimonials({ tone = 'sand' }) {
   return (
     <Section id="testimonials" tone={tone} className="testimonials">
       <SectionHeading eyebrow="Traveller Stories" title={<>Journeys, In Their <em>Own Words</em></>} align="center" />
+      <div className="testimonials__layout">
+      <div className="testimonials__photos" aria-hidden="true">
+        <Reveal variant="mask" className="testimonials__photo testimonials__photo--a">
+          <Img image={images.alula} sizes="300px" maxWidth={768} alt="" />
+        </Reveal>
+        <Reveal variant="mask" delay={150} className="testimonials__photo testimonials__photo--b">
+          <Img image={images.resortPool} sizes="260px" maxWidth={768} alt="" />
+        </Reveal>
+        <Reveal variant="mask" delay={300} className="testimonials__photo testimonials__photo--c">
+          <Img image={images.skarduNight} sizes="220px" maxWidth={768} alt="" />
+        </Reveal>
+      </div>
       <Reveal
         className="quote-carousel"
         role="region"
@@ -71,6 +85,7 @@ export default function Testimonials({ tone = 'sand' }) {
           </button>
         </div>
       </Reveal>
+      </div>
     </Section>
   );
 }

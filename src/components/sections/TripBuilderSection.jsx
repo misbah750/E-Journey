@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
+import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
+import { images } from '../../data/images.js';
 import Section from '../ui/Section.jsx';
 import TripBuilder, { STEPS } from '../forms/TripBuilder.jsx';
 
@@ -29,6 +31,11 @@ export default function TripBuilderSection({ id = 'trip-builder', tone = 'sand',
         </Reveal>
         <Reveal delay={150}>
           <TripBuilder initial={initial} onStepChange={setStep} />
+          <div className="builder__photos" aria-hidden="true">
+            <Img image={images.attabad} sizes="(max-width: 960px) 33vw, 18vw" maxWidth={768} alt="" />
+            <Img image={images.dubai} sizes="(max-width: 960px) 33vw, 18vw" maxWidth={768} alt="" />
+            <Img image={images.cappadocia} sizes="(max-width: 960px) 33vw, 18vw" maxWidth={768} alt="" />
+          </div>
         </Reveal>
       </div>
     </Section>

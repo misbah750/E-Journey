@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
 import Section, { SectionHeading } from '../ui/Section.jsx';
 import { services } from '../../data/services.js';
@@ -9,12 +10,17 @@ export function ServiceCard({ service, index = 0 }) {
   return (
     <Reveal as="li" delay={(index % 4) * 70} className="service-card">
       <Link to={service.to} className="service-card__link">
-        <span className="service-card__no">{service.no}</span>
-        <span className="service-card__icon"><Icon size={24} aria-hidden="true" /></span>
-        <h3 className="service-card__title">{service.title}</h3>
-        <p className="service-card__text">{service.short}</p>
-        <span className="link-arrow">
-          Explore Service <ArrowRight size={16} aria-hidden="true" />
+        <span className="service-card__media">
+          <Img image={service.image} sizes="(max-width: 500px) 100vw, (max-width: 1100px) 33vw, 25vw" maxWidth={768} />
+          <span className="service-card__no">{service.no}</span>
+        </span>
+        <span className="service-card__icon"><Icon size={22} aria-hidden="true" /></span>
+        <span className="service-card__body">
+          <h3 className="service-card__title">{service.title}</h3>
+          <span className="service-card__text">{service.short}</span>
+          <span className="link-arrow">
+            Explore Service <ArrowRight size={16} aria-hidden="true" />
+          </span>
         </span>
       </Link>
     </Reveal>

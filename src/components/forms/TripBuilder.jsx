@@ -13,7 +13,7 @@ import { budgetRanges } from '../../data/content.js';
 const TODAY = todayISO();
 
 const DESTINATIONS = [
-  'Northern Pakistan', 'Dubai', 'Türkiye', 'Saudi Arabia (Umrah)', 'Iraq (Ziyarat)',
+  'Northern Pakistan', 'Dubai', 'Türkiye', 'Saudi Arabia (Umrah)',
   'Malaysia', 'Thailand', 'Qatar', 'Europe',
 ];
 const COMPANIONS = [

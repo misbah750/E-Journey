@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Tent, Accessibility, Hotel, UsersRound } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import HajjBand, { Ornament } from '../components/sections/HajjBand.jsx';
@@ -15,10 +16,10 @@ import { whatsappUrl } from '../data/site.js';
 import { faqJsonLd, useSeo } from '../lib/hooks.js';
 
 const pilgrimSteps = [
-  { no: '01', title: 'Choose Your Journey', text: 'Umrah, Hajj or Ziyarat — we help you select dates, hotels and room sharing.' },
+  { no: '01', title: 'Choose Your Journey', text: 'Umrah or Hajj — we help you select dates, hotels and room sharing.' },
   { no: '02', title: 'Visa & Documentation', text: 'We guide you through visa requirements and prepare your paperwork.' },
   { no: '03', title: 'Pre-Travel Guidance', text: 'Religious scholars brief you on rituals and etiquette before departure.' },
-  { no: '04', title: 'Travel in Peace', text: 'Transfers, hotels and Ziyarat handled, with guidance throughout.' },
+  { no: '04', title: 'Travel in Peace', text: 'Transfers, hotels and visits to the holy sites handled, with guidance throughout.' },
 ];
 
 const pilgrimFaqs = [
@@ -40,7 +41,7 @@ export default function HajjUmrah() {
   useSeo({
     title: 'Hajj & Umrah Packages from Pakistan',
     description:
-      'Umrah packages from Karachi with scholar guidance, hotels near the Haramain and guided Ziyarat — plus Hajj packages and Najaf & Karbala Ziyarat by e-Journey Travel & Tours.',
+      'Umrah packages from Karachi with scholar guidance, hotels near the Haramain and guided Ziyarat — plus Hajj packages, by e-Journey Travel & Tours.',
     jsonLd: faqJsonLd(pilgrimFaqs),
   });
 
@@ -51,7 +52,7 @@ export default function HajjUmrah() {
         image={images.kaabaClose}
         eyebrow="Hajj & Umrah Services"
         title={<>Pilgrimage, Guided <em>With Care</em></>}
-        lead="Umrah, Hajj and Ziyarat journeys from Pakistan — hotels near the Haramain, scholar guidance and every arrangement handled with care, so your heart stays on worship."
+        lead="Umrah and Hajj journeys from Pakistan — hotels near the Haramain, scholar guidance and every arrangement handled with care, so your heart stays on worship."
         crumbs={[{ label: 'Hajj & Umrah' }]}
       >
         <a href="#packages" className="btn btn--gold btn--lg">View Packages <ArrowRight size={18} aria-hidden="true" /></a>
@@ -65,7 +66,7 @@ export default function HajjUmrah() {
         only="spiritual"
         eyebrow="Pilgrimage Packages"
         title={<>Journeys to the <em>Holy Cities</em></>}
-        lead="Umrah in Makkah and Madinah, and Ziyarat in Najaf and Karbala — each with dedicated time for worship and reflection."
+        lead="Umrah in Makkah and Madinah — with dedicated time for worship and reflection, and every arrangement handled for you."
       />
 
       <Section tone="white">
@@ -132,7 +133,9 @@ export default function HajjUmrah() {
             eyebrow="Plan Your Pilgrimage"
             title={<>Begin Your <em>Journey of Faith</em></>}
             lead="Share your preferred dates, departure city and room sharing. Our pilgrim desk will contact you with availability and options."
-          />
+          >
+            <FormAside image={images.madinahCourtyard} />
+          </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm variant="pilgrimage" source="Hajj & Umrah page" defaults={{ travelType: 'Umrah', package: 'Umrah', departureCity: 'Karachi' }} submitLabel="Plan My Umrah" />
           </Reveal>

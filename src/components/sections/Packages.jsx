@@ -25,7 +25,7 @@ export default function Packages({
           ))}
         </Reveal>
       )}
-      <div className={`pkg-grid ${list.length === 1 ? 'pkg-grid--single' : ''}`} key={filter}>
+      <div className={`pkg-grid ${list.length === 1 ? 'pkg-grid--single' : ''} ${list.length === 3 ? 'pkg-grid--three' : ''}`} key={filter}>
         {list.map((p, i) => (
           <Reveal key={p.slug} delay={(i % 2) * 120}>
             <PackageCard pkg={p} />

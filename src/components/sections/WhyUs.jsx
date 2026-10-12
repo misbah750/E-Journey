@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
+import { images } from '../../data/images.js';
 import Section from '../ui/Section.jsx';
 import { whyUs } from '../../data/content.js';
 
@@ -25,6 +27,10 @@ export default function WhyUs({ tone = 'white' }) {
             <Link to="/about" className="link-arrow link-arrow--strong">
               Our mission &amp; values <ArrowRight size={16} aria-hidden="true" />
             </Link>
+          </Reveal>
+          <Reveal variant="mask" delay={200} className="why__photo">
+            <Img image={images.deosai} sizes="(max-width: 960px) 100vw, 36vw" maxWidth={1080} />
+            <span>Deosai Plains, Gilgit-Baltistan</span>
           </Reveal>
         </div>
         <ul className="why__grid">

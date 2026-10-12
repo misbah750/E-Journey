@@ -4,7 +4,6 @@
 
 /* ---------- Home hero ---------- */
 .hero {
-  --overlap: 132px;
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -12,7 +11,7 @@
   flex-direction: column;
   justify-content: flex-end;
   min-height: max(760px, 100svh);
-  padding-bottom: calc(var(--overlap) + clamp(36px, 5vh, 64px));
+  padding-bottom: clamp(64px, 11vh, 120px);
   color: var(--white);
   background: var(--green-950);
 }
@@ -77,15 +76,9 @@
 .hero .display { max-width: 11.5ch; font-size: clamp(3rem, 7.6vw, 7rem); }
 .hero__text { max-width: 54ch; margin-top: 26px; font-size: clamp(1.02rem, 1.35vw, 1.2rem); line-height: 1.7; color: rgba(255, 255, 255, 0.86); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
-.hero-widget { position: relative; z-index: 5; margin-top: calc(-1 * 132px); }
-@media (max-width: 1100px) {
-  .hero { --overlap: 96px; }
-  .hero-widget { margin-top: -96px; }
-}
 @media (max-width: 760px) {
-  .hero { --overlap: 56px; min-height: 0; padding-top: 0; }
+  .hero { min-height: 640px; padding-top: 0; padding-bottom: 56px; }
   .hero__content { padding-top: calc(var(--nav-h) + 72px); }
-  .hero-widget { margin-top: -56px; }
   .hero__actions .btn { flex: 1 1 200px; }
   .hero__montage { position: static; margin-top: 28px; }
   .montage-ui { align-items: flex-start; }
@@ -161,6 +154,30 @@
 @keyframes marquee-scroll { to { transform: translate3d(-50%, 0, 0); } }
 @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
 
+/* ---------- Photo mosaic ---------- */
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, clamp(170px, 15vw, 230px));
+  grid-template-areas: 'a b b c' 'a d e c' 'f f e g' 'h i i g';
+  gap: 14px;
+}
+.mosaic__tile { grid-area: var(--area); border-radius: 22px; overflow: hidden; background: var(--green-800); }
+.mosaic__tile a { position: relative; display: block; height: 100%; color: var(--white); isolation: isolate; }
+.mosaic__tile img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease, transform 1.4s var(--ease-out); }
+.mosaic__tile a::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 45%, rgba(3, 20, 14, 0.82)); transition: opacity 0.4s; }
+.mosaic__tile a:hover img { transform: scale(1.07); }
+.mosaic__label { position: absolute; left: 18px; right: 18px; bottom: 16px; display: flex; flex-direction: column; gap: 2px; transition: transform 0.45s var(--ease); }
+.mosaic__tile a:hover .mosaic__label { transform: translateY(-4px); }
+.mosaic__note { display: inline-flex; align-items: center; gap: 5px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-bright); }
+.mosaic__place { font-family: var(--font-display); font-size: clamp(1.25rem, 1.8vw, 1.7rem); line-height: 1.1; }
+@media (max-width: 1024px) {
+  .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: 220px; grid-template-areas: none; }
+  .mosaic__tile { grid-area: auto; }
+  .mosaic__tile:first-child { grid-column: span 2; }
+}
+@media (max-width: 560px) { .mosaic { grid-auto-rows: 170px; gap: 10px; } }
+
 /* ---------- Shared media compositions ---------- */
 .about-intro__media, .romance__media, .family__media, .corporate__media, .visa__media { position: relative; }
 .about-intro__main, .romance__main, .family__main, .corporate__main, .visa__main {
@@ -217,6 +234,21 @@
 .about-intro__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 34px; }
 .about-intro__note { display: inline-flex; align-items: center; gap: 8px; font-size: 0.84rem; color: var(--muted); }
 
+.about-intro__pilgrim {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: var(--emerald-900);
+  color: var(--ivory);
+  box-shadow: var(--shadow-sm);
+  background-image: radial-gradient(80% 120% at 100% 0%, rgba(199, 156, 71, 0.18), transparent 60%);
+}
+.about-intro__pilgrim-icon { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--gold); color: var(--emerald-950); }
+.about-intro__pilgrim strong { display: block; font-family: var(--font-display); font-weight: 500; font-size: 1.25rem; color: var(--gold-bright); }
+.about-intro__pilgrim small { display: block; margin-top: 4px; font-size: 0.9rem; line-height: 1.6; color: rgba(253, 247, 239, 0.82); }
 .pillars { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 .pillars li {
   display: inline-flex;
@@ -437,8 +469,6 @@
 }
 .pilgrim__media { position: relative; display: flex; align-items: flex-end; gap: 18px; min-height: 100%; }
 .arch { position: relative; overflow: hidden; border-radius: 999px 999px 24px 24px; background: var(--emerald-800); box-shadow: 0 0 0 1px rgba(228, 199, 127, 0.35), 0 0 0 10px rgba(228, 199, 127, 0.06); }
-.arch.reveal--mask { clip-path: inset(0 0 100% 0 round 999px 999px 24px 24px); }
-.arch.reveal--mask.is-visible { clip-path: inset(0 0 0 0 round 999px 999px 24px 24px); }
 .arch--tall { flex: 1.25; aspect-ratio: 3 / 4.6; }
 .arch--short { flex: 1; aspect-ratio: 3 / 4.2; margin-bottom: 8%; }
 .ornament { width: 160px; height: 16px; margin: 20px 0 4px; color: var(--gold); }
@@ -626,3 +656,76 @@
   .about-intro__media { padding-right: 18%; padding-bottom: 0; }
   .about-intro__inset { bottom: 64px; width: 46%; }
 }
+
+
+/* ==========================================================================
+   Photo-rich additions
+   ========================================================================== */
+
+/* Why us — photo under the philosophy */
+.why__photo { position: relative; margin-top: 32px; aspect-ratio: 16 / 11; border-radius: 24px; overflow: hidden; background: var(--sand); }
+.why__photo img { width: 100%; height: 100%; object-fit: cover; }
+.why__photo span {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(3, 20, 14, 0.55);
+  backdrop-filter: blur(6px);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* Trip builder — photo strip */
+.builder__photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.builder__photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow-sm); }
+@media (max-width: 560px) { .builder__photos { gap: 8px; } .builder__photos img { border-radius: 12px; } }
+
+/* Process — cinematic background */
+.process { isolation: isolate; overflow: hidden; }
+.process__bg { position: absolute; inset: 0; z-index: -1; }
+.process__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+.process__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 80% at 50% 10%, rgba(199, 156, 71, 0.16), transparent 70%),
+    linear-gradient(180deg, rgba(8, 42, 31, 0.92), rgba(8, 42, 31, 0.8) 50%, rgba(8, 42, 31, 0.95));
+}
+
+/* FAQ — photo card */
+.faq__photo { position: relative; margin-top: 30px; aspect-ratio: 4 / 3; border-radius: 24px; overflow: hidden; background: var(--sand); }
+.faq__photo img { width: 100%; height: 100%; object-fit: cover; }
+.faq__photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(3, 20, 14, 0.75)); }
+.faq__photo span { position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 1; font-family: var(--font-display); font-style: italic; font-size: 1.25rem; color: var(--white); }
+@media (max-width: 960px) { .faq__photo { max-width: 560px; } }
+
+/* Testimonials — photo collage beside the quote */
+.testimonials__layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.testimonials__layout .quote-carousel { max-width: none; margin: 0; }
+.testimonials__photos { position: relative; min-height: 460px; }
+.testimonials__photo { position: absolute; overflow: hidden; border-radius: 22px; border: 6px solid var(--white); box-shadow: var(--shadow); background: var(--sand); }
+.testimonials__photo img { width: 100%; height: 100%; object-fit: cover; }
+.testimonials__photo--a { left: 0; top: 0; width: 62%; aspect-ratio: 4 / 5; }
+.testimonials__photo--b { right: 0; top: 16%; width: 46%; aspect-ratio: 1; z-index: 1; }
+.testimonials__photo--c { left: 22%; bottom: 0; width: 44%; aspect-ratio: 5 / 4; z-index: 2; }
+@media (max-width: 960px) {
+  .testimonials__layout { grid-template-columns: 1fr; }
+  .testimonials__photos { min-height: 0; aspect-ratio: 1 / 0.8; max-width: 520px; width: 100%; margin-inline: auto; }
+}
+
+/* Contact — talk card */
+.talk-card { position: relative; margin-top: 16px; min-height: 220px; border-radius: 24px; overflow: hidden; background: var(--green-800); isolation: isolate; }
+.talk-card img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.talk-card::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(3, 20, 14, 0.88), rgba(3, 20, 14, 0.35)); }
+.talk-card__body { padding: clamp(24px, 3vw, 32px); color: var(--white); }
+.talk-card__body .eyebrow { margin-bottom: 10px; }
+.talk-card__title { max-width: 18ch; font-family: var(--font-display); font-size: clamp(1.4rem, 2vw, 1.75rem); line-height: 1.2; }
+.talk-card__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+/* Hajj — larger arch photos */
+.arch--tall { aspect-ratio: 3 / 5; }
+.arch--short { aspect-ratio: 3 / 4.6; margin-bottom: 10%; }

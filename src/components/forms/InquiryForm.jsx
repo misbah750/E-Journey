@@ -27,7 +27,7 @@ const DEFS = {
   checkIn: { label: 'Check-in', type: 'date', min: TODAY },
   checkOut: { label: 'Check-out', type: 'date', min: TODAY },
   rooms: { label: 'Rooms', type: 'number', min: 1, inputMode: 'numeric', placeholder: 'e.g. 1' },
-  package: { label: 'Journey', type: 'select', options: ['Umrah', 'Hajj', 'Iraq Ziyarat (Najaf & Karbala)'], placeholder: 'Select journey' },
+  package: { label: 'Journey', type: 'select', options: ['Umrah', 'Hajj'], placeholder: 'Select journey' },
   sharing: { label: 'Room Sharing', type: 'select', options: ['Quad', 'Triple', 'Double', 'Not sure'], placeholder: 'Select sharing' },
   configuration: { label: 'Travelling As', type: 'select', options: ['Per Person', 'Duo / Couple', 'Family', 'Group'], placeholder: 'Select' },
   requirement: { label: 'Services Needed', type: 'select', options: ['Full travel management', 'Flights', 'Hotels', 'Visa assistance', 'Travel insurance', 'Group / incentive trip', 'Emergency travel'], placeholder: 'Select' },

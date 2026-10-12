@@ -28,9 +28,6 @@ export const images = {
   kaabaClose: img('1579305796288-c534f6cf17ab', 'The Kaaba at the heart of Masjid al-Haram in Makkah'),
   madinah: img('1591604129939-f1efa4d9f7fa', 'The Green Dome and minarets of Masjid an-Nabawi, Madinah, at dusk'),
   madinahCourtyard: img('1602769490455-36cf9734dbcb', "Pilgrims walking in the courtyard of the Prophet's Mosque in Madinah"),
-  najaf: img('1726031003969-b58dc745bd15', 'The golden dome of the holy shrine of Imam Ali in Najaf'),
-  karbala: img('1600356199555-0c66edfcef53', 'A golden minaret against the sky in Iraq'),
-  karbalaNight: img('1726026074575-f8b6cd415f7c', 'A holy shrine illuminated at night in Iraq'),
   islamicPattern: img('1558114965-eeb97aa84c3b', 'Intricate geometric tile work on the interior of a dome'),
 
   // Gulf

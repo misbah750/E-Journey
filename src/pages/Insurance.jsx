@@ -1,5 +1,7 @@
 import { ArrowRight, Info, Globe2, Stamp, GraduationCap, Users, BriefcaseBusiness, Plane } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
+import Img from '../components/ui/Img.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import Process from '../components/sections/Process.jsx';
@@ -45,15 +47,21 @@ export default function Insurance() {
 
       <Section tone="ivory">
         <SectionHeading eyebrow="Who It’s For" title={<>Cover for Every Kind of <em>Traveller</em></>} align="center" />
-        <ul className="benefit-grid">
-          {who.map(({ icon: Icon, title, text }, i) => (
-            <Reveal as="li" key={title} delay={(i % 3) * 90} className="benefit-card">
-              <span className="benefit-card__icon"><Icon size={22} aria-hidden="true" /></span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </Reveal>
-          ))}
-        </ul>
+        <div className="benefit-layout">
+          <Reveal variant="mask" className="benefit-layout__photo">
+            <Img image={images.familyMountains} sizes="(max-width: 960px) 100vw, 40vw" maxWidth={1080} />
+            <span>Cover for families, students and business travellers</span>
+          </Reveal>
+          <ul className="benefit-grid benefit-grid--2">
+            {who.map(({ icon: Icon, title, text }, i) => (
+              <Reveal as="li" key={title} delay={(i % 3) * 90} className="benefit-card">
+                <span className="benefit-card__icon"><Icon size={22} aria-hidden="true" /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
         <Reveal className="notice">
           <Info size={20} aria-hidden="true" />
           <p>
@@ -71,7 +79,9 @@ export default function Insurance() {
             eyebrow="Insurance Request"
             title={<>Tell Us About <em>Your Trip</em></>}
             lead="We’ll recommend suitable cover and explain it clearly."
-          />
+          >
+            <FormAside image={images.beachPalms} />
+          </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm variant="insurance" source="Travel insurance page" defaults={{ travelType: 'Travel Insurance' }} submitLabel="Request Insurance Support" />
           </Reveal>

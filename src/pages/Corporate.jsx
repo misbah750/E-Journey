@@ -1,5 +1,7 @@
 import { ArrowRight, HandCoins, Headset, Plane, Siren, Layers, UsersRound } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
+import FormAside from '../components/ui/FormAside.jsx';
+import Img from '../components/ui/Img.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import CorporateBand from '../components/sections/CorporateBand.jsx';
@@ -48,15 +50,21 @@ export default function Corporate() {
 
       <Section tone="ivory">
         <SectionHeading eyebrow="Why Companies Choose Us" title={<>Business Travel Without the <em>Busywork</em></>} align="center" />
-        <ul className="benefit-grid">
-          {benefits.map(({ icon: Icon, title, text }, i) => (
-            <Reveal as="li" key={title} delay={(i % 3) * 90} className="benefit-card">
-              <span className="benefit-card__icon"><Icon size={22} aria-hidden="true" /></span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </Reveal>
-          ))}
-        </ul>
+        <div className="benefit-layout">
+          <Reveal variant="mask" className="benefit-layout__photo">
+            <Img image={images.handshake} sizes="(max-width: 960px) 100vw, 40vw" maxWidth={1080} />
+            <span>Cost-effective travel, one dedicated team</span>
+          </Reveal>
+          <ul className="benefit-grid benefit-grid--2">
+            {benefits.map(({ icon: Icon, title, text }, i) => (
+              <Reveal as="li" key={title} delay={(i % 3) * 90} className="benefit-card">
+                <span className="benefit-card__icon"><Icon size={22} aria-hidden="true" /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
       </Section>
 
       <Process steps={corporateSteps} eyebrow="How We Work" title={<>A Simple <em>Corporate Workflow</em></>} />
@@ -67,7 +75,9 @@ export default function Corporate() {
             eyebrow="Corporate Inquiry"
             title={<>Plan Your Company’s <em>Travel</em></>}
             lead="Tell us about your team’s travel needs — a one-off trip or ongoing travel management — and our corporate desk will be in touch."
-          />
+          >
+            <FormAside image={images.dubai} />
+          </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm variant="corporate" source="Corporate travel page" defaults={{ travelType: 'Corporate' }} submitLabel="Talk to Corporate Travel Team" />
           </Reveal>
