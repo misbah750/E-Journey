@@ -3,6 +3,10 @@ import { images } from './images.js';
 /**
  * Destination showcase. These are inspiration pages, not priced packages —
  * every "Explore" action opens a tailored inquiry.
+ *
+ * Domestic tour details: put a PDF in /public/brochures/ and set `brochure: '/brochures/<file>.pdf'`
+ * on that destination — the Pakistan Tours page then shows a "Download tour details" button.
+ * Until a file is set, the button offers the details via WhatsApp instead.
  */
 export const pakistanDestinations = [
   {
@@ -14,7 +18,6 @@ export const pakistanDestinations = [
     description:
       'Hunza is where the Karakoram Highway reveals its most celebrated views — Rakaposhi and Ultar above terraced villages, the forts of Baltit and Altit, and the turquoise waters of Attabad Lake further up the valley.',
     highlights: ['Baltit & Altit forts', 'Attabad Lake', 'Passu Cones', 'Khunjerab Pass'],
-    bestTime: 'April – October',
     idealFor: ['Families', 'Couples', 'Photography'],
   },
   {
@@ -26,7 +29,6 @@ export const pakistanDestinations = [
     description:
       'Skardu sits where the Indus widens between towering ranges — a base for the Shangrila and Upper Kachura lakes, the high Deosai Plains and the historic valleys of Shigar and Khaplu.',
     highlights: ['Shangrila & Upper Kachura', 'Deosai Plains', 'Shigar Fort', 'Katpana cold desert'],
-    bestTime: 'May – October',
     idealFor: ['Adventure', 'Couples', 'Groups'],
   },
   {
@@ -38,8 +40,18 @@ export const pakistanDestinations = [
     description:
       'A jeep ride and a mountain trail lead to Fairy Meadows, a pine-ringed plateau with one of the most dramatic mountain views on earth — the Rakhiot face of Nanga Parbat.',
     highlights: ['Nanga Parbat viewpoint', 'Beyal Camp trek', 'Stargazing', 'Log-cabin stays'],
-    bestTime: 'June – September',
     idealFor: ['Adventure', 'Friends', 'Photography'],
+  },
+  {
+    slug: 'minimarg',
+    name: 'Minimarg',
+    region: 'Astore, Gilgit-Baltistan',
+    image: images.minimarg,
+    short: 'A remote alpine valley of pine forests, meadows and clear streams.',
+    description:
+      'Tucked away in Astore District near the Line of Control, Minimarg is one of Pakistan’s most unspoilt valleys — pine forests, wildflower meadows and clear mountain streams, with the colourful Rainbow Lake at Domel close by. Visits require prior permission; our consultants advise on the latest requirements.',
+    highlights: ['Rainbow Lake, Domel', 'Pine forests & meadows', 'Burzil Pass route', 'Astore Valley'],
+    idealFor: ['Adventure', 'Nature lovers', 'Photography'],
   },
   {
     slug: 'naran-kaghan',
@@ -50,7 +62,6 @@ export const pakistanDestinations = [
     description:
       'The Kaghan Valley follows the Kunhar River up to Naran and the legendary Lake Saiful Muluk, continuing to Lulusar Lake and the Babusar Pass in summer.',
     highlights: ['Lake Saiful Muluk', 'Lulusar Lake', 'Babusar Top', 'Shogran & Siri Paye'],
-    bestTime: 'May – September',
     idealFor: ['Families', 'Groups', 'Road trips'],
   },
   {
@@ -62,7 +73,6 @@ export const pakistanDestinations = [
     description:
       'From Mingora’s Buddhist heritage to the forests of Kalam and the lakes of the Usho Valley, Swat offers green, easily reached mountain escapes for every kind of traveller.',
     highlights: ['Kalam & Usho forest', 'Mahodand Lake', 'Malam Jabba', 'Buddhist heritage sites'],
-    bestTime: 'April – October',
     idealFor: ['Families', 'Couples', 'Groups'],
   },
   {
@@ -74,7 +84,6 @@ export const pakistanDestinations = [
     description:
       'The Neelum Valley winds past Keran, Sharda and Kel, with the hilltop village of Arang Kel and alpine lakes such as Ratti Gali rewarding those who travel further.',
     highlights: ['Keran & Sharda', 'Arang Kel', 'Ratti Gali Lake', 'Neelum River'],
-    bestTime: 'May – October',
     idealFor: ['Families', 'Couples', 'Nature lovers'],
   },
   {
@@ -86,20 +95,7 @@ export const pakistanDestinations = [
     description:
       'An easy escape from Islamabad, Murree and the Galiyat offer colonial-era promenades, forest walks at Nathia Gali and Ayubia, and some of Pakistan’s most accessible snowfall.',
     highlights: ['Mall Road', 'Nathia Gali', 'Ayubia chairlift', 'Winter snowfall'],
-    bestTime: 'Year-round',
     idealFor: ['Families', 'Weekend breaks'],
-  },
-  {
-    slug: 'islamabad',
-    name: 'Islamabad',
-    region: 'Capital Territory',
-    image: images.islamabad,
-    short: 'A green capital at the foot of the Margalla Hills.',
-    description:
-      'Pakistan’s capital pairs landmark architecture like the Faisal Mosque with Margalla Hills trails and Daman-e-Koh views — and is the natural starting point for journeys north.',
-    highlights: ['Faisal Mosque', 'Daman-e-Koh', 'Margalla Hills trails', 'Pakistan Monument'],
-    bestTime: 'October – April',
-    idealFor: ['City breaks', 'Business', 'Families'],
   },
 ];
 
@@ -169,16 +165,5 @@ export const internationalDestinations = [
       'Beyond Umrah in Makkah and Madinah, Saudi Arabia now welcomes leisure travellers to AlUla’s rock-cut heritage, Riyadh and the Red Sea coast.',
     highlights: ['Umrah', 'AlUla & Hegra', 'Riyadh', 'Red Sea coast'],
     idealFor: ['Pilgrims', 'Culture', 'Families'],
-  },
-  {
-    slug: 'qatar',
-    name: 'Qatar',
-    region: 'Doha & the Inland Sea',
-    image: images.qatarMuseum,
-    short: 'Museums, souqs and dunes that meet the sea.',
-    description:
-      'Doha’s National Museum and Museum of Islamic Art, Souq Waqif and the Corniche, then the Inland Sea where the desert runs straight into the Gulf.',
-    highlights: ['National Museum of Qatar', 'Souq Waqif', 'The Corniche', 'Inland Sea'],
-    idealFor: ['Couples', 'Culture', 'Families'],
   },
 ];

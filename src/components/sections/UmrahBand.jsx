@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Tent, Hotel, Bus, UtensilsCrossed, Headset, ClipboardList, BookOpen } from 'lucide-react';
+import { ArrowRight, Landmark, Hotel, Bus, UtensilsCrossed, Headset, ClipboardList, BookOpen } from 'lucide-react';
 import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
 import Section from '../ui/Section.jsx';
@@ -8,7 +8,7 @@ import { images } from '../../data/images.js';
 
 export const pilgrimHighlights = [
   { icon: KaabaIcon, label: 'Umrah Packages' },
-  { icon: Tent, label: 'Hajj Packages' },
+  { icon: Landmark, label: 'Guided Ziyarat' },
   { icon: Hotel, label: 'Accommodation' },
   { icon: Bus, label: 'Transportation' },
   { icon: UtensilsCrossed, label: 'Meals' },
@@ -28,9 +28,18 @@ export function Ornament() {
   );
 }
 
-export default function HajjBand({ cta = true }) {
+/** Hajj is arranged by discussion only — this points visitors to the contact form with Hajj pre-selected. */
+export function HajjNote({ className = '', as: Tag = 'p' }) {
   return (
-    <Section id="hajj-umrah" tone="emerald" className="pilgrim">
+    <Tag className={`hajj-note ${className}`}>
+      Planning Hajj? <Link to="/contact?type=Hajj#inquiry">Contact us to discuss</Link>
+    </Tag>
+  );
+}
+
+export default function UmrahBand({ cta = true }) {
+  return (
+    <Section id="umrah" tone="emerald" className="pilgrim">
       <div className="split split--media-left">
         <div className="pilgrim__media">
           <Reveal variant="mask" className="arch arch--tall">
@@ -42,7 +51,7 @@ export default function HajjBand({ cta = true }) {
         </div>
         <div>
           <Reveal>
-            <p className="eyebrow">Hajj &amp; Umrah Services</p>
+            <p className="eyebrow">Umrah Services</p>
             <h2 className="h2">A Journey of <em>Faith</em></h2>
             <Ornament />
             <p className="lead">
@@ -50,8 +59,7 @@ export default function HajjBand({ cta = true }) {
               meals, organized packages, and guidance throughout their spiritual journey.
             </p>
             <p className="body-copy">
-              Religious scholars provide guidance before and during Hajj and Umrah, so you can give your full attention to
-              worship.
+              Religious scholars provide guidance before and during Umrah, so you can give your full attention to worship.
             </p>
           </Reveal>
           <ul className="icon-grid icon-grid--gold">
@@ -61,13 +69,14 @@ export default function HajjBand({ cta = true }) {
               </Reveal>
             ))}
           </ul>
-          {cta && (
-            <Reveal delay={200}>
-              <Link to="/hajj-umrah" className="btn btn--gold">
-                Explore Hajj &amp; Umrah Packages <ArrowRight size={18} aria-hidden="true" />
+          <Reveal delay={200} className="pilgrim__actions">
+            {cta && (
+              <Link to="/umrah" className="btn btn--gold">
+                Explore Umrah Packages <ArrowRight size={18} aria-hidden="true" />
               </Link>
-            </Reveal>
-          )}
+            )}
+            <HajjNote />
+          </Reveal>
         </div>
       </div>
     </Section>

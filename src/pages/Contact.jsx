@@ -8,24 +8,24 @@ import InquiryForm from '../components/forms/InquiryForm.jsx';
 import FAQ from '../components/sections/FAQ.jsx';
 import { WhatsAppIcon } from '../components/ui/BrandIcons.jsx';
 import { images } from '../data/images.js';
-import { travelTypes } from '../data/content.js';
+import { contactTravelTypes } from '../data/content.js';
 import { site, whatsappUrl, mapLinkUrl } from '../data/site.js';
 import { useSeo } from '../lib/hooks.js';
 
 export default function Contact() {
   const [params] = useSearchParams();
   const type = params.get('type');
-  const defaults = type && travelTypes.includes(type) ? { travelType: type } : {};
+  const defaults = type && contactTravelTypes.includes(type) ? { travelType: type } : {};
 
   useSeo({
     title: 'Contact Us',
     description:
-      'Contact e-Journey Travel & Tours — Office 08, Akbar Paradise, Block 10, Gulshan-e-Iqbal, Karachi. Call 021-34992200, 021-34993300, WhatsApp 0322-5100961 or email ejourneytravel@gmail.com.',
+      'Contact e-Journey Travel & Tours — Office 08, Akbar Paradise, Block 10, Gulshan-e-Iqbal, Karachi. Call 021-34992200, 021-34993300, WhatsApp 0335-5100991 or email ejourneytravel@gmail.com.',
   });
 
   const quick = [
     { href: `tel:${site.phones[0].tel}`, icon: Phone, label: 'Call the office', value: site.phones[0].label },
-    { href: whatsappUrl(), icon: WhatsAppIcon, label: 'WhatsApp', value: site.mobiles[0].label, external: true },
+    { href: whatsappUrl(), icon: WhatsAppIcon, label: 'WhatsApp', value: site.whatsappLabel, external: true },
     { href: `mailto:${site.email}`, icon: Mail, label: 'Email', value: site.email },
     { href: mapLinkUrl, icon: MapPin, label: 'Visit us', value: 'Gulshan-e-Iqbal, Karachi', external: true },
   ];
@@ -71,6 +71,7 @@ export default function Contact() {
             <InquiryForm
               variant="full"
               source="Contact page"
+              travelTypeOptions={contactTravelTypes}
               defaults={defaults}
               title="Submit a travel request"
               intro="The more you tell us, the better we can tailor your journey."

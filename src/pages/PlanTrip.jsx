@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
@@ -22,14 +23,14 @@ export default function PlanTrip() {
 
   const initial = {};
   if (pkg) {
-    initial.otherDestination = `${pkg.titleAccent} — ${pkg.name}`;
-    initial.message = `I'd like to customize the ${pkg.name} package.`;
-    if (pkg.category === 'spiritual') initial.experience = ['Religious'];
+    initial.otherDestination = pkg.title;
+    initial.message = `I'd like to customize the ${pkg.title} package.`;
   }
   if (destination) initial.otherDestination = destination;
   if (style && STYLES.includes(style)) initial.experience = [style];
   if (style === 'Family') initial.companions = 'Family';
   if (style === 'Honeymoon') initial.companions = 'Couple';
+  if (style === 'Group') initial.companions = 'Group';
 
   useSeo({
     title: 'Plan Your Trip — Custom Travel Package',
@@ -37,8 +38,9 @@ export default function PlanTrip() {
       'Build a custom travel package with e-Journey Travel & Tours: choose your destination, dates, travel companions, experience and budget, and a consultant will design your journey.',
   });
 
+  // Keyed by the query so switching between Honeymoon / Family / Group links resets the builder.
   return (
-    <>
+    <Fragment key={params.toString()}>
       <PageHero
         size="sm"
         image={images.passu}
@@ -71,11 +73,11 @@ export default function PlanTrip() {
             <InquiryForm
               variant="full"
               source="Plan your trip page"
-              defaults={pkg ? { destination: pkg.region, travelType: pkg.category === 'spiritual' ? 'Umrah' : 'Holiday' } : {}}
+              defaults={pkg ? { destination: pkg.title, travelType: 'Holiday' } : ['Honeymoon', 'Family', 'Group'].includes(style) ? { travelType: style } : {}}
             />
           </Reveal>
         </div>
       </Section>
-    </>
+    </Fragment>
   );
 }

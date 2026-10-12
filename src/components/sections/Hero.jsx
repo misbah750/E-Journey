@@ -26,16 +26,16 @@ export default function Hero() {
             Travel Beyond <em>Destinations.</em>
           </h1>
           <p className="hero__text hero-anim" style={{ '--i': 2 }}>
-            Discover personalized travel experiences, seamless bookings, unforgettable holidays, and trusted travel
-            assistance with e-Journey Travel &amp; Tours.
+            Air tickets, tour packages, visas, Umrah and travel insurance — planned by a Karachi team that takes care
+            of every detail.
           </p>
           <div className="hero__actions hero-anim" style={{ '--i': 3 }}>
             <Link to="/plan-your-trip" className="btn btn--gold btn--lg">
               Plan My Journey <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link to="/services" className="btn btn--ghost-light btn--lg">
-              Explore Services
-            </Link>
+            <a href="#packages" className="btn btn--ghost-light btn--lg">
+              View Tour Packages
+            </a>
           </div>
           <div className="hero__montage hero-anim" style={{ '--i': 4 }}>
             <MontageControls montage={montage} />

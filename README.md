@@ -18,23 +18,31 @@ npm run preview    # serve the production build locally
 
 | Route | Page |
 | --- | --- |
-| `/` | Home (hero + inquiry widget, services, destinations, signature packages, Pakistan gallery, trip builder, honeymoon, family, corporate, Hajj & Umrah, visa, hotels, why us, process, testimonials, FAQ, contact) |
+| `/` | Home — kept short: hero, the five core services, featured tour packages, Umrah types, popular visa prices, Pakistan gallery, call to action |
 | `/about` | Company profile, mission, vision, philosophy, values, divisions |
 | `/services` | All 12 services with detail |
-| `/destinations` | Signature packages + Pakistan and international destinations |
-| `/pakistan-tours` · `/international-tours` | Destination guides with inquiry forms |
-| `/hajj-umrah` | Pilgrimage services, packages, FAQ, pilgrim inquiry |
-| `/corporate-travel` · `/visa-assistance` · `/hotels` · `/travel-insurance` | Service pages with dedicated forms |
+| `/destinations` | All tour packages + Pakistan and international destinations |
+| `/ticketing` | Domestic (`#domestic`) and international (`#international`) air tickets with a fare request form |
+| `/international-tours` | Tour packages (country filter) + tailor-made destinations |
+| `/pakistan-tours` | Domestic destinations with tour-details downloads |
+| `/umrah` | Group / Individual / Five Star Umrah (`#group`, `#individual`, `#five-star`), FAQ, Umrah inquiry. `/hajj-umrah` redirects here |
+| `/visa-assistance` | Visa prices by country (filter + search), case preparation, done base, visa form. `/visa` redirects here |
+| `/corporate-travel` · `/hotels` · `/travel-insurance` | Service pages with dedicated forms |
 | `/contact` | Contact details, map, universal travel inquiry form |
 | `/plan-your-trip` | Five-step custom trip builder (accepts `?package=`, `?style=`, `?destination=`) |
-| `/packages/:slug` | Package detail with itinerary, pricing card and booking request |
+| `/packages/:slug` | Package detail: hotels, inclusions, price options, validity, flyer download, booking request |
 
 ## Editing content
 
 Everything the agency is likely to change lives in `src/data/`:
 
 - `site.js` — address, phone numbers, email, **WhatsApp number**, social links
-- `packages.js` — signature packages (prices, nights, inclusions, itinerary)
+- `packages.js` — international tour packages from the flyers (prices, hotels, inclusions, `validTill`, flyer file in `public/flyers/`).
+  Packages run on roughly two-month validity: once `validTill` passes, the price is hidden automatically and
+  visitors are asked for the current price, so update the price and date (and the flyer) when a new offer comes out.
+- `visas.js` — visa prices by country (e-Visa / sticker, `sc: true` for “+ SC”), case preparation and done base lists
+- `umrah.js` — Umrah types. Rates change every 15 days to a month: set `price` and `validTill` on a type to publish
+  a rate; it hides itself after that date and visitors are asked for the current rate
 - `destinations.js` — Pakistan and international destination guides
 - `services.js` — the 12 services
 - `content.js` — navigation, FAQs, process steps, values, **testimonials**
@@ -93,9 +101,8 @@ This is a single-page app, so all routes must serve `index.html`:
 
 - [ ] Replace placeholder testimonials in `content.js` with verified customer feedback (set `verified: true`)
 - [ ] Add official Facebook / Instagram / LinkedIn URLs in `site.js`
-- [ ] Add verified star ratings to packages if available (`rating: { score, count }` in `packages.js`)
 - [ ] Set `VITE_INQUIRY_ENDPOINT` and `VITE_SITE_URL`
-- [ ] Confirm package prices and inclusions are current
+- [ ] Confirm package prices, `validTill` dates and visa prices are current
 - [ ] Optionally replace stock photography with the agency's own images
 
 ## Credits

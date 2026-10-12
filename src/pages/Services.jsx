@@ -16,7 +16,7 @@ export default function Services() {
   useSeo({
     title: 'Travel Services',
     description:
-      'International and domestic flight tickets, holidays, corporate travel, hotels, visa assistance, travel insurance, Hajj & Umrah, sightseeing, group travel and reservations — all from e-Journey Travel & Tours, Karachi.',
+      'International and domestic flight tickets, holidays, corporate travel, hotels, visa assistance, travel insurance, Umrah, sightseeing, group travel and reservations — all from e-Journey Travel & Tours, Karachi.',
     jsonLd: faqJsonLd(faqs),
   });
 

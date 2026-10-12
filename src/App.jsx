@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar.jsx';
 import Footer from './components/layout/Footer.jsx';
 import FloatingActions from './components/layout/FloatingActions.jsx';
@@ -12,9 +12,10 @@ const Services = lazy(() => import('./pages/Services.jsx'));
 const Destinations = lazy(() => import('./pages/Destinations.jsx'));
 const PakistanTours = lazy(() => import('./pages/PakistanTours.jsx'));
 const InternationalTours = lazy(() => import('./pages/InternationalTours.jsx'));
-const HajjUmrah = lazy(() => import('./pages/HajjUmrah.jsx'));
+const Umrah = lazy(() => import('./pages/Umrah.jsx'));
 const Corporate = lazy(() => import('./pages/Corporate.jsx'));
 const Visa = lazy(() => import('./pages/Visa.jsx'));
+const Ticketing = lazy(() => import('./pages/Ticketing.jsx'));
 const Hotels = lazy(() => import('./pages/Hotels.jsx'));
 const Insurance = lazy(() => import('./pages/Insurance.jsx'));
 const Contact = lazy(() => import('./pages/Contact.jsx'));
@@ -37,9 +38,12 @@ export default function App() {
             <Route path="/destinations" element={<Destinations />} />
             <Route path="/pakistan-tours" element={<PakistanTours />} />
             <Route path="/international-tours" element={<InternationalTours />} />
-            <Route path="/hajj-umrah" element={<HajjUmrah />} />
+            <Route path="/umrah" element={<Umrah />} />
+            <Route path="/hajj-umrah" element={<Navigate to="/umrah" replace />} />
             <Route path="/corporate-travel" element={<Corporate />} />
             <Route path="/visa-assistance" element={<Visa />} />
+            <Route path="/visa" element={<Navigate to="/visa-assistance" replace />} />
+            <Route path="/ticketing" element={<Ticketing />} />
             <Route path="/hotels" element={<Hotels />} />
             <Route path="/travel-insurance" element={<Insurance />} />
             <Route path="/contact" element={<Contact />} />

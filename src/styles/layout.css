@@ -192,7 +192,7 @@
   font-size: clamp(1.7rem, 6.5vw, 2.4rem);
   line-height: 1.15;
 }
-.drawer__links > li > a.active { color: var(--gold-bright); font-style: italic; }
+.drawer__links > li > a.active { color: var(--gold-bright); font-style: normal; }
 .drawer__sub { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 0 0 16px; }
 .drawer__sub a { font-size: 0.92rem; color: rgba(255, 255, 255, 0.7); }
 .drawer__sub a:hover { color: var(--gold-bright); }
@@ -267,7 +267,7 @@
 .footer__tagline {
   margin-top: 22px;
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.6rem;
   color: var(--gold-bright);
 }
@@ -311,7 +311,7 @@ a.social:hover { background: var(--gold); border-color: var(--gold); color: var(
   font-size: 0.84rem;
   background: var(--green-950);
 }
-.footer__promise { font-family: var(--font-display); font-style: italic; color: var(--gold-bright); }
+.footer__promise { font-family: var(--font-display); font-style: normal; color: var(--gold-bright); }
 .footer__plan { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--white); }
 .footer__plan:hover { color: var(--gold-bright); }
 

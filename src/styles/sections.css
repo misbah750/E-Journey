@@ -41,7 +41,7 @@
   animation: montage-caption 0.9s var(--ease-out) both;
 }
 .montage-ui__place svg { color: var(--gold-bright); }
-.montage-ui__place strong { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 1.15rem; letter-spacing: 0; color: var(--white); margin-right: 6px; }
+.montage-ui__place strong { font-family: var(--font-display); font-style: normal; font-weight: 500; font-size: 1.15rem; letter-spacing: 0; color: var(--white); margin-right: 6px; }
 @keyframes montage-caption { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .montage-ui__row { display: flex; align-items: center; gap: 14px; }
 .montage-ui__bars { display: flex; gap: 6px; }
@@ -73,7 +73,7 @@
     linear-gradient(90deg, rgba(3, 20, 14, 0.62) 0%, rgba(3, 20, 14, 0.18) 55%, rgba(3, 20, 14, 0) 80%);
 }
 .hero__content { position: relative; padding-top: calc(var(--nav-h) + 48px); }
-.hero .display { max-width: 11.5ch; font-size: clamp(3rem, 7.6vw, 7rem); }
+.hero .display { max-width: 14ch; font-size: clamp(3rem, 7.6vw, 7rem); }
 .hero__text { max-width: 54ch; margin-top: 26px; font-size: clamp(1.02rem, 1.35vw, 1.2rem); line-height: 1.7; color: rgba(255, 255, 255, 0.86); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
 @media (max-width: 760px) {
@@ -148,7 +148,7 @@
 .marquee:hover .marquee__track { animation-play-state: paused; }
 .marquee ul { display: flex; align-items: center; gap: clamp(26px, 3vw, 44px); padding-right: clamp(26px, 3vw, 44px); }
 .marquee li { display: flex; align-items: center; gap: clamp(26px, 3vw, 44px); white-space: nowrap; }
-.marquee span { font-family: var(--font-display); font-style: italic; font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1; color: var(--ivory); }
+.marquee span { font-family: var(--font-display); font-style: normal; font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1; color: var(--ivory); }
 .marquee li:nth-child(3n + 2) span { color: transparent; -webkit-text-stroke: 1px rgba(223, 187, 106, 0.8); font-style: normal; }
 .marquee__star { flex: none; color: var(--gold); }
 @keyframes marquee-scroll { to { transform: translate3d(-50%, 0, 0); } }
@@ -375,7 +375,7 @@
   box-shadow: var(--shadow);
 }
 .family__card img { aspect-ratio: 16 / 10; height: auto; border-radius: 14px; }
-.family__card span { display: block; padding: 12px 6px 0; font-family: var(--font-display); font-style: italic; font-size: 1.02rem; line-height: 1.4; color: var(--green-900); }
+.family__card span { display: block; padding: 12px 6px 0; font-family: var(--font-display); font-style: normal; font-size: 1.02rem; line-height: 1.4; color: var(--green-900); }
 .feature-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 28px; margin: 32px 0 36px; }
 .feature-list li { display: flex; gap: 14px; align-items: flex-start; }
 .feature-list__icon {
@@ -532,7 +532,7 @@
 .why__layout { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
 .why__intro { position: sticky; top: 120px; }
 .why__quote { margin-top: 32px; padding-left: 24px; border-left: 2px solid var(--gold); }
-.why__quote p { font-family: var(--font-display); font-style: italic; font-size: clamp(1.35rem, 2.2vw, 1.8rem); line-height: 1.35; color: var(--green-900); }
+.why__quote p { font-family: var(--font-display); font-style: normal; font-size: clamp(1.35rem, 2.2vw, 1.8rem); line-height: 1.35; color: var(--green-900); }
 .why__quote footer { margin-top: 10px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gold-deep); }
 .why__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .why__grid > li:nth-child(even) { transform: translateY(40px); }
@@ -700,7 +700,7 @@
 .faq__photo { position: relative; margin-top: 30px; aspect-ratio: 4 / 3; border-radius: 24px; overflow: hidden; background: var(--sand); }
 .faq__photo img { width: 100%; height: 100%; object-fit: cover; }
 .faq__photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(3, 20, 14, 0.75)); }
-.faq__photo span { position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 1; font-family: var(--font-display); font-style: italic; font-size: 1.25rem; color: var(--white); }
+.faq__photo span { position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 1; font-family: var(--font-display); font-style: normal; font-size: 1.25rem; color: var(--white); }
 @media (max-width: 960px) { .faq__photo { max-width: 560px; } }
 
 /* Testimonials — photo collage beside the quote */
@@ -726,6 +726,13 @@
 .talk-card__title { max-width: 18ch; font-family: var(--font-display); font-size: clamp(1.4rem, 2vw, 1.75rem); line-height: 1.2; }
 .talk-card__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 
-/* Hajj — larger arch photos */
+/* Umrah — larger arch photos */
 .arch--tall { aspect-ratio: 3 / 5; }
 .arch--short { aspect-ratio: 3 / 4.6; margin-bottom: 10%; }
+
+/* "Planning Hajj? Contact us" note */
+.pilgrim__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+.hajj-note { font-size: 0.92rem; color: rgba(253, 247, 239, 0.75); }
+.hajj-note a { margin-left: 4px; font-weight: 700; color: var(--gold-bright); text-decoration: underline; text-underline-offset: 4px; }
+.hajj-note a:hover { color: var(--white); }
+.hajj-note--light { display: block; margin-top: 10px; font-size: 0.86rem; }

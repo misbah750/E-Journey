@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CalendarDays, Users } from 'lucide-react';
+import { ArrowRight, Download, FileText, Users } from 'lucide-react';
 import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
+import { whatsappUrl } from '../../data/site.js';
 
 /** Alternating editorial rows — one per destination, each anchored by its slug. */
-export default function DestinationRows({ items, headingLevel = 2 }) {
+export default function DestinationRows({ items, headingLevel = 2, tourDetails = false }) {
   const H = `h${headingLevel}`;
   return (
     <ul className="dest-rows">
@@ -24,20 +25,30 @@ export default function DestinationRows({ items, headingLevel = 2 }) {
               ))}
             </ul>
             <dl className="dest-row__meta">
-              {d.bestTime && (
-                <div>
-                  <dt><CalendarDays size={16} aria-hidden="true" /> Best time</dt>
-                  <dd>{d.bestTime}</dd>
-                </div>
-              )}
               <div>
                 <dt><Users size={16} aria-hidden="true" /> Ideal for</dt>
                 <dd>{d.idealFor.join(' · ')}</dd>
               </div>
             </dl>
-            <Link to={`/plan-your-trip?destination=${encodeURIComponent(d.name)}`} className="btn btn--forest">
-              Plan a trip to {d.name} <ArrowRight size={18} aria-hidden="true" />
-            </Link>
+            <div className="dest-row__actions">
+              <Link to={`/plan-your-trip?destination=${encodeURIComponent(d.name)}`} className="btn btn--forest">
+                Plan a trip to {d.name} <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+              {tourDetails && (d.brochure ? (
+                <a href={d.brochure} download className="btn btn--outline">
+                  <Download size={18} aria-hidden="true" /> Download tour details
+                </a>
+              ) : (
+                <a
+                  href={whatsappUrl(`Hello e-Journey, please send me the tour details for ${d.name}.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--outline"
+                >
+                  <FileText size={18} aria-hidden="true" /> Get tour details
+                </a>
+              ))}
+            </div>
           </Reveal>
         </li>
       ))}

@@ -4,6 +4,7 @@ import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
 import Section from '../ui/Section.jsx';
 import { KaabaIcon } from '../ui/BrandIcons.jsx';
+import { HajjNote } from './UmrahBand.jsx';
 import { images } from '../../data/images.js';
 import { aboutPillars } from '../../data/content.js';
 
@@ -21,7 +22,7 @@ export default function AboutIntro() {
           <Reveal variant="up" delay={400} className="about-intro__badge">
             <span className="about-intro__badge-icon"><KaabaIcon size={20} /></span>
             <span>
-              <strong>Umrah &amp; Hajj specialists</strong>
+              <strong>Umrah specialists</strong>
               <small>Religious scholars guide you before and during your pilgrimage</small>
             </span>
           </Reveal>
@@ -34,18 +35,19 @@ export default function AboutIntro() {
           </Reveal>
           <Reveal delay={120}>
             <p className="lead">
-              e-Journey Travel &amp; Tours provides comprehensive travel services — from Umrah and Hajj to holidays across
+              e-Journey Travel &amp; Tours provides comprehensive travel services — from Umrah to holidays across
               Pakistan and around the world — for individuals, families, groups, companies and Pakistanis living abroad.
             </p>
           </Reveal>
           <Reveal delay={170} className="about-intro__pilgrim">
             <span className="about-intro__pilgrim-icon"><KaabaIcon size={22} /></span>
             <span>
-              <strong>Umrah &amp; Hajj</strong>
+              <strong>Umrah</strong>
               <small>
-                Pilgrimage packages with hotels near the Haramain, transport and meals, and religious scholars guiding you
+                Umrah packages with hotels near the Haramain, transport and meals, and religious scholars guiding you
                 before and during your journey to Makkah and Madinah.
               </small>
+              <HajjNote as="span" className="hajj-note--light" />
             </span>
           </Reveal>
           <Reveal delay={220}>
@@ -60,8 +62,8 @@ export default function AboutIntro() {
             </ul>
           </Reveal>
           <Reveal delay={280} className="about-intro__actions">
-            <Link to="/hajj-umrah" className="btn btn--gold">
-              Explore Umrah &amp; Hajj <ArrowRight size={18} aria-hidden="true" />
+            <Link to="/umrah" className="btn btn--gold">
+              Explore Umrah <ArrowRight size={18} aria-hidden="true" />
             </Link>
             <Link to="/about" className="btn btn--outline">
               Discover Our Story

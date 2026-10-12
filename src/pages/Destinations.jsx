@@ -11,7 +11,7 @@ import { pakistanDestinations, internationalDestinations } from '../data/destina
 import { useSeo } from '../lib/hooks.js';
 
 const facts = [
-  { icon: Globe2, title: 'Pakistan & Worldwide', text: 'Northern Areas, the Gulf, Asia and Europe' },
+  { icon: Globe2, title: 'Pakistan & Worldwide', text: 'Northern Areas, Asia, Central Asia & the Red Sea' },
   { icon: Route, title: 'Custom or Group', text: 'Independent tours and packaged departures' },
   { icon: Wallet, title: 'Transparent PKR Rates', text: 'Clear pricing, confirmed by a consultant' },
 ];
@@ -20,7 +20,7 @@ export default function Destinations() {
   useSeo({
     title: 'Destinations & Tour Packages',
     description:
-      'Explore e-Journey destinations — Umrah packages, Dubai and Qatar escapes, Hunza, Skardu and Northern Pakistan tours, Türkiye, Malaysia, Thailand and Europe.',
+      'Explore e-Journey destinations — international tour packages to Thailand, Malaysia, Bali, Sri Lanka, Uzbekistan, Azerbaijan and Egypt, and Hunza, Skardu and Northern Pakistan tours.',
   });
 
   return (
@@ -29,7 +29,7 @@ export default function Destinations() {
         image={images.dubaiSunset}
         eyebrow="Destinations Catalog"
         title={<>Explore Our <em>Journeys.</em></>}
-        lead="From tranquil spiritual pathways in Makkah and Madinah to dynamic city retreats in Dubai and Qatar and the mountain valleys of Pakistan — every destination is planned with care and peace of mind."
+        lead="Ready-to-book tour packages abroad and the mountain valleys of Pakistan — every destination planned with care and peace of mind."
         crumbs={[{ label: 'Destinations' }]}
       />
 

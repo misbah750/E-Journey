@@ -29,6 +29,8 @@ const LABELS = {
   country: 'Destination country',
   applicants: 'Applicants',
   sharing: 'Room sharing',
+  umrahType: 'Umrah type',
+  tripType: 'Trip type',
   company: 'Company',
   requirement: 'Requirement',
   configuration: 'Configuration',

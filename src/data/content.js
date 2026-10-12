@@ -6,29 +6,38 @@ import { KaabaIcon } from '../components/ui/BrandIcons.jsx';
 
 export const navLinks = [
   { to: '/', label: 'Home', end: true },
-  { to: '/about', label: 'About' },
   {
-    to: '/services',
-    label: 'Services',
+    to: '/ticketing',
+    label: 'Ticketing',
     children: [
-      { to: '/services', label: 'All Services', desc: 'Our complete travel portfolio' },
-      { to: '/hotels', label: 'Hotels & Accommodation', desc: 'Budget stays to deluxe hotels' },
-      { to: '/travel-insurance', label: 'Travel Insurance', desc: 'Cover for every kind of trip' },
-      { to: '/plan-your-trip', label: 'Custom Trip Builder', desc: 'Design a journey around you' },
+      { to: '/ticketing#domestic', label: 'Domestic Tickets', desc: 'Flights within Pakistan' },
+      { to: '/ticketing#international', label: 'International Tickets', desc: 'One-way, return & multi-city' },
     ],
   },
   {
     to: '/destinations',
-    label: 'Destinations',
+    label: 'Tourism',
     children: [
-      { to: '/destinations', label: 'All Destinations', desc: 'Signature packages & inspiration' },
-      { to: '/pakistan-tours', label: 'Pakistan Tours', desc: 'Northern Areas & beyond' },
-      { to: '/international-tours', label: 'International Tours', desc: 'The Gulf, Asia & Europe' },
+      { to: '/international-tours', label: 'International Tours', desc: 'Ready-made packages abroad' },
+      { to: '/pakistan-tours', label: 'Domestic Tours', desc: 'Hunza, Skardu & the north' },
+      { to: '/plan-your-trip?style=Honeymoon', label: 'Honeymoon', desc: 'Trips planned for two' },
+      { to: '/plan-your-trip?style=Family', label: 'Family', desc: 'Holidays for all ages' },
+      { to: '/plan-your-trip?style=Group', label: 'Group', desc: 'Friends, schools & associations' },
+      { to: '/corporate-travel', label: 'Corporate', desc: 'Business travel & incentives' },
     ],
   },
-  { to: '/hajj-umrah', label: 'Hajj & Umrah' },
-  { to: '/corporate-travel', label: 'Corporate' },
-  { to: '/visa-assistance', label: 'Visa Assistance' },
+  { to: '/visa-assistance', label: 'Visa' },
+  {
+    to: '/umrah',
+    label: 'Umrah',
+    children: [
+      { to: '/umrah#group', label: 'Group Umrah', desc: 'Scholar-guided group movement' },
+      { to: '/umrah#individual', label: 'Individual Umrah', desc: 'Your own dates and hotels' },
+      { to: '/umrah#five-star', label: 'Five Star Umrah', desc: 'Five-star hotels near the Haram' },
+    ],
+  },
+  { to: '/travel-insurance', label: 'Travel Insurance' },
+  { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ];
 
@@ -37,12 +46,12 @@ export const trustItems = [
   { icon: Globe2, title: 'Domestic & International Travel', text: 'Pakistan and worldwide' },
   { icon: Route, title: 'Customized Travel Solutions', text: 'Independent tours or group departures' },
   { icon: BriefcaseBusiness, title: 'Corporate Travel Support', text: 'Cost-effective business travel' },
-  { icon: KaabaIcon, title: 'Hajj & Umrah Specialists', text: 'Scholar-guided pilgrimages' },
+  { icon: KaabaIcon, title: 'Umrah Specialists', text: 'Scholar-guided pilgrimages' },
   { icon: Stamp, title: 'Visa Assistance', text: 'Guidance at every step' },
 ];
 
 export const aboutPillars = [
-  'Hajj & Umrah Services',
+  'Umrah Services',
   'Experienced Travel Team',
   'Domestic & International',
   'Customized Journeys',
@@ -101,7 +110,7 @@ export const testimonials = [
 export const faqs = [
   { q: 'Can I customize my tour?', a: 'Yes. We offer both customized independent tours designed entirely around you and packaged group departures. Share your plans and a consultant will shape the itinerary with you.' },
   { q: 'Do you provide domestic travel services?', a: 'Yes. We provide domestic travel services — including tours of Pakistan’s Northern Areas, domestic ticketing and hotels — as well as international travel.' },
-  { q: 'Do you provide Hajj and Umrah services?', a: 'Yes. e-Journey provides pilgrimage packages and related travel, accommodation and support services, with religious scholars providing guidance before and during Hajj and Umrah.' },
+  { q: 'Do you provide Umrah services?', a: 'Yes. e-Journey provides Umrah packages with travel, accommodation and support, with religious scholars guiding you before and during your pilgrimage. For Hajj, please contact us to discuss your plans.' },
   { q: 'Do you provide visa assistance?', a: 'Yes. Our visa assistance includes guidance through the application process and the relevant requirements, and we keep you informed at each stage. Final decisions always rest with the embassy or consulate concerned.' },
   { q: 'Do you provide corporate travel services?', a: 'Yes. Our corporate travel services include travel management, ticketing, hotels, visa services, insurance and emergency travel support.' },
   { q: 'Can you arrange hotels?', a: 'Yes. We arrange accommodation across categories — from budget stays and self-catering units to premium and deluxe hotels and resorts.' },
@@ -115,9 +124,12 @@ export const coreValues = [
 ];
 
 export const travelTypes = [
-  'Holiday', 'Honeymoon', 'Family', 'Corporate', 'Group', 'Hajj', 'Umrah',
+  'Holiday', 'Honeymoon', 'Family', 'Corporate', 'Group', 'Umrah',
   'Visa', 'Flights', 'Hotel', 'Travel Insurance', 'Other',
 ];
+
+/** Contact forms also accept Hajj enquiries — Hajj is arranged by discussion, not booked online. */
+export const contactTravelTypes = travelTypes.flatMap((t) => (t === 'Umrah' ? ['Umrah', 'Hajj'] : [t]));
 
 export const budgetRanges = [
   'Under PKR 150,000',

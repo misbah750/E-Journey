@@ -27,7 +27,11 @@ const DEFS = {
   checkIn: { label: 'Check-in', type: 'date', min: TODAY },
   checkOut: { label: 'Check-out', type: 'date', min: TODAY },
   rooms: { label: 'Rooms', type: 'number', min: 1, inputMode: 'numeric', placeholder: 'e.g. 1' },
-  package: { label: 'Journey', type: 'select', options: ['Umrah', 'Hajj'], placeholder: 'Select journey' },
+  umrahType: { label: 'Umrah Type', type: 'select', options: ['Group Umrah', 'Individual Umrah', 'Five Star Umrah', 'Not sure yet'], placeholder: 'Select Umrah type' },
+  tripType: { label: 'Trip Type', type: 'select', options: ['Return', 'One-way', 'Multi-city'], placeholder: 'Select trip type' },
+  from: { label: 'From', required: true, placeholder: 'e.g. Karachi' },
+  to: { label: 'To', required: true, placeholder: 'e.g. Dubai' },
+  travelClass: { label: 'Class', type: 'select', options: ['Economy', 'Premium Economy', 'Business', 'First'], placeholder: 'Select class' },
   sharing: { label: 'Room Sharing', type: 'select', options: ['Quad', 'Triple', 'Double', 'Not sure'], placeholder: 'Select sharing' },
   configuration: { label: 'Travelling As', type: 'select', options: ['Per Person', 'Duo / Couple', 'Family', 'Group'], placeholder: 'Select' },
   requirement: { label: 'Services Needed', type: 'select', options: ['Full travel management', 'Flights', 'Hotels', 'Visa assistance', 'Travel insurance', 'Group / incentive trip', 'Emergency travel'], placeholder: 'Select' },
@@ -40,7 +44,8 @@ const VARIANTS = {
   visa: ['name', 'phone', 'email', 'country', 'visaType', 'travelDate', 'applicants', 'message'],
   corporate: ['name', 'company', 'phone', 'email', 'requirement', 'destination', 'travelDate', 'travelers', 'message'],
   hotel: ['name', 'phone', 'email', 'destination', 'checkIn', 'checkOut', 'travelers', 'rooms', 'accommodation', 'message'],
-  pilgrimage: ['name', 'phone', 'email', 'package', 'departureCity', 'travelDate', 'travelers', 'sharing', 'message'],
+  pilgrimage: ['name', 'phone', 'email', 'umrahType', 'departureCity', 'travelDate', 'travelers', 'sharing', 'message'],
+  flights: ['name', 'phone', 'email', 'tripType', 'from', 'to', 'travelDate', 'returnDate', 'travelers', 'travelClass', 'message'],
   insurance: ['name', 'phone', 'email', 'destination', 'travelDate', 'returnDate', 'travelers', 'message'],
   booking: ['name', 'phone', 'email', 'configuration', 'departureCity', 'travelDate', 'travelers', 'message'],
 };
@@ -48,6 +53,7 @@ const VARIANTS = {
 /** Universal travel inquiry form. `defaults` pre-fills fields (e.g. travelType, destination, package). */
 export default function InquiryForm({
   variant = 'full', defaults = {}, source = 'Website inquiry', submitLabel = 'Submit Travel Request', title, intro,
+  travelTypeOptions,
 }) {
   const names = VARIANTS[variant] || VARIANTS.full;
   const initial = useMemo(
@@ -97,7 +103,15 @@ export default function InquiryForm({
       )}
       <div className="form-grid">
         {names.map((n) => (
-          <Field key={n} name={n} {...DEFS[n]} value={values[n]} onChange={onChange} error={errors[n]} />
+          <Field
+            key={n}
+            name={n}
+            {...DEFS[n]}
+            {...(n === 'travelType' && travelTypeOptions ? { options: travelTypeOptions } : {})}
+            value={values[n]}
+            onChange={onChange}
+            error={errors[n]}
+          />
         ))}
         <Honeypot value={values._gotcha} onChange={onChange} />
       </div>

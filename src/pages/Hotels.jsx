@@ -13,7 +13,7 @@ import { useSeo } from '../lib/hooks.js';
 const regions = [
   { title: 'Pakistan', text: 'City hotels in Karachi, Lahore and Islamabad, and mountain stays across Hunza, Skardu, Swat and Naran.' },
   { title: 'Makkah & Madinah', text: 'Hotels selected for comfortable access to the Haramain for pilgrims.' },
-  { title: 'Dubai & the Gulf', text: 'City hotels, serviced apartments and desert resorts in the UAE and Qatar.' },
+  { title: 'Dubai & the UAE', text: 'City hotels, serviced apartments and desert resorts across the UAE.' },
   { title: 'Worldwide', text: 'Türkiye, Malaysia, Thailand, Europe and beyond — from budget to deluxe.' },
 ];
 

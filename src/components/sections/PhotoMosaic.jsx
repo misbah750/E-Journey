@@ -6,15 +6,15 @@ import Section, { SectionHeading } from '../ui/Section.jsx';
 import { images } from '../../data/images.js';
 
 const TILES = [
-  { image: images.kaabaClose, place: 'Makkah', note: 'Umrah & Hajj', to: '/hajj-umrah', area: 'a' },
+  { image: images.kaabaClose, place: 'Makkah', note: 'Umrah', to: '/umrah', area: 'a' },
   { image: images.maldives, place: 'The Maldives', note: 'Honeymoons', to: '/international-tours', area: 'b' },
   { image: images.shangrila, place: 'Skardu', note: 'Northern Areas', to: '/pakistan-tours#skardu', area: 'd' },
   { image: images.dubaiSunset, place: 'Dubai', note: 'City & desert', to: '/international-tours#dubai', area: 'h' },
   { image: images.istanbul, place: 'Istanbul', note: 'Türkiye', to: '/international-tours#turkey', area: 'c' },
   { image: images.passu, place: 'Passu', note: 'Upper Hunza', to: '/pakistan-tours#hunza', area: 'e' },
-  { image: images.dohaKatara, place: 'Doha', note: 'Qatar', to: '/international-tours#qatar', area: 'g' },
+  { image: images.kualaLumpur, place: 'Kuala Lumpur', note: 'Malaysia', to: '/international-tours#malaysia', area: 'g' },
   { image: images.thailand, place: 'Phi Phi', note: 'Thailand', to: '/international-tours#thailand', area: 'f' },
-  { image: images.madinahCourtyard, place: 'Madinah', note: 'Umrah', to: '/hajj-umrah', area: 'i' },
+  { image: images.madinahCourtyard, place: 'Madinah', note: 'Ziyarat', to: '/umrah', area: 'i' },
 ];
 
 /** Image-led bento gallery of destinations. */

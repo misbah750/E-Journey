@@ -13,8 +13,8 @@ import { budgetRanges } from '../../data/content.js';
 const TODAY = todayISO();
 
 const DESTINATIONS = [
-  'Northern Pakistan', 'Dubai', 'Türkiye', 'Saudi Arabia (Umrah)',
-  'Malaysia', 'Thailand', 'Qatar', 'Europe',
+  'Northern Pakistan', 'Saudi Arabia (Umrah)', 'Thailand', 'Malaysia', 'Bali, Indonesia',
+  'Uzbekistan', 'Azerbaijan', 'Sri Lanka', 'Egypt', 'Dubai', 'Türkiye',
 ];
 const COMPANIONS = [
   { id: 'Solo', icon: User }, { id: 'Couple', icon: Heart }, { id: 'Family', icon: Baby },

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users, Heart, GraduationCap, Mountain, BriefcaseBusiness, Home } from 'lucide-react';
+import { ArrowRight, CalendarClock, Users, Heart, GraduationCap, Mountain, BriefcaseBusiness, Home } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
 import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
@@ -25,7 +25,7 @@ export default function PakistanTours() {
   useSeo({
     title: 'Pakistan Tours — Hunza, Skardu & Northern Areas',
     description:
-      'Northern Pakistan tours from Karachi: Hunza, Skardu, Fairy Meadows, Naran & Kaghan, Swat, Neelum Valley, Murree and Islamabad — customized or group departures by e-Journey Travel & Tours.',
+      'Northern Pakistan tours from Karachi: Hunza, Skardu, Fairy Meadows, Naran & Kaghan, Minimarg, Swat, Neelum Valley and Murree — customized or group departures by e-Journey Travel & Tours.',
   });
 
   return (
@@ -51,6 +51,7 @@ export default function PakistanTours() {
               We arrange domestic flights, road journeys, hotels and guided sightseeing across Pakistan — with particular
               expertise in the Northern Areas. Choose a customized independent tour or join a packaged group departure.
             </p>
+            <p className="rate-note"><CalendarClock size={16} aria-hidden="true" /> Domestic tour packages are refreshed every two months — ask us for the current departures and rates.</p>
             <ul className="style-chips" aria-label="Tour styles">
               {styles.map(({ icon: Icon, label }) => (
                 <li key={label}><Icon size={17} aria-hidden="true" /> {label}</li>
@@ -61,7 +62,7 @@ export default function PakistanTours() {
       </Section>
 
       <Section tone="white" className="dest-rows-section">
-        <DestinationRows items={pakistanDestinations} />
+        <DestinationRows items={pakistanDestinations} tourDetails />
       </Section>
 
       <PakistanGallery />

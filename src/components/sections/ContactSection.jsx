@@ -7,6 +7,7 @@ import Img from '../ui/Img.jsx';
 import { images } from '../../data/images.js';
 import InquiryForm from '../forms/InquiryForm.jsx';
 import { site, whatsappUrl, mapEmbedUrl, mapLinkUrl } from '../../data/site.js';
+import { contactTravelTypes } from '../../data/content.js';
 
 export function ContactCards() {
   return (
@@ -119,6 +120,7 @@ export default function ContactSection({ variant = 'short', tone = 'white', eyeb
           <InquiryForm
             variant={variant}
             source="Contact section"
+            travelTypeOptions={contactTravelTypes}
             defaults={defaults}
             title="Send a travel request"
             intro="Share a few details and a consultant will get back to you."

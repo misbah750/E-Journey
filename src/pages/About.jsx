@@ -34,7 +34,7 @@ const divisions = [
   {
     no: '01',
     title: 'Pilgrim Services Desk',
-    text: 'Experienced coordinators, advised by religious scholars, who guide pilgrims before and during Umrah and Hajj — overseeing hotels, transfers and Ziyarat across Makkah and Madinah.',
+    text: 'Experienced coordinators, advised by religious scholars, who guide pilgrims before and during Umrah — overseeing hotels, transfers and Ziyarat across Makkah and Madinah.',
     foot: 'Makkah & Madinah specialists',
   },
   {
@@ -55,7 +55,7 @@ export default function About() {
   useSeo({
     title: 'About Us',
     description:
-      'About e-Journey Travel & Tours — a Karachi-based tour operator offering customized independent tours, packaged group departures, Hajj & Umrah, visa assistance and corporate travel.',
+      'About e-Journey Travel & Tours — a Karachi-based tour operator offering customized independent tours, packaged group departures, Umrah, visa assistance and corporate travel.',
   });
 
   return (

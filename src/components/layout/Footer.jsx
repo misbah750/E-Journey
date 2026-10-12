@@ -10,32 +10,30 @@ const columns = [
     links: [
       { to: '/', label: 'Home' },
       { to: '/about', label: 'About' },
-      { to: '/destinations', label: 'Destinations' },
-      { to: '/pakistan-tours', label: 'Tours' },
-      { to: '/services', label: 'Services' },
+      { to: '/services', label: 'All Services' },
+      { to: '/plan-your-trip', label: 'Plan Your Trip' },
       { to: '/contact', label: 'Contact' },
     ],
   },
   {
     title: 'Services',
     links: [
-      { to: '/services#international-tickets', label: 'Flights' },
-      { to: '/hotels', label: 'Hotels' },
-      { to: '/visa-assistance', label: 'Visa Assistance' },
+      { to: '/ticketing', label: 'Ticketing' },
+      { to: '/visa-assistance', label: 'Visa' },
+      { to: '/umrah', label: 'Umrah' },
       { to: '/travel-insurance', label: 'Travel Insurance' },
+      { to: '/hotels', label: 'Hotels' },
       { to: '/corporate-travel', label: 'Corporate Travel' },
-      { to: '/hajj-umrah', label: 'Hajj & Umrah' },
     ],
   },
   {
-    title: 'Travel',
+    title: 'Tourism',
     links: [
-      { to: '/pakistan-tours', label: 'Pakistan' },
-      { to: '/international-tours', label: 'International' },
+      { to: '/international-tours', label: 'International Tours' },
+      { to: '/pakistan-tours', label: 'Domestic Tours' },
       { to: '/plan-your-trip?style=Honeymoon', label: 'Honeymoon' },
       { to: '/plan-your-trip?style=Family', label: 'Family' },
-      { to: '/services#groups', label: 'Groups' },
-      { to: '/corporate-travel', label: 'Corporate' },
+      { to: '/plan-your-trip?style=Group', label: 'Group' },
     ],
   },
 ];
@@ -65,8 +63,8 @@ export default function Footer() {
             <BrandLogo light className="footer__logo" width={280} />
             <p className="footer__tagline">Travel beyond destinations.</p>
             <p className="footer__blurb">
-              A Karachi-based tour operator providing domestic and international travel, Hajj &amp; Umrah, visa assistance,
-              hotels and corporate travel for travellers to and from Pakistan.
+              A Karachi-based travel agency for air tickets, international and domestic tours, visas, Umrah and
+              travel insurance.
             </p>
             <div className="footer__social">
               <Social href={site.social.facebook} label="Facebook"><FacebookIcon /></Social>

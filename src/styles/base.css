@@ -24,7 +24,7 @@
   --gold-soft: #f3e4bf;
   --gold-deep: #86651f;
 
-  /* Pilgrimage — deeper evergreen for the Hajj & Umrah atmosphere */
+  /* Pilgrimage — deeper evergreen for the Umrah atmosphere */
   --emerald-950: #02100b;
   --emerald-900: #051c14;
   --emerald-800: #0a2c21;
@@ -45,7 +45,8 @@
   --danger: #b42318;
 
   /* Type */
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  /* Headings use the classic serif of the e-Journey wordmark (Tinos is metric-matched to Times New Roman) */
+  --font-display: 'Tinos', 'Times New Roman', Times, serif;
   --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* Layout */
@@ -170,22 +171,22 @@ input, select, textarea { font: inherit; }
 .display {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(2.75rem, 6.6vw, 6.25rem);
+  font-size: clamp(2.9rem, 6.9vw, 6.5rem);
   line-height: 1.02;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
   text-wrap: balance;
 }
 .display--md { font-size: clamp(2.5rem, 5.4vw, 4.75rem); }
 .display em,
-.h2 em { font-style: italic; font-weight: 400; }
+.h2 em { font-style: normal; font-weight: 400; }
 .display em { color: var(--gold-bright); }
 
 .h2 {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(2.1rem, 4.1vw, 3.5rem);
+  font-size: clamp(2.25rem, 4.3vw, 3.7rem);
   line-height: 1.08;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.008em;
   color: var(--green-900);
   text-wrap: balance;
 }

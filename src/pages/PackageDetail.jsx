@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import {
-  ArrowRight, Check, CircleCheck, Moon, MapPin, Users, Plane, Share2, Link2, Mail, BedDouble,
+  ArrowRight, Check, CircleCheck, Moon, MapPin, Share2, Link2, Mail, Hotel, CalendarClock, Download, Info,
 } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
 import Img from '../components/ui/Img.jsx';
@@ -12,21 +12,14 @@ import PackageCard from '../components/sections/PackageCard.jsx';
 import InquiryForm from '../components/forms/InquiryForm.jsx';
 import { WhatsAppIcon, FacebookIcon } from '../components/ui/BrandIcons.jsx';
 import NotFound from './NotFound.jsx';
-import { packages, getPackage, formatPKR } from '../data/packages.js';
+import {
+  packages, getPackage, legacyPackageRedirects, formatPKR, formatDate, isExpired, lowestPrice,
+} from '../data/packages.js';
 import { unsplash } from '../data/images.js';
 import { whatsappUrl } from '../data/site.js';
 import { useSeo } from '../lib/hooks.js';
 
-const CONFIGS = ['Per Person', 'Duo / Couple', 'Family'];
-
-function stayPlan(stays) {
-  let night = 1;
-  return stays.map((s) => {
-    const from = night;
-    night += s.nights;
-    return { ...s, from, to: night - 1 };
-  });
-}
+const pad = (n) => String(n).padStart(2, '0');
 
 function ShareLinks({ title }) {
   const [copied, setCopied] = useState(false);
@@ -42,7 +35,7 @@ function ShareLinks({ title }) {
   };
   return (
     <div className="share">
-      <span className="share__label"><Share2 size={16} aria-hidden="true" /> Share itinerary</span>
+      <span className="share__label"><Share2 size={16} aria-hidden="true" /> Share package</span>
       <div className="share__links">
         <a href={`https://wa.me/?text=${encodeURIComponent(`${title} — ${url}`)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp"><WhatsAppIcon size={18} /></a>
         <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook"><FacebookIcon size={18} /></a>
@@ -57,59 +50,71 @@ function ShareLinks({ title }) {
 export default function PackageDetail() {
   const { slug } = useParams();
   const pkg = getPackage(slug);
-  const [config, setConfig] = useState(CONFIGS[0]);
+  const [option, setOption] = useState(0);
+  const expired = pkg ? isExpired(pkg) : false;
 
   useSeo(
     pkg
       ? {
-          title: `${pkg.name} — ${pkg.titleAccent} ${pkg.titleRest}`,
-          description: `${pkg.summary} ${pkg.stays.map((s) => `${s.nights} nights in ${s.place}`).join(', ')}. ${pkg.priceLabel} ${formatPKR(pkg.price)} (${pkg.basis}).`,
+          title: `${pkg.title} Tour Package from Pakistan`,
+          description: `${pkg.title}: ${pkg.nights} nights, ${pkg.stars} hotels. ${pkg.summary}${expired ? '' : ` From ${formatPKR(lowestPrice(pkg))} per person.`}`,
           image: unsplash(pkg.images[0].id, 1200),
           jsonLd: {
             '@context': 'https://schema.org',
             '@type': 'TouristTrip',
-            name: `${pkg.titleAccent} ${pkg.titleRest}`,
+            name: pkg.title,
             description: pkg.summary,
             image: unsplash(pkg.images[0].id, 1200),
-            itinerary: pkg.stays.map((s) => ({ '@type': 'Place', name: s.place })),
+            itinerary: pkg.cities.map((c) => ({ '@type': 'Place', name: c })),
             provider: { '@type': 'TravelAgency', name: 'e-Journey Travel & Tours' },
-            offers: { '@type': 'Offer', price: pkg.price, priceCurrency: 'PKR', description: pkg.basis },
+            ...(expired
+              ? {}
+              : {
+                  offers: pkg.prices.map((p) => ({
+                    '@type': 'Offer', price: p.amount, priceCurrency: 'PKR', description: `${p.label}, twin sharing`, priceValidUntil: pkg.validTill,
+                  })),
+                }),
           },
         }
       : { title: 'Package not found' },
   );
 
-  if (!pkg) return <NotFound />;
+  if (!pkg) {
+    const to = legacyPackageRedirects[slug];
+    return to ? <Navigate to={to} replace /> : <NotFound />;
+  }
 
-  const plan = stayPlan(pkg.stays);
-  const related = [...packages.filter((p) => p.slug !== pkg.slug && p.category === pkg.category), ...packages.filter((p) => p.category !== pkg.category)].slice(0, 2);
-  const title = `${pkg.titleAccent} ${pkg.titleRest}`;
-  const isSpiritual = pkg.category === 'spiritual';
+  const multi = pkg.prices.length > 1;
+  const chosen = pkg.prices[option];
+  const packageLabel = multi ? `${pkg.title} (${chosen.label})` : pkg.title;
+  const related = [
+    ...packages.filter((p) => p.slug !== pkg.slug && p.country === pkg.country),
+    ...packages.filter((p) => p.country !== pkg.country),
+  ].slice(0, 3);
 
   return (
     <>
       <PageHero
-        tone={isSpiritual ? 'emerald' : 'forest'}
         image={pkg.images[0]}
-        eyebrow={`${pkg.tier} · ${pkg.tierLine}`}
-        title={<>{pkg.titleAccent} <em>{pkg.titleRest}</em></>}
+        eyebrow={`${pkg.country} · ${pkg.stars}`}
+        title={<>{pkg.title}</>}
         lead={pkg.summary}
-        crumbs={[
-          { label: isSpiritual ? 'Hajj & Umrah' : 'International Tours', to: isSpiritual ? '/hajj-umrah' : '/international-tours' },
-          { label: pkg.shortTitle },
-        ]}
+        crumbs={[{ label: 'International Tours', to: '/international-tours' }, { label: pkg.title }]}
       >
         <a href="#book" className="btn btn--gold btn--lg">Book Now <ArrowRight size={18} aria-hidden="true" /></a>
-        <Link to={`/plan-your-trip?package=${pkg.slug}`} className="btn btn--ghost-light btn--lg">Customize</Link>
+        <a href={pkg.flyer} download className="btn btn--ghost-light btn--lg"><Download size={18} aria-hidden="true" /> Download Flyer</a>
       </PageHero>
 
       <section className="facts-strip facts-strip--package" aria-label="Package summary">
         <div className="container">
           <ul>
-            <li><Moon size={22} aria-hidden="true" /><span><small>Total duration</small><strong>{pkg.nights} Nights</strong></span></li>
-            <li><MapPin size={22} aria-hidden="true" /><span><small>Stay</small><strong>{pkg.stays.map((s) => `${s.nights} ${s.place}`).join(' · ')}</strong></span></li>
-            <li><BedDouble size={22} aria-hidden="true" /><span><small>Basis</small><strong>{pkg.basis.replace('Starting price · ', '')}</strong></span></li>
-            {pkg.departure && <li><Plane size={22} aria-hidden="true" /><span><small>Travel</small><strong>{pkg.departure}</strong></span></li>}
+            <li><Moon size={22} aria-hidden="true" /><span><small>Duration</small><strong>{pad(pkg.nights)} Nights · {pad(pkg.days)} Days</strong></span></li>
+            <li><MapPin size={22} aria-hidden="true" /><span><small>Destinations</small><strong>{pkg.cities.join(' · ')}</strong></span></li>
+            <li><Hotel size={22} aria-hidden="true" /><span><small>Hotels</small><strong>{pkg.stars} · Twin sharing</strong></span></li>
+            <li>
+              <CalendarClock size={22} aria-hidden="true" />
+              <span><small>Price validity</small><strong>{expired ? 'Ask for current price' : `Valid till ${formatDate(pkg.validTill)}`}</strong></span>
+            </li>
           </ul>
         </div>
       </section>
@@ -118,24 +123,42 @@ export default function PackageDetail() {
         <div className="pd__grid">
           <div className="pd__main">
             <Reveal className="pd-card">
-              <p className="eyebrow">Comprehensive Experience</p>
-              <h2 className="h3">Package Overview</h2>
-              <p className="body-copy">
-                {pkg.summary} Our team handles the arrangements so you can focus on the experience itself — and every
-                element can be adjusted by your consultant.
-              </p>
-              <ul className="pd-highlights">
-                {pkg.highlights.map((h) => (
-                  <li key={h}><CircleCheck size={18} aria-hidden="true" /> {h}</li>
+              <p className="eyebrow">Package Overview</p>
+              <h2 className="h3">What’s in this package</h2>
+              <p className="body-copy">{pkg.summary}</p>
+
+              <h3 className="pd-card__sub">Hotels</h3>
+              <ul className="pd-hotels">
+                {pkg.hotels.map((h) => (
+                  <li key={h}><Hotel size={17} aria-hidden="true" /> {h}</li>
+                ))}
+                {multi && pkg.prices.map((p) => p.hotel && (
+                  <li key={p.label}><Hotel size={17} aria-hidden="true" /> {p.label}: {p.hotel}</li>
                 ))}
               </ul>
+
               <h3 className="pd-card__sub">What’s included</h3>
               <ul className="check-list">
                 {pkg.inclusions.map((item) => (
                   <li key={item}><Check size={16} aria-hidden="true" /> {item}</li>
                 ))}
               </ul>
-              <p className="pd-note">Final inclusions, hotels and flight timings are confirmed by your consultant at the time of booking.</p>
+              {pkg.airfareNotIncluded && (
+                <p className="pd-flag"><Info size={16} aria-hidden="true" /> Airline ticket is not included — we can quote flights separately.</p>
+              )}
+              <p className="pd-note">Terms and conditions apply. Hotels are as named or similar; final details are confirmed by your consultant at the time of booking.</p>
+            </Reveal>
+
+            <Reveal className="pd-flyer">
+              <a href={pkg.flyer} target="_blank" rel="noopener noreferrer" className="pd-flyer__img" aria-label={`Open the ${pkg.title} flyer`}>
+                <img src={pkg.flyer} alt={`${pkg.title} package flyer`} loading="lazy" decoding="async" width="1100" height="1400" />
+              </a>
+              <div className="pd-flyer__body">
+                <p className="eyebrow">Package Flyer</p>
+                <h2 className="h3">Save or share the flyer</h2>
+                <p>The full package on one page — handy to keep on your phone or send to family.</p>
+                <a href={pkg.flyer} download className="btn btn--forest"><Download size={18} aria-hidden="true" /> Download Flyer</a>
+              </div>
             </Reveal>
 
             <div className="pd-media">
@@ -145,78 +168,60 @@ export default function PackageDetail() {
                 </Reveal>
               ))}
             </div>
-
-            <div className="pd-itinerary">
-              <Reveal>
-                <p className="eyebrow">Journey Breakdown</p>
-                <h2 className="h3">{pkg.itinerary ? 'Package Itinerary' : 'Stay Plan'}</h2>
-                <p className="pd-itinerary__lead">
-                  {pkg.itinerary
-                    ? 'Designed for maximum spiritual focus and physical ease.'
-                    : 'How your nights are divided. A detailed day-by-day plan is shared by your consultant with your quotation.'}
-                </p>
-              </Reveal>
-              <ol className="timeline">
-                {pkg.itinerary
-                  ? pkg.itinerary.map((d, i) => (
-                      <Reveal as="li" key={d.days} delay={i * 60}>
-                        <span className="timeline__tag">{d.days}</span>
-                        <div>
-                          <h3>{d.title}</h3>
-                          <p>{d.text}</p>
-                        </div>
-                      </Reveal>
-                    ))
-                  : plan.map((s, i) => (
-                      <Reveal as="li" key={s.place} delay={i * 60}>
-                        <span className="timeline__tag">Nights {String(s.from).padStart(2, '0')} – {String(s.to).padStart(2, '0')}</span>
-                        <div>
-                          <h3>{s.nights} Nights in {s.place}</h3>
-                          <p>{i === 0 ? 'Arrival, transfer and check-in, followed by your programme in ' : 'Transfer and check-in, continuing your journey in '}{s.place}.</p>
-                        </div>
-                      </Reveal>
-                    ))}
-              </ol>
-            </div>
           </div>
 
           <aside className="pd__aside" aria-label="Pricing and booking">
             <div className="price-card">
               <div className="price-card__top">
-                <span><Moon size={15} aria-hidden="true" /> {pkg.name}</span>
+                <span><Moon size={15} aria-hidden="true" /> {pad(pkg.nights)} Nights · {pad(pkg.days)} Days</span>
+                <span>{pkg.stars}</span>
               </div>
-              <span className="price-card__label">{pkg.priceLabel}</span>
-              <strong className="price-card__amount">{formatPKR(pkg.price)}</strong>
-              <span className="price-card__basis">({pkg.basis})</span>
-              {pkg.priceNote && <span className="price-card__note">*{pkg.priceNote}</span>}
+
+              {expired ? (
+                <>
+                  <span className="price-card__label">Price on request</span>
+                  <strong className="price-card__amount price-card__amount--ask">Ask for the current price</strong>
+                  <span className="price-card__basis">Package prices are refreshed about every two months.</span>
+                </>
+              ) : (
+                <>
+                  {multi && (
+                    <div className="price-card__config">
+                      <span id="option-label">Choose hotel category</span>
+                      <div role="radiogroup" aria-labelledby="option-label" style={{ gridTemplateColumns: `repeat(${pkg.prices.length}, minmax(0, 1fr))` }}>
+                        {pkg.prices.map((p, i) => (
+                          <button key={p.label} type="button" role="radio" aria-checked={option === i} onClick={() => setOption(i)}>
+                            {p.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  <span className="price-card__label">{multi ? `${chosen.label} package` : 'Package price'}</span>
+                  <strong className="price-card__amount">{formatPKR(chosen.amount)}</strong>
+                  <span className="price-card__basis">(Per person, twin sharing)</span>
+                  {chosen.hotel && <span className="price-card__note">{chosen.hotel}</span>}
+                  <span className="price-card__valid"><CalendarClock size={15} aria-hidden="true" /> Valid till {formatDate(pkg.validTill)}</span>
+                </>
+              )}
+              {pkg.airfareNotIncluded && <span className="price-card__note">*Airline ticket not included</span>}
 
               <p className="price-card__guarantee"><CircleCheck size={17} aria-hidden="true" /> Your Travel Peace Is Our Guarantee</p>
 
-              <div className="price-card__config">
-                <span id="config-label">Choose configuration</span>
-                <div role="radiogroup" aria-labelledby="config-label">
-                  {CONFIGS.map((c) => (
-                    <button key={c} type="button" role="radio" aria-checked={config === c} onClick={() => setConfig(c)}>
-                      {c === 'Per Person' ? <Users size={15} aria-hidden="true" /> : null}{c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
               <a href="#book" className="btn btn--gold btn--lg btn--block">Confirm &amp; Book Now</a>
-              <Link to={`/plan-your-trip?package=${pkg.slug}`} className="btn btn--ghost-light btn--block">Customize Itinerary</Link>
+              <a href={pkg.flyer} download className="btn btn--ghost-light btn--block"><Download size={17} aria-hidden="true" /> Download Flyer</a>
             </div>
 
             <div className="consult-card">
               <p className="eyebrow">Still have questions?</p>
-              <h3 className="h3">Talk to our {isSpiritual ? 'pilgrimage' : 'travel'} consultant</h3>
-              <p>Custom hotel distances, room upgrades or special assistance — our team is on standby to help.</p>
-              <a href={whatsappUrl(`Hello e-Journey, I'm interested in the ${pkg.name} (${title}).`)} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
+              <h3 className="h3">Talk to our travel consultant</h3>
+              <p>Different dates, a room upgrade or flights from your city — our team will tailor the package for you.</p>
+              <a href={whatsappUrl(`Hello e-Journey, I'm interested in the ${packageLabel} package.`)} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
                 <WhatsAppIcon size={18} /> Chat via WhatsApp
               </a>
             </div>
 
-            <ShareLinks title={`${title} — e-Journey Travel & Tours`} />
+            <ShareLinks title={`${pkg.title} — e-Journey Travel & Tours`} />
           </aside>
         </div>
       </Section>
@@ -225,17 +230,17 @@ export default function PackageDetail() {
         <div className="form-layout">
           <SectionHeading
             eyebrow="Request Booking"
-            title={<>Reserve Your <em>{pkg.shortTitle}</em></>}
+            title={<>Reserve <em>{pkg.title}</em></>}
             lead="Send your details and preferred dates. A consultant will confirm availability, hotels and the final price with you before anything is booked."
           >
             <FormAside image={pkg.images[1] || pkg.images[0]} />
           </SectionHeading>
           <Reveal delay={120}>
             <InquiryForm
-              key={config}
+              key={packageLabel}
               variant="booking"
-              source={`Package: ${pkg.name}`}
-              defaults={{ travelType: isSpiritual ? (pkg.slug.includes('umrah') ? 'Umrah' : 'Other') : 'Holiday', package: `${title} (${pkg.name})`, configuration: config }}
+              source={`Package: ${packageLabel}`}
+              defaults={{ travelType: 'Holiday', package: packageLabel }}
               submitLabel="Request Booking"
             />
           </Reveal>
@@ -243,14 +248,17 @@ export default function PackageDetail() {
       </Section>
 
       <Section tone="white">
-        <SectionHeading eyebrow="You May Also Like" title={<>More Signature <em>Journeys</em></>} align="center" />
+        <SectionHeading eyebrow="You May Also Like" title={<>More Tour <em>Packages</em></>} align="center" />
         <div className="pkg-grid">
           {related.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 120}>
+            <Reveal key={p.slug} delay={i * 100}>
               <PackageCard pkg={p} />
             </Reveal>
           ))}
         </div>
+        <Reveal className="pkg-more">
+          <Link to="/international-tours#packages" className="btn btn--outline">View all packages <ArrowRight size={18} aria-hidden="true" /></Link>
+        </Reveal>
       </Section>
     </>
   );

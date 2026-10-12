@@ -27,8 +27,9 @@ export const site = {
   ],
   email: 'ejourneytravel@gmail.com',
 
-  /** WhatsApp number in international format without "+" (0322-5100961). */
-  whatsapp: '923225100961',
+  /** WhatsApp number in international format without "+" (0335-5100991). */
+  whatsapp: '923355100991',
+  whatsappLabel: '0335-5100991',
   whatsappGreeting: 'Hello e-Journey Travel & Tours, I would like assistance planning my trip.',
 
   /** Placeholder social links — replace with the official accounts when available. */

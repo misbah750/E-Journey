@@ -1,0 +1,261 @@
+/* ==========================================================================
+   Services & offers — home core services, Umrah types, visa prices, ticketing
+   ========================================================================== */
+
+/* ---------- Core services (home) ---------- */
+.core__grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); margin-top: clamp(36px, 4vw, 52px); }
+.core__item { display: flex; }
+.core__link {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: clamp(300px, 30vw, 400px);
+  padding: 22px 20px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: var(--white);
+  background: var(--green-900);
+}
+.core__link img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+.core__link:hover img { transform: scale(1.06); }
+.core__shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(4, 24, 15, 0.05) 30%, rgba(4, 24, 15, 0.88) 100%); }
+.core__icon {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(253, 247, 239, 0.94);
+  color: var(--green-800);
+}
+.core__go {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  transition: background 0.3s, color 0.3s, transform 0.4s var(--ease);
+}
+.core__link:hover .core__go { background: var(--gold-bright); border-color: var(--gold-bright); color: var(--green-950); transform: rotate(45deg); }
+.core__body { display: grid; gap: 6px; }
+.core__title { font-family: var(--font-display); font-size: clamp(1.45rem, 1.9vw, 1.8rem); line-height: 1.1; }
+.core__text { font-size: 0.9rem; line-height: 1.45; color: rgba(255, 255, 255, 0.82); }
+@media (max-width: 1100px) {
+  .core__grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .core__item { grid-column: span 2; }
+  .core__item:nth-child(4), .core__item:nth-child(5) { grid-column: span 3; }
+}
+@media (max-width: 600px) {
+  .core__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .core__item, .core__item:nth-child(4) { grid-column: auto; }
+  .core__item:nth-child(5) { grid-column: 1 / -1; }
+  .core__link { min-height: 230px; padding: 16px; }
+  .core__item:nth-child(5) .core__link { min-height: 180px; }
+  .core__icon { top: 14px; left: 14px; width: 40px; height: 40px; }
+  .core__go { display: none; }
+  .core__text { font-size: 0.82rem; }
+}
+
+/* ---------- Rate / validity note ---------- */
+.rate-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: var(--green-900);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.rate-note svg { flex: none; color: var(--gold-deep); }
+.rate-note--light { background: rgba(223, 187, 106, 0.14); color: var(--gold-soft); }
+.rate-note--light svg { color: var(--gold-bright); }
+.section-heading--center .rate-note { margin-inline: auto; }
+
+/* ---------- Umrah band (home) ---------- */
+.umrah-band__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(36px, 6vw, 88px); align-items: center; }
+.umrah-band__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 30px; }
+.umrah-band__types { display: grid; gap: 14px; }
+.umrah-mini {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 22px 10px 10px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(223, 187, 106, 0.18);
+  color: var(--ivory);
+  transition: background 0.3s, border-color 0.3s, transform 0.4s var(--ease);
+}
+.umrah-mini:hover { background: rgba(255, 255, 255, 0.09); border-color: rgba(223, 187, 106, 0.45); transform: translateX(4px); }
+.umrah-mini__media { position: relative; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }
+.umrah-mini__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.umrah-mini__body strong { display: block; font-family: var(--font-display); font-size: clamp(1.2rem, 1.6vw, 1.45rem); font-weight: 400; color: var(--white); }
+.umrah-mini__body small { display: block; margin-top: 3px; font-size: 0.86rem; color: rgba(253, 247, 239, 0.7); }
+.umrah-mini__go { color: var(--gold-bright); }
+@media (max-width: 900px) { .umrah-band__grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .umrah-mini { grid-template-columns: 84px minmax(0, 1fr) auto; gap: 14px; padding-right: 14px; }
+}
+
+/* ---------- Visa preview (home) ---------- */
+.visa-preview__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.visa-preview .section-heading .btn { margin-top: 28px; }
+.visa-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.visa-chip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  transition: border-color 0.25s, box-shadow 0.3s, transform 0.3s var(--ease);
+}
+.visa-chip:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.visa-chip img { flex: none; width: 36px; height: 27px; border-radius: 5px; object-fit: cover; box-shadow: 0 0 0 1px var(--line); }
+.visa-chip strong { display: block; font-size: 0.95rem; color: var(--green-900); }
+.visa-chip small { display: block; margin-top: 1px; font-size: 0.82rem; font-weight: 600; color: var(--gold-deep); }
+@media (max-width: 960px) { .visa-preview__grid { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .visa-chips { grid-template-columns: 1fr; } }
+
+/* ---------- Visa page ---------- */
+.visa-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 18px; margin-bottom: clamp(28px, 3.4vw, 40px); }
+.visa-tools .filter-chips { margin-bottom: 0; }
+.visa-search { position: relative; display: block; width: min(100%, 280px); }
+.visa-search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.visa-search input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 16px 10px 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--white);
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+.visa-search input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.visa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.visa-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  transition: border-color 0.25s, box-shadow 0.3s;
+}
+.visa-card:hover { border-color: rgba(199, 156, 71, 0.6); box-shadow: var(--shadow-sm); }
+.visa-card__head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.visa-card__head h3 { flex: 1 1 auto; font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; line-height: 1.2; color: var(--green-900); }
+.flag { flex: none; width: 40px; height: 30px; border-radius: 6px; object-fit: cover; box-shadow: 0 0 0 1px var(--line); background: var(--ivory-2); }
+.visa-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: var(--gold-deep);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.visa-card__opts { display: grid; margin: 14px 0 16px; border-top: 1px solid var(--line); }
+.visa-card__opts li { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--line-strong); }
+.visa-card__opts span { font-size: 0.9rem; font-weight: 600; color: var(--ink-soft); }
+.visa-card__opts small { display: block; margin-top: 1px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.visa-card__opts strong { flex: none; font-size: 0.98rem; font-weight: 800; color: var(--green-800); white-space: nowrap; }
+.visa-card__actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
+.visa-card__wa { display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; font-weight: 700; color: var(--whatsapp); }
+.visa-card__wa:hover { text-decoration: underline; text-underline-offset: 4px; }
+.visa-empty { display: grid; justify-items: center; gap: 18px; max-width: 520px; margin: 0 auto; padding: 32px; text-align: center; border-radius: 22px; background: var(--white); border: 1px dashed var(--line-strong); color: var(--ink-soft); }
+.visa-extra__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 28px); }
+.visa-extra__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(26px, 3.4vw, 40px);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(223, 187, 106, 0.2);
+}
+.visa-extra__icon { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 20px; border-radius: 50%; background: rgba(223, 187, 106, 0.14); color: var(--gold-bright); }
+.visa-extra__card .h3 { color: var(--white); }
+.visa-extra__card > p:not(.eyebrow) { margin-top: 12px; line-height: 1.7; color: rgba(253, 247, 239, 0.76); }
+.flag-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 28px; }
+.flag-list li { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); font-size: 0.88rem; font-weight: 600; color: var(--ivory); }
+.flag-list .flag { width: 24px; height: 24px; border-radius: 50%; box-shadow: none; }
+.visa-extra__card .btn { margin-top: auto; }
+@media (max-width: 860px) { .visa-extra__grid { grid-template-columns: 1fr; } }
+#visa-inquiry .notice { margin-top: clamp(32px, 4vw, 48px); }
+
+/* ---------- Umrah page ---------- */
+.umrah-types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 28px); margin-top: clamp(36px, 4vw, 52px); }
+.umrah-type { display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden; background: var(--white); border: 1px solid var(--line); scroll-margin-top: 110px; }
+.umrah-type__media { position: relative; aspect-ratio: 16 / 10; background: var(--emerald-800); }
+.umrah-type__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.umrah-type__body { display: flex; flex-direction: column; flex: 1; padding: clamp(22px, 2.6vw, 30px); }
+.umrah-type__tag { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); }
+.umrah-type__title { margin-top: 8px; font-family: var(--font-display); font-size: clamp(1.6rem, 2.2vw, 2rem); font-weight: 400; line-height: 1.1; color: var(--green-900); }
+.umrah-type__text { margin-top: 10px; font-size: 0.94rem; line-height: 1.65; color: var(--ink-soft); }
+.umrah-type .check-list { margin: 18px 0 22px; }
+.umrah-type__price { display: grid; gap: 2px; margin-top: auto; padding: 16px 18px; border-radius: 18px; background: var(--emerald-900); color: var(--ivory); }
+.umrah-type__price span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(253, 247, 239, 0.62); }
+.umrah-type__price strong { font-family: var(--font-display); font-size: 1.9rem; font-weight: 400; line-height: 1.15; color: var(--gold-bright); }
+.umrah-type__price .umrah-type__ask { font-size: 1.35rem; }
+.umrah-type__price small { font-size: 0.8rem; color: rgba(253, 247, 239, 0.68); }
+.umrah-type__actions { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-top: 16px; }
+.umrah-visa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+  margin-top: clamp(24px, 3vw, 36px);
+  padding: 18px 24px;
+  border-radius: 22px;
+  background: var(--sand);
+  border: 1px solid var(--sand-deep);
+}
+.umrah-visa__icon { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--white); color: var(--gold-deep); }
+.umrah-visa__text { flex: 1 1 240px; }
+.umrah-visa__text strong { display: block; color: var(--green-900); }
+.umrah-visa__text small { display: block; font-size: 0.86rem; color: var(--muted); }
+.umrah-visa__price { font-family: var(--font-display); font-size: 1.7rem; font-weight: 400; color: var(--green-800); }
+@media (max-width: 1080px) {
+  .umrah-types { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .umrah-types > :last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 1080px) and (min-width: 721px) {
+  .umrah-types > :last-child { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+  .umrah-types > :last-child .umrah-type__media { aspect-ratio: auto; min-height: 100%; }
+}
+@media (max-width: 720px) { .umrah-types { grid-template-columns: 1fr; } }
+
+/* ---------- Ticketing page ---------- */
+.ticket-scopes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.6vw, 32px); }
+.ticket-scope { display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden; background: var(--white); border: 1px solid var(--line); scroll-margin-top: 110px; }
+.ticket-scope__media { position: relative; aspect-ratio: 16 / 8; background: var(--green-900); }
+.ticket-scope__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ticket-scope__body { display: flex; flex-direction: column; align-items: flex-start; flex: 1; padding: clamp(24px, 3vw, 38px); }
+.ticket-scope__body .h3 { margin-top: 4px; }
+.ticket-scope__body .body-copy { margin-top: 12px; }
+.ticket-scope .check-list { margin: 22px 0 28px; }
+.ticket-scope .btn { margin-top: auto; }
+@media (max-width: 900px) { .ticket-scopes { grid-template-columns: 1fr; } }

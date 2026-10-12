@@ -16,11 +16,11 @@ export const images = {
   shangrila: img('1604676055604-fe96097e4f9f', 'Red-roofed pavilion beside the lake at Shangrila, Skardu'),
   skarduNight: img('1703182186928-c536061bf1b6', 'Mountains mirrored in a calm lake under a deep blue sky'),
   fairyMeadows: img('1664872759149-b7605ca5a3a7', 'Wooden cabins at Fairy Meadows facing Nanga Parbat', 'center 40%'),
+  minimarg: img('1752804381152-38f044fb9a8f', 'Pine forests and green meadows beneath snow-capped peaks in the Minimarg valley, Astore'),
   naran: img('1565182027317-ca49ef1405f5', 'A wooden boat on Lake Saiful Muluk in the Kaghan Valley'),
   swat: img('1600402279586-09818db238b9', 'Pine-fringed Mahodand Lake in the upper Usho Valley, Swat'),
   kashmir: img('1659553761498-6a8728fbf281', 'The village of Arang Kel above the Neelum Valley, Azad Kashmir'),
   murree: img('1584043204475-8cc101d6c77a', 'Forested ridges seen from Kashmir Point, Murree'),
-  islamabad: img('1608020932658-d0e19a69580b', 'Faisal Mosque in Islamabad set against the Margalla Hills'),
   deosai: img('1522075646656-6cc7dc117480', 'A clear stream across the high Deosai Plains'),
 
   // Pilgrimage
@@ -35,9 +35,6 @@ export const images = {
   dubaiSunset: img('1512453979798-5ea266f8880c', 'The Dubai skyline at sunset'),
   dubaiDesert: img('1760261799672-2469a6c4c6f3', 'Courtyard pool and palms at a desert resort in the UAE'),
   dunes: img('1612899326681-66508905b4ce', 'Travellers crossing golden sand dunes in the Arabian desert'),
-  doha: img('1685113872064-de4180a0ea93', 'Towers of the Doha skyline in Qatar'),
-  dohaKatara: img('1700901742651-6b353164caf3', 'The crescent-shaped Katara Towers on the Doha waterfront'),
-  qatarMuseum: img('1700901683937-fc9b9c2252b2', 'The desert-rose architecture of the National Museum of Qatar'),
 
   // International
   cappadocia: img('1604156789095-3348604c0f43', 'Hot-air balloons drifting over the valleys of Cappadocia, Türkiye'),
@@ -48,6 +45,25 @@ export const images = {
   paris: img('1502602898657-3e91760cbb34', 'The Eiffel Tower over the Seine in Paris'),
   alula: img('1590959914819-b767b9fe4cfb', 'Traditional mud-brick architecture reflected in water in AlUla, Saudi Arabia'),
   maldives: img('1590523277543-a94d2e4eb00b', 'Overwater villas above a turquoise lagoon in the Maldives'),
+
+  // Tour package destinations
+  baku: img('1785608149074-3fbacbe1ab6d', 'The Flame Towers rising above Baku Bay, Azerbaijan'),
+  caucasus: img('1588369281132-55b5f37e6818', 'Snow-capped peaks of the Greater Caucasus, Azerbaijan'),
+  watArun: img('1613672803979-a6edfc5a179b', 'Wat Arun temple on the Chao Phraya River, Bangkok'),
+  pattaya: img('1625492206717-61c584a8b11e', 'The curve of Pattaya beach and skyline, Thailand'),
+  sigiriya: img('1612862862126-865765df2ded', 'Sigiriya rock fortress rising above the forest, Sri Lanka'),
+  galle: img('1509982724584-2ce0d4366d8b', 'Sunset over the old Dutch fort streets of Galle, Sri Lanka'),
+  baliTerraces: img('1555400038-63f5ba517a47', 'Tegallalang rice terraces in the morning, Bali'),
+  uluwatu: img('1664918706173-6349ca225dd0', 'Sea cliffs and flowers at Uluwatu, Bali'),
+  petronas: img('1472017053394-b29fded587cd', 'The Petronas Twin Towers lit up at night, Kuala Lumpur'),
+  genting: img('1591181409255-71b68751e7b7', 'Chin Swee Temple and pagoda at Genting Highlands, Malaysia'),
+  langkawi: img('1771220262024-f06807deaaed', 'The Langkawi Sky Bridge above the rainforest, Malaysia'),
+  penang: img('1620488212381-dea91f7dd69a', 'Kek Lok Si temple overlooking Penang, Malaysia'),
+  samarkand: img('1728565721798-cf65c7bf1efe', 'Sherdor Madrasah on Registan Square, Samarkand'),
+  tashkent: img('1654861857666-1e8c438cbe4a', 'A madrasah with turquoise domes in Tashkent, Uzbekistan'),
+  tashkentSquare: img('1622021109028-8ba1d5374161', 'Gardens and monuments in central Tashkent, Uzbekistan'),
+  sharm: img('1681158077449-77f23f629f0d', 'Boats on the Red Sea coast at Sharm el-Sheikh, Egypt'),
+  redSeaReef: img('1651871756929-09d7bde4e97d', 'Colourful coral reef and fish in the Red Sea'),
 
   // Themes
   couple: img('1563196638-8c9457546e5f', 'A couple walking hand in hand at golden hour'),

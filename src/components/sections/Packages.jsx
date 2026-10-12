@@ -1,40 +1,62 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, CalendarClock } from 'lucide-react';
 import Reveal from '../ui/Reveal.jsx';
 import Section, { SectionHeading } from '../ui/Section.jsx';
 import PackageCard from './PackageCard.jsx';
-import { packages, packageCategories } from '../../data/packages.js';
+import { packages, packageCountries } from '../../data/packages.js';
 
-/** Signature packages with category filter. Pass `only` to lock to a category and hide the filter. */
+/** A short, varied selection: one package per country in turn. */
+function pickVaried(limit) {
+  const groups = packageCountries.map((c) => packages.filter((p) => p.country === c));
+  const out = [];
+  for (let round = 0; out.length < limit && round < packages.length; round += 1) {
+    groups.forEach((g) => { if (g[round] && out.length < limit) out.push(g[round]); });
+  }
+  return out;
+}
+
+/**
+ * International tour packages with a country filter.
+ * Pass `limit` to show a short selection (filter hidden) with a link to the full list.
+ */
 export default function Packages({
-  id = 'packages', tone = 'sand', only, eyebrow = 'Signature Journeys',
-  title = <>Thoughtfully Designed <em>Travel Experiences</em></>,
-  lead = 'Our signature packages — each one flexible for solo travellers, couples and families, and fully customizable by our consultants.',
+  id = 'packages', tone = 'sand', limit, eyebrow = 'International Tour Packages',
+  title = <>Holidays Abroad, <em>Ready to Book</em></>,
+  lead = 'Hotels, breakfast, transfers, sightseeing and visa — put together in one package. Prices per person on twin sharing.',
 }) {
-  const [filter, setFilter] = useState(only || 'all');
-  const list = packages.filter((p) => filter === 'all' || p.category === filter);
+  const [filter, setFilter] = useState('all');
+  const list = limit ? pickVaried(limit) : packages.filter((p) => filter === 'all' || p.country === filter);
 
   return (
     <Section id={id} tone={tone} className="packages">
       <SectionHeading eyebrow={eyebrow} title={title} lead={lead} align="center" />
-      {!only && (
-        <Reveal className="filter-chips" role="group" aria-label="Filter packages">
-          {packageCategories.map((c) => (
-            <button key={c.id} type="button" aria-pressed={filter === c.id} onClick={() => setFilter(c.id)}>
-              {c.label}
+      {!limit && (
+        <Reveal className="filter-chips" role="group" aria-label="Filter packages by country">
+          {['all', ...packageCountries].map((c) => (
+            <button key={c} type="button" aria-pressed={filter === c} onClick={() => setFilter(c)}>
+              {c === 'all' ? 'All Packages' : c}
             </button>
           ))}
         </Reveal>
       )}
-      <div className={`pkg-grid ${list.length === 1 ? 'pkg-grid--single' : ''} ${list.length === 3 ? 'pkg-grid--three' : ''}`} key={filter}>
+      <div className={`pkg-grid ${list.length === 1 ? 'pkg-grid--single' : ''}`} key={filter}>
         {list.map((p, i) => (
-          <Reveal key={p.slug} delay={(i % 2) * 120}>
+          <Reveal key={p.slug} delay={(i % 3) * 100}>
             <PackageCard pkg={p} />
           </Reveal>
         ))}
       </div>
+      {limit && packages.length > limit && (
+        <Reveal className="pkg-more">
+          <Link to="/international-tours#packages" className="btn btn--forest btn--lg">
+            View all {packages.length} packages <ArrowRight size={18} aria-hidden="true" />
+          </Link>
+        </Reveal>
+      )}
       <p className="pkg-footnote">
-        All rates in PKR and subject to availability at the time of booking. Plans available for solo travellers, couples and
-        families.
+        <CalendarClock size={15} aria-hidden="true" /> Package prices are valid until the date shown and refreshed about
+        every two months. Terms and conditions apply; rates are subject to availability at the time of booking.
       </p>
     </Section>
   );
