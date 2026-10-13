@@ -96,10 +96,9 @@ export default function Footer() {
                   <span>Office 08, Akbar Paradise, Block 10, Gulshan-e-Iqbal, Karachi</span>
                 </a>
               </li>
-              {site.phones.map((p) => (
+              {site.mobiles.slice(0, 2).map((p) => (
                 <li key={p.tel}><a href={`tel:${p.tel}`}><Phone size={16} aria-hidden="true" />{p.label}</a></li>
               ))}
-              <li><a href={`tel:${site.mobiles[0].tel}`}><Phone size={16} aria-hidden="true" />{site.mobiles[0].label}</a></li>
               <li><a href={`mailto:${site.email}`}><Mail size={16} aria-hidden="true" />{site.email}</a></li>
             </ul>
           </div>

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, CalendarClock, Moon, Star } from 'lucide-react';
 import Img from '../ui/Img.jsx';
 import { formatPKR, formatDate, isExpired, lowestPrice } from '../../data/packages.js';
-import { site } from '../../data/site.js';
 
 /** Signature package card — mirrors the agency's printed package flyers. */
 export default function PackageCard({ pkg, headingLevel = 3 }) {
@@ -70,12 +69,6 @@ export default function PackageCard({ pkg, headingLevel = 3 }) {
         </div>
       </div>
 
-      <p className="pkg__contact">
-        <strong>Contact Us:</strong>
-        <a href={`tel:${site.phones[0].tel}`}>{site.phones[0].label}</a>
-        <span aria-hidden="true">|</span>
-        <a href={`tel:${site.mobiles[0].tel}`}>{site.mobiles[0].label}</a>
-      </p>
     </article>
   );
 }

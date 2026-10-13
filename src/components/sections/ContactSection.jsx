@@ -23,24 +23,18 @@ export function ContactCards() {
         </span>
       </li>
       <li className="contact-card">
-        <span className="contact-card__icon"><Phone size={20} aria-hidden="true" /></span>
-        <span>
-          <strong>Phone</strong>
-          {site.phones.map((p) => <a key={p.tel} href={`tel:${p.tel}`}>{p.label}</a>)}
-        </span>
-      </li>
-      <li className="contact-card">
         <span className="contact-card__icon"><Smartphone size={20} aria-hidden="true" /></span>
         <span>
           <strong>Mobile</strong>
           {site.mobiles.map((p) => <a key={p.tel} href={`tel:${p.tel}`}>{p.label}</a>)}
         </span>
       </li>
-      <li className="contact-card contact-card--wide">
+      <li className="contact-card">
         <span className="contact-card__icon"><Mail size={20} aria-hidden="true" /></span>
         <span>
           <strong>Email</strong>
           <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={`mailto:${site.emailAlt}`}>{site.emailAlt}</a>
         </span>
       </li>
       <li className="contact-card contact-card--wa contact-card--wide">
@@ -90,8 +84,8 @@ export function TalkCard() {
           <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp btn--sm">
             <WhatsAppIcon size={16} /> WhatsApp
           </a>
-          <a href={`tel:${site.phones[0].tel}`} className="btn btn--ghost-light btn--sm">
-            <Phone size={16} aria-hidden="true" /> {site.phones[0].label}
+          <a href={`tel:${site.mobiles[0].tel}`} className="btn btn--ghost-light btn--sm">
+            <Phone size={16} aria-hidden="true" /> {site.mobiles[0].label}
           </a>
         </div>
       </div>

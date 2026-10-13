@@ -115,7 +115,7 @@ export default function Navbar() {
             Plan Your Trip <ArrowRight size={18} aria-hidden="true" />
           </Link>
           <div className="drawer__contact">
-            <a href={`tel:${site.phones[0].tel}`}><Phone size={18} aria-hidden="true" /> {site.phones[0].label}</a>
+            <a href={`tel:${site.mobiles[0].tel}`}><Phone size={18} aria-hidden="true" /> {site.mobiles[0].label}</a>
             <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><WhatsAppIcon size={18} /> WhatsApp</a>
             <a href={`mailto:${site.email}`}><Mail size={18} aria-hidden="true" /> Email</a>
           </div>

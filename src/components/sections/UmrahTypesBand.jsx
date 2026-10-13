@@ -4,10 +4,12 @@ import Img from '../ui/Img.jsx';
 import Reveal from '../ui/Reveal.jsx';
 import Section from '../ui/Section.jsx';
 import { HajjNote, Ornament } from './UmrahBand.jsx';
-import { umrahTypes, umrahRateNote } from '../../data/umrah.js';
+import { umrahTypes, umrahRateNote, umrahFromPrice } from '../../data/umrah.js';
+import { formatPKR } from '../../data/packages.js';
 
 /** Compact Umrah summary for the homepage: the three Umrah types, linking into the Umrah page. */
 export default function UmrahTypesBand() {
+  const from = umrahFromPrice();
   return (
     <Section id="umrah" tone="emerald" className="umrah-band">
       <div className="umrah-band__grid">
@@ -18,10 +20,15 @@ export default function UmrahTypesBand() {
           <p className="lead">
             Visa, tickets, hotels near the Haramain and scholar guidance — arranged for you, so your heart stays on worship.
           </p>
+          {from && (
+            <p className="umrah-band__from">
+              Umrah packages 1448-H from <strong>{formatPKR(from)}</strong> per person
+            </p>
+          )}
           <p className="rate-note rate-note--light"><CalendarClock size={16} aria-hidden="true" /> {umrahRateNote}</p>
           <div className="umrah-band__actions">
-            <Link to="/umrah" className="btn btn--gold">
-              Explore Umrah <ArrowRight size={18} aria-hidden="true" />
+            <Link to="/umrah#packages" className="btn btn--gold">
+              View Umrah Packages <ArrowRight size={18} aria-hidden="true" />
             </Link>
             <HajjNote />
           </div>

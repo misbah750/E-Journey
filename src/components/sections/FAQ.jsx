@@ -52,8 +52,8 @@ export default function FAQ({ items = defaultFaqs, tone = 'ivory', title }) {
             <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
               <WhatsAppIcon size={18} /> Ask on WhatsApp
             </a>
-            <a href={`tel:${site.phones[0].tel}`} className="btn btn--outline">
-              <Phone size={18} aria-hidden="true" /> {site.phones[0].label}
+            <a href={`tel:${site.mobiles[0].tel}`} className="btn btn--outline">
+              <Phone size={18} aria-hidden="true" /> {site.mobiles[0].label}
             </a>
           </div>
           <Link to="/contact" className="link-arrow link-arrow--strong">Talk to a travel consultant</Link>

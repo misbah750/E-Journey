@@ -4,6 +4,7 @@ import Packages from '../components/sections/Packages.jsx';
 import UmrahTypesBand from '../components/sections/UmrahTypesBand.jsx';
 import VisaPreview from '../components/sections/VisaPreview.jsx';
 import PakistanGallery from '../components/sections/PakistanGallery.jsx';
+import Reviews from '../components/sections/Reviews.jsx';
 import FinalCTA from '../components/sections/FinalCTA.jsx';
 import { useSeo } from '../lib/hooks.js';
 
@@ -30,6 +31,7 @@ export default function Home() {
       <UmrahTypesBand />
       <VisaPreview />
       <PakistanGallery />
+      <Reviews />
       <FinalCTA />
     </>
   );

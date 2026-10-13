@@ -51,7 +51,7 @@ export default function PakistanTours() {
               We arrange domestic flights, road journeys, hotels and guided sightseeing across Pakistan — with particular
               expertise in the Northern Areas. Choose a customized independent tour or join a packaged group departure.
             </p>
-            <p className="rate-note"><CalendarClock size={16} aria-hidden="true" /> Domestic tour packages are refreshed every two months — ask us for the current departures and rates.</p>
+            <p className="rate-note"><CalendarClock size={16} aria-hidden="true" /> Domestic tour packages will be shared soon — meanwhile, ask us for a custom quote.</p>
             <ul className="style-chips" aria-label="Tour styles">
               {styles.map(({ icon: Icon, label }) => (
                 <li key={label}><Icon size={17} aria-hidden="true" /> {label}</li>

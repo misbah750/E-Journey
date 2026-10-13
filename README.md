@@ -25,8 +25,8 @@ npm run preview    # serve the production build locally
 | `/ticketing` | Domestic (`#domestic`) and international (`#international`) air tickets with a fare request form |
 | `/international-tours` | Tour packages (country filter) + tailor-made destinations |
 | `/pakistan-tours` | Domestic destinations with tour-details downloads |
-| `/umrah` | Group / Individual / Five Star Umrah (`#group`, `#individual`, `#five-star`), FAQ, Umrah inquiry. `/hajj-umrah` redirects here |
-| `/visa-assistance` | Visa prices by country (filter + search), case preparation, done base, visa form. `/visa` redirects here |
+| `/umrah` | Current Umrah packages 1448-H (`#packages`, one tab per flyer), Group / Individual / Five Star Umrah (`#group`, `#individual`, `#five-star`), FAQ, Umrah inquiry. `/hajj-umrah` redirects here |
+| `/visa-assistance` | Visa prices, document checklists and processing times by country (filter + search), case preparation, visa form. `/visa` redirects here |
 | `/corporate-travel` · `/hotels` · `/travel-insurance` | Service pages with dedicated forms |
 | `/contact` | Contact details, map, universal travel inquiry form |
 | `/plan-your-trip` | Five-step custom trip builder (accepts `?package=`, `?style=`, `?destination=`) |
@@ -40,12 +40,14 @@ Everything the agency is likely to change lives in `src/data/`:
 - `packages.js` — international tour packages from the flyers (prices, hotels, inclusions, `validTill`, flyer file in `public/flyers/`).
   Packages run on roughly two-month validity: once `validTill` passes, the price is hidden automatically and
   visitors are asked for the current price, so update the price and date (and the flyer) when a new offer comes out.
-- `visas.js` — visa prices by country (e-Visa / sticker, `sc: true` for “+ SC”), case preparation and done base lists
-- `umrah.js` — Umrah types. Rates change every 15 days to a month: set `price` and `validTill` on a type to publish
+- `visas.js` — visa prices by country (e-Visa / sticker, `sc: true` for “+ SC”), `docs` checklists, `processing` times, case preparation list
+- `umrah.js` — current Umrah group packages from the flyers (`umrahPackages`: flights, hotels, prices, child/infant
+  rates, flyer file); departed flight dates are marked automatically. Also the Umrah types. Rates change every 15 days to a month: set `price` and `validTill` on a type to publish
   a rate; it hides itself after that date and visitors are asked for the current rate
 - `destinations.js` — Pakistan and international destination guides
 - `services.js` — the 12 services
 - `content.js` — navigation, FAQs, process steps, values, **testimonials**
+- `reviews.js` — Google / Facebook review links and reviews (the homepage Reviews section appears once filled)
 - `images.js` — every photo (Unsplash id + alt text). Swap an `id` to change a photo.
 
 ## Logo

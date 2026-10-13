@@ -31,7 +31,8 @@ export const navLinks = [
     to: '/umrah',
     label: 'Umrah',
     children: [
-      { to: '/umrah#group', label: 'Group Umrah', desc: 'Scholar-guided group movement' },
+      { to: '/umrah#packages', label: 'Umrah Packages 1448-H', desc: 'Current group departures & prices' },
+      { to: '/umrah#group', label: 'Group Umrah', desc: 'Fixed group departures from Karachi' },
       { to: '/umrah#individual', label: 'Individual Umrah', desc: 'Your own dates and hotels' },
       { to: '/umrah#five-star', label: 'Five Star Umrah', desc: 'Five-star hotels near the Haram' },
     ],

@@ -32,7 +32,8 @@ const DEFS = {
   from: { label: 'From', required: true, placeholder: 'e.g. Karachi' },
   to: { label: 'To', required: true, placeholder: 'e.g. Dubai' },
   travelClass: { label: 'Class', type: 'select', options: ['Economy', 'Premium Economy', 'Business', 'First'], placeholder: 'Select class' },
-  sharing: { label: 'Room Sharing', type: 'select', options: ['Quad', 'Triple', 'Double', 'Not sure'], placeholder: 'Select sharing' },
+  sharing: { label: 'Room Sharing', type: 'select', options: ['Sharing', 'Quad', 'Triple', 'Double', 'Not sure'], placeholder: 'Select sharing' },
+  package: { label: 'Package', full: true, placeholder: 'e.g. PIA 20 Nights — Package 02' },
   configuration: { label: 'Travelling As', type: 'select', options: ['Per Person', 'Duo / Couple', 'Family', 'Group'], placeholder: 'Select' },
   requirement: { label: 'Services Needed', type: 'select', options: ['Full travel management', 'Flights', 'Hotels', 'Visa assistance', 'Travel insurance', 'Group / incentive trip', 'Emergency travel'], placeholder: 'Select' },
   message: { label: 'Additional Requirements', type: 'textarea', full: true, placeholder: 'Tell us anything that will help us plan — preferences, special occasions, accessibility needs…' },
@@ -44,11 +45,14 @@ const VARIANTS = {
   visa: ['name', 'phone', 'email', 'country', 'visaType', 'travelDate', 'applicants', 'message'],
   corporate: ['name', 'company', 'phone', 'email', 'requirement', 'destination', 'travelDate', 'travelers', 'message'],
   hotel: ['name', 'phone', 'email', 'destination', 'checkIn', 'checkOut', 'travelers', 'rooms', 'accommodation', 'message'],
-  pilgrimage: ['name', 'phone', 'email', 'umrahType', 'departureCity', 'travelDate', 'travelers', 'sharing', 'message'],
+  pilgrimage: ['name', 'phone', 'email', 'umrahType', 'departureCity', 'travelDate', 'travelers', 'sharing', 'package', 'message'],
   flights: ['name', 'phone', 'email', 'tripType', 'from', 'to', 'travelDate', 'returnDate', 'travelers', 'travelClass', 'message'],
   insurance: ['name', 'phone', 'email', 'destination', 'travelDate', 'returnDate', 'travelers', 'message'],
   booking: ['name', 'phone', 'email', 'configuration', 'departureCity', 'travelDate', 'travelers', 'message'],
 };
+
+/** Booking requests need an email address so the confirmation can be sent in writing. */
+const EMAIL_REQUIRED = ['booking', 'pilgrimage'];
 
 /** Universal travel inquiry form. `defaults` pre-fills fields (e.g. travelType, destination, package). */
 export default function InquiryForm({
@@ -56,6 +60,7 @@ export default function InquiryForm({
   travelTypeOptions,
 }) {
   const names = VARIANTS[variant] || VARIANTS.full;
+  const emailRequired = EMAIL_REQUIRED.includes(variant);
   const initial = useMemo(
     () => ({ ...Object.fromEntries(names.map((n) => [n, ''])), _gotcha: '', ...defaults }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -72,7 +77,7 @@ export default function InquiryForm({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const errs = validateContact(values);
+    const errs = validateContact(values, { requireEmail: emailRequired });
     names.forEach((n) => {
       if (DEFS[n].required && !values[n]?.toString().trim() && !errs[n]) errs[n] = `Please add your ${DEFS[n].label.toLowerCase()}.`;
     });
@@ -108,6 +113,7 @@ export default function InquiryForm({
             name={n}
             {...DEFS[n]}
             {...(n === 'travelType' && travelTypeOptions ? { options: travelTypeOptions } : {})}
+            {...(n === 'email' && emailRequired ? { required: true } : {})}
             value={values[n]}
             onChange={onChange}
             error={errors[n]}

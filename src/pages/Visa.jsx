@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Info, Search, FolderCheck, BadgeCheck } from 'lucide-react';
+import { ArrowRight, Info, Search, FolderCheck, Clock, FileText, MessageCircle } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
 import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
@@ -9,15 +9,70 @@ import InquiryForm from '../components/forms/InquiryForm.jsx';
 import { WhatsAppIcon } from '../components/ui/BrandIcons.jsx';
 import { images } from '../data/images.js';
 import {
-  visas, visaTypes, casePreparation, doneBaseCountries, flagUrl, formatVisaPrice,
+  visas, visaTypes, casePreparation, DOCS, TYPE_LABEL, flagUrl, formatVisaPrice, sharedType,
 } from '../data/visas.js';
 import { whatsappUrl } from '../data/site.js';
 import { useSeo } from '../lib/hooks.js';
 
-const TYPE_LABEL = { 'e-visa': 'e-Visa', sticker: 'Sticker' };
-
 export function Flag({ code, size = 40 }) {
   return <img className="flag" src={flagUrl(code)} alt="" width={size} height={Math.round(size * 0.75)} loading="lazy" decoding="async" />;
+}
+
+function VisaCard({ visa, onApply }) {
+  const type = sharedType(visa);
+  return (
+    <li className="visa-card">
+      <div className="visa-card__head">
+        <Flag code={visa.code} />
+        <h3>{visa.country}</h3>
+        {type && <span className={`visa-card__type visa-card__type--${type}`}>{TYPE_LABEL[type]}</span>}
+      </div>
+
+      <ul className="visa-card__opts">
+        {visa.options.map((o) => (
+          <li key={o.label}>
+            <span>{o.label}</span>
+            <strong className={o.amount == null ? 'is-ask' : ''}>{formatVisaPrice(o)}</strong>
+          </li>
+        ))}
+      </ul>
+
+      {visa.processing && (
+        <p className="visa-card__time">
+          <Clock size={15} aria-hidden="true" />
+          <span><strong>Processing:</strong> approx. {visa.processing}</span>
+        </p>
+      )}
+
+      {visa.docs && (
+        <details className="visa-card__docs">
+          <summary><FileText size={15} aria-hidden="true" /> Documents required ({visa.docs.length})</summary>
+          <ul>
+            {visa.docs.map((d) => <li key={d}>{d}</li>)}
+          </ul>
+        </details>
+      )}
+
+      <div className="visa-card__actions">
+        <a href="#visa-inquiry" onClick={() => onApply(visa.country)} className="link-arrow">
+          Apply <ArrowRight size={15} aria-hidden="true" />
+        </a>
+        {visa.link ? (
+          <Link to={visa.link} className="visa-card__wa">Umrah packages</Link>
+        ) : (
+          <a
+            href={whatsappUrl(`Hello e-Journey, I'd like to apply for a ${visa.country} visa.`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="visa-card__wa"
+            aria-label={`Ask about a ${visa.country} visa on WhatsApp`}
+          >
+            <WhatsAppIcon size={16} /> WhatsApp
+          </a>
+        )}
+      </div>
+    </li>
+  );
 }
 
 export default function Visa() {
@@ -26,9 +81,9 @@ export default function Visa() {
   const [country, setCountry] = useState('');
 
   useSeo({
-    title: 'Visa Services & Prices from Pakistan',
+    title: 'Visa Services, Prices & Requirements from Pakistan',
     description:
-      'Visa prices from e-Journey Travel & Tours, Karachi — Dubai, Malaysia, Thailand, Singapore, Azerbaijan, Sri Lanka, Türkiye, Uzbekistan and more, plus case preparation for the USA, UK, Schengen, Canada and Australia.',
+      'Visa prices, document requirements and processing times from e-Journey Travel & Tours, Karachi — Dubai, Malaysia, Thailand, Singapore, Azerbaijan, Sri Lanka, Türkiye, Uzbekistan and more, plus case preparation for the USA, UK, Schengen, Canada and Australia.',
   });
 
   const list = useMemo(() => {
@@ -36,7 +91,6 @@ export default function Visa() {
     return visas
       .filter((v) => !q || v.country.toLowerCase().includes(q))
       .map((v) => {
-        if (type === 'done-base') return v.doneBase ? v : null;
         if (type === 'all') return v;
         const options = v.options.filter((o) => o.type === type);
         return options.length ? { ...v, options } : null;
@@ -50,7 +104,7 @@ export default function Visa() {
         image={images.passport}
         eyebrow="Visa Services"
         title={<>Visa Services &amp; <em>Prices</em></>}
-        lead="e-Visas, sticker visas and full case preparation — clear prices, a document checklist, and updates until your visa is issued."
+        lead="e-Visas, sticker visas and full case preparation — clear prices, the documents you need, and how long each visa usually takes."
         crumbs={[{ label: 'Visa' }]}
       >
         <a href="#visa-prices" className="btn btn--gold btn--lg">See Visa Prices <ArrowRight size={18} aria-hidden="true" /></a>
@@ -63,7 +117,7 @@ export default function Visa() {
         <SectionHeading
           eyebrow="Visa Prices"
           title={<>Choose Your <em>Destination</em></>}
-          lead="Prices are per applicant. “+ SC” means service charges are added to the listed fee."
+          lead="Prices are per applicant. “+ SC” means service charges are added to the listed fee. Open “Documents required” on any card for the checklist."
           align="center"
         />
 
@@ -84,41 +138,7 @@ export default function Visa() {
 
         {list.length ? (
           <ul className="visa-grid">
-            {list.map((v) => (
-              <li key={v.country} className="visa-card">
-                <div className="visa-card__head">
-                  <Flag code={v.code} />
-                  <h3>{v.country}</h3>
-                  {v.doneBase && <span className="visa-card__badge"><BadgeCheck size={13} aria-hidden="true" /> Done base</span>}
-                </div>
-                <ul className="visa-card__opts">
-                  {v.options.map((o) => (
-                    <li key={o.label}>
-                      <span>{o.label}<small>{TYPE_LABEL[o.type]}</small></span>
-                      <strong>{formatVisaPrice(o)}</strong>
-                    </li>
-                  ))}
-                </ul>
-                <div className="visa-card__actions">
-                  <a href="#visa-inquiry" onClick={() => setCountry(v.country)} className="link-arrow">
-                    Apply <ArrowRight size={15} aria-hidden="true" />
-                  </a>
-                  {v.link ? (
-                    <Link to={v.link} className="visa-card__wa">Umrah packages</Link>
-                  ) : (
-                    <a
-                      href={whatsappUrl(`Hello e-Journey, I'd like to apply for a ${v.country} visa.`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="visa-card__wa"
-                      aria-label={`Ask about a ${v.country} visa on WhatsApp`}
-                    >
-                      <WhatsAppIcon size={16} /> WhatsApp
-                    </a>
-                  )}
-                </div>
-              </li>
-            ))}
+            {list.map((v) => <VisaCard key={v.country} visa={v} onApply={setCountry} />)}
           </ul>
         ) : (
           <div className="visa-empty">
@@ -128,6 +148,10 @@ export default function Visa() {
             </a>
           </div>
         )}
+        <p className="visa-footnote">
+          <Info size={15} aria-hidden="true" /> Processing times are approximate and counted from submission of a complete
+          file. They are set by the embassy and can change in busy seasons.
+        </p>
       </Section>
 
       <Section tone="forest" className="visa-extra">
@@ -136,7 +160,7 @@ export default function Visa() {
             <span className="visa-extra__icon"><FolderCheck size={24} aria-hidden="true" /></span>
             <p className="eyebrow eyebrow--light">Case Preparation</p>
             <h2 className="h3">USA, UK, Schengen &amp; more</h2>
-            <p>For visas that need a full application file, we prepare your case and documents and guide you through the appointment.</p>
+            <p>For visas that need a full application file, we prepare your case and documents and guide you through the appointment. Processing depends on embassy appointments — we’ll advise the current timeline.</p>
             <ul className="flag-list">
               {casePreparation.map((c) => (
                 <li key={c.country}><Flag code={c.code} size={28} /> {c.country}</li>
@@ -145,17 +169,14 @@ export default function Visa() {
             <a href="#visa-inquiry" className="btn btn--gold">Start My Case <ArrowRight size={18} aria-hidden="true" /></a>
           </Reveal>
           <Reveal delay={120} className="visa-extra__card">
-            <span className="visa-extra__icon"><BadgeCheck size={24} aria-hidden="true" /></span>
-            <p className="eyebrow eyebrow--light">Done Base Visa Available</p>
-            <h2 className="h3">{doneBaseCountries.join(', ').replace(/, ([^,]*)$/, ' & $1')}</h2>
-            <p>Done base visas are available for these countries. Ask our team for the current terms and processing time.</p>
-            <ul className="flag-list">
-              {visas.filter((v) => v.doneBase).map((v) => (
-                <li key={v.country}><Flag code={v.code} size={28} /> {v.country}</li>
-              ))}
+            <span className="visa-extra__icon"><FileText size={24} aria-hidden="true" /></span>
+            <p className="eyebrow eyebrow--light">Case File Checklist</p>
+            <h2 className="h3">What a full visa file needs</h2>
+            <ul className="visa-extra__docs">
+              {DOCS.full.map((d) => <li key={d}>{d}</li>)}
             </ul>
-            <a href={whatsappUrl('Hello e-Journey, I would like to know about done base visas.')} target="_blank" rel="noopener noreferrer" className="btn btn--ghost-light">
-              <WhatsAppIcon size={18} /> Ask About Done Base
+            <a href={whatsappUrl('Hello e-Journey, I would like to check my visa documents.')} target="_blank" rel="noopener noreferrer" className="btn btn--ghost-light">
+              <MessageCircle size={18} aria-hidden="true" /> Check My Documents
             </a>
           </Reveal>
         </div>

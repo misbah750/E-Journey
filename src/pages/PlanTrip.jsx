@@ -63,8 +63,8 @@ export default function PlanTrip() {
               <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
                 <WhatsAppIcon size={18} /> WhatsApp
               </a>
-              <a href={`tel:${site.phones[0].tel}`} className="btn btn--outline">
-                <Phone size={18} aria-hidden="true" /> {site.phones[0].label}
+              <a href={`tel:${site.mobiles[0].tel}`} className="btn btn--outline">
+                <Phone size={18} aria-hidden="true" /> {site.mobiles[0].label}
               </a>
             </div>
             <FormAside image={images.wing} />

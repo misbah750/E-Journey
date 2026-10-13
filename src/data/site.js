@@ -16,20 +16,18 @@ export const site = {
     mapQuery: 'Akbar Paradise, Block 10, Gulshan-e-Iqbal, Rashid Minhas Road, Karachi',
   },
 
-  phones: [
-    { label: '021-34992200', tel: '+922134992200' },
-    { label: '021-34993300', tel: '+922134993300' },
-  ],
+  /** Mobile numbers — the first one is used wherever a single "call us" number is shown. */
   mobiles: [
-    { label: '0322-5100961', tel: '+923225100961' },
     { label: '0335-5100991', tel: '+923355100991' },
+    { label: '0322-5100961', tel: '+923225100961' },
     { label: '0332-6665977', tel: '+923326665977' },
   ],
-  email: 'ejourneytravel@gmail.com',
+  email: 'info@ejourney.net',
+  emailAlt: 'ejourneytravel@gmail.com',
 
-  /** WhatsApp number in international format without "+" (0335-5100991). */
+  /** WhatsApp number in international format without "+" (+92 335 5100991). */
   whatsapp: '923355100991',
-  whatsappLabel: '0335-5100991',
+  whatsappLabel: '+92 335 5100991',
   whatsappGreeting: 'Hello e-Journey Travel & Tours, I would like assistance planning my trip.',
 
   /** Placeholder social links — replace with the official accounts when available. */
