@@ -37,7 +37,7 @@ function ShareLinks({ title }) {
     <div className="share">
       <span className="share__label"><Share2 size={16} aria-hidden="true" /> Share package</span>
       <div className="share__links">
-        <a href={`https://wa.me/?text=${encodeURIComponent(`${title} — ${url}`)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp"><WhatsAppIcon size={18} /></a>
+        <a href={`https://wa.me/?text=${encodeURIComponent(`${title}: ${url}`)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp"><WhatsAppIcon size={18} /></a>
         <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook"><FacebookIcon size={18} /></a>
         <a href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`} aria-label="Share by email"><Mail size={18} aria-hidden="true" /></a>
         <button type="button" onClick={copy} aria-label="Copy link"><Link2 size={18} aria-hidden="true" /></button>
@@ -144,7 +144,7 @@ export default function PackageDetail() {
                 ))}
               </ul>
               {pkg.airfareNotIncluded && (
-                <p className="pd-flag"><Info size={16} aria-hidden="true" /> Airline ticket is not included — we can quote flights separately.</p>
+                <p className="pd-flag"><Info size={16} aria-hidden="true" /> Airline ticket is not included. We can quote flights separately.</p>
               )}
               <p className="pd-note">Terms and conditions apply. Hotels are as named or similar; final details are confirmed by your consultant at the time of booking.</p>
             </Reveal>
@@ -156,7 +156,7 @@ export default function PackageDetail() {
               <div className="pd-flyer__body">
                 <p className="eyebrow">Package Flyer</p>
                 <h2 className="h3">Save or share the flyer</h2>
-                <p>The full package on one page — handy to keep on your phone or send to family.</p>
+                <p>The full package on one page, handy to keep on your phone or send to family.</p>
                 <a href={pkg.flyer} download className="btn btn--forest"><Download size={18} aria-hidden="true" /> Download Flyer</a>
               </div>
             </Reveal>
@@ -215,13 +215,13 @@ export default function PackageDetail() {
             <div className="consult-card">
               <p className="eyebrow">Still have questions?</p>
               <h3 className="h3">Talk to our travel consultant</h3>
-              <p>Different dates, a room upgrade or flights from your city — our team will tailor the package for you.</p>
+              <p>Different dates, a room upgrade or flights from your city? Our team will tailor the package for you.</p>
               <a href={whatsappUrl(`Hello e-Journey, I'm interested in the ${packageLabel} package.`)} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
                 <WhatsAppIcon size={18} /> Chat via WhatsApp
               </a>
             </div>
 
-            <ShareLinks title={`${pkg.title} — e-Journey Travel & Tours`} />
+            <ShareLinks title={`${pkg.title} | e-Journey Travel & Tours`} />
           </aside>
         </div>
       </Section>

@@ -15,7 +15,7 @@ export default function VisaPreview() {
         <SectionHeading
           eyebrow="Visa Services"
           title={<>Visa Prices, <em>Clearly Listed</em></>}
-          lead={`e-Visas, sticker visas and case preparation for ${visas.length}+ countries — plus USA, UK, Schengen, Canada and Australia files.`}
+          lead={`e-Visas, sticker visas and case preparation for ${visas.length}+ countries, plus USA, UK, Schengen, Canada and Australia files.`}
         >
           <Link to="/visa-assistance" className="btn btn--forest">
             See All Visa Prices <ArrowRight size={18} aria-hidden="true" />

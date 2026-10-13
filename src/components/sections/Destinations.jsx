@@ -48,7 +48,7 @@ export default function Destinations({ tone = 'ivory' }) {
         <SectionHeading
           eyebrow="Featured Destinations"
           title={<>Where Will Your Journey <em>Take You?</em></>}
-          lead="From the valleys of the Karakoram to the skylines of the Gulf — thoughtfully designed travel experiences, planned around you."
+          lead="Thoughtfully designed travel experiences, from the valleys of the Karakoram to the skylines of the Gulf, planned around you."
         />
         <Reveal delay={120} className="section-head-row__aside section-head-row__aside--end">
           <div className="segmented" role="tablist" aria-label="Destination region">

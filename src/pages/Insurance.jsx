@@ -12,7 +12,7 @@ import { useSeo } from '../lib/hooks.js';
 
 const who = [
   { icon: Globe2, title: 'International travellers', text: 'Cover suited to your destination and trip length.' },
-  { icon: Stamp, title: 'Visa applicants', text: 'Guidance on insurance where a visa requires it — Schengen visas, for example.' },
+  { icon: Stamp, title: 'Visa applicants', text: 'Guidance on insurance where a visa requires it, such as Schengen visas.' },
   { icon: Users, title: 'Families', text: 'Policies that include everyone travelling together.' },
   { icon: GraduationCap, title: 'Students', text: 'Support for study trips and educational tours.' },
   { icon: BriefcaseBusiness, title: 'Corporate travellers', text: 'Insurance arranged alongside business travel.' },
@@ -39,7 +39,7 @@ export default function Insurance() {
         image={images.wingSunset}
         eyebrow="Travel Insurance"
         title={<>Travel Covered, <em>Travel Assured</em></>}
-        lead="Travel insurance support for international and domestic travellers — so an unexpected moment doesn’t become an unexpected cost."
+        lead="Travel insurance support for international and domestic travellers, so an unexpected moment doesn’t become an unexpected cost."
         crumbs={[{ label: 'Services', to: '/services' }, { label: 'Travel Insurance' }]}
       >
         <a href="#insurance-inquiry" className="btn btn--gold btn--lg">Request Insurance Support <ArrowRight size={18} aria-hidden="true" /></a>
@@ -66,7 +66,7 @@ export default function Insurance() {
           <Info size={20} aria-hidden="true" />
           <p>
             Policies are issued by licensed insurers. Coverage, exclusions and claims are governed by the insurer’s policy
-            wording — we’ll help you understand the options before you choose.
+            wording. We’ll help you understand the options before you choose.
           </p>
         </Reveal>
       </Section>

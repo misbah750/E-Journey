@@ -21,9 +21,9 @@ const pilgrimFaqs = [
   { q: 'How often do Umrah rates change?', a: 'Umrah rates move with the season, so we update them every 15 days to a month. Ask us for the current rate for your dates and we’ll send it the same day.' },
   { q: 'What is the difference between Group and Individual Umrah?', a: 'Group Umrah travels together as a group movement with a scholar guiding the group. Individual Umrah is planned around your own dates, hotels and length of stay.' },
   { q: 'Do scholars accompany the groups?', a: 'Yes. Religious scholars provide guidance before and during the pilgrimage, so every ritual is performed with confidence.' },
-  { q: 'What room sharing options are available?', a: 'Sharing, quad, triple and double rooms are available — each package lists the price for every option.' },
+  { q: 'What room sharing options are available?', a: 'Sharing, quad, triple and double rooms are available, and each package lists the price for every option.' },
   { q: 'Is assistance available for elderly pilgrims or wheelchair users?', a: 'Please mention any mobility or special assistance needs when you enquire, and our pilgrim desk will plan the arrangements with you.' },
-  { q: 'Can you help with Hajj?', a: 'For Hajj, please contact us directly to discuss your plans — our team will talk you through the options.' },
+  { q: 'Can you help with Hajj?', a: 'For Hajj, please contact us directly to discuss your plans. Our team will talk you through the options.' },
 ];
 
 export default function Umrah() {
@@ -34,7 +34,7 @@ export default function Umrah() {
     setBooking({ umrahType: 'Group Umrah', package: describeUmrahChoice(group, index), ...(next ? { travelDate: next } : {}) });
   };
   useSeo({
-    title: 'Umrah Packages from Pakistan — Group, Individual & Five Star',
+    title: 'Umrah Packages from Pakistan: Group, Individual & Five Star',
     description:
       'Group, individual and five star Umrah from Karachi with scholar guidance, hotels near the Haramain, Umrah e-Visa and current rates updated every 15 days, by e-Journey Travel & Tours.',
     jsonLd: faqJsonLd(pilgrimFaqs),
@@ -47,7 +47,7 @@ export default function Umrah() {
         image={images.kaabaClose}
         eyebrow="Umrah Services"
         title={<>Umrah, Guided <em>With Care</em></>}
-        lead="Group, individual and five star Umrah from Pakistan — visa, tickets, hotels near the Haramain and scholar guidance, all arranged for you."
+        lead="Group, individual and five star Umrah from Pakistan: visa, tickets, hotels near the Haramain and scholar guidance, all arranged for you."
         crumbs={[{ label: 'Umrah' }]}
       >
         <a href="#packages" className="btn btn--gold btn--lg">View Umrah Packages <ArrowRight size={18} aria-hidden="true" /></a>
@@ -147,7 +147,7 @@ export default function Umrah() {
             <p className="eyebrow">Pilgrim Questions</p>
             <h2 className="h2">Before You <em>Travel</em></h2>
             <Ornament />
-            <p className="lead">Our Umrah consultants are on hand to answer anything else — including hotel distances and upgrades.</p>
+            <p className="lead">Our Umrah consultants are on hand to answer anything else, including hotel distances and upgrades.</p>
             <div className="faq__help">
               <a href={whatsappUrl('Assalam o Alaikum e-Journey, I would like help planning my Umrah.')} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
                 <WhatsAppIcon size={18} /> Talk to an Umrah Consultant

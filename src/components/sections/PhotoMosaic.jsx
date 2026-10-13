@@ -25,7 +25,7 @@ export default function PhotoMosaic({ tone = 'ivory' }) {
         <SectionHeading
           eyebrow="In Pictures"
           title={<>A World of <em>Journeys</em></>}
-          lead="Sacred cities, mountain valleys, island lagoons and skylines — just some of the places we plan journeys to."
+          lead="Sacred cities, mountain valleys, island lagoons and skylines: just some of the places we plan journeys to."
         />
         <Reveal delay={120} className="section-head-row__aside section-head-row__aside--end">
           <Link to="/destinations" className="btn btn--outline">

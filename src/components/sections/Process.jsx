@@ -16,7 +16,7 @@ export default function Process({ tone = 'forest', steps = processSteps, eyebrow
       <SectionHeading
         eyebrow={eyebrow}
         title={title || <>Your Journey, <em>Step by Step</em></>}
-        lead="A simple, personal process — with a real consultant beside you from the first message to the flight home."
+        lead="A simple, personal process, with a real consultant beside you from the first message to the flight home."
         align="center"
       />
       <div className="process__wrap" ref={ref} style={{ '--progress': progress, '--n': n }}>

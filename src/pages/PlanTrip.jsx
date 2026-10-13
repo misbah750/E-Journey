@@ -33,7 +33,7 @@ export default function PlanTrip() {
   if (style === 'Group') initial.companions = 'Group';
 
   useSeo({
-    title: 'Plan Your Trip — Custom Travel Package',
+    title: 'Plan Your Trip: Custom Travel Package',
     description:
       'Build a custom travel package with e-Journey Travel & Tours: choose your destination, dates, travel companions, experience and budget, and a consultant will design your journey.',
   });
@@ -46,7 +46,7 @@ export default function PlanTrip() {
         image={images.passu}
         eyebrow="Plan Your Trip"
         title={<>Let’s Create a Journey <em>Designed Around You</em></>}
-        lead="Five quick questions — then a real travel consultant takes it from there."
+        lead="Five quick questions, then a real travel consultant takes it from there."
         crumbs={[{ label: 'Plan Your Trip' }]}
       />
 
@@ -57,7 +57,7 @@ export default function PlanTrip() {
           <SectionHeading
             eyebrow="Prefer a Detailed Form?"
             title={<>Submit a <em>Travel Request</em></>}
-            lead="Share every detail at once — or reach us directly."
+            lead="Share every detail at once, or reach us directly."
           >
             <div className="faq__help">
               <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">

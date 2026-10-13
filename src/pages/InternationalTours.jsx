@@ -14,7 +14,7 @@ export default function InternationalTours() {
   useSeo({
     title: 'International Tour Packages from Pakistan',
     description:
-      'International tour packages from Pakistan — Thailand, Malaysia, Bali, Sri Lanka, Uzbekistan, Azerbaijan and Egypt, with hotels, transfers, tours and visa. By e-Journey Travel & Tours, Karachi.',
+      'International tour packages from Pakistan: Thailand, Malaysia, Bali, Sri Lanka, Uzbekistan, Azerbaijan and Egypt, with hotels, transfers, tours and visa. By e-Journey Travel & Tours, Karachi.',
   });
 
   return (
@@ -23,7 +23,7 @@ export default function InternationalTours() {
         image={images.cappadocia}
         eyebrow="International Tours"
         title={<>The World, <em>Thoughtfully Planned</em></>}
-        lead="Ready-to-book tour packages with hotels, breakfast, transfers, sightseeing and visa — or a holiday designed entirely around you."
+        lead="Ready-to-book tour packages with hotels, breakfast, transfers, sightseeing and visa, or a holiday designed entirely around you."
         crumbs={[{ label: 'Destinations', to: '/destinations' }, { label: 'International Tours' }]}
       >
         <a href="#packages" className="btn btn--gold btn--lg">View Packages <ArrowRight size={18} aria-hidden="true" /></a>

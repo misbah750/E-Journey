@@ -18,10 +18,10 @@ export default function WhyUs({ tone = 'white' }) {
           <Reveal delay={120}>
             <blockquote className="why__quote">
               <p>Travelling means not just to visit a place but to truly explore it.</p>
-              <footer>— The e-Journey philosophy</footer>
+              <footer>The e-Journey philosophy</footer>
             </blockquote>
             <p className="body-copy">
-              Knowledge of the destination, a personal approach and genuine care for every traveller — that is how we
+              Knowledge of the destination, a personal approach and genuine care for every traveller. That is how we
               turn trips into journeys worth remembering.
             </p>
             <Link to="/about" className="link-arrow link-arrow--strong">

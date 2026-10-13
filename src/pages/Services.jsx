@@ -16,7 +16,7 @@ export default function Services() {
   useSeo({
     title: 'Travel Services',
     description:
-      'International and domestic flight tickets, holidays, corporate travel, hotels, visa assistance, travel insurance, Umrah, sightseeing, group travel and reservations — all from e-Journey Travel & Tours, Karachi.',
+      'International and domestic flight tickets, holidays, corporate travel, hotels, visa assistance, travel insurance, Umrah, sightseeing, group travel and reservations, all from e-Journey Travel & Tours, Karachi.',
     jsonLd: faqJsonLd(faqs),
   });
 
@@ -39,7 +39,7 @@ export default function Services() {
         <SectionHeading
           eyebrow="Service Portfolio"
           title={<>Twelve Ways We <em>Take Care of You</em></>}
-          lead="Use one service or combine several — a single consultant can coordinate your tickets, stay, visa and insurance together."
+          lead="Use one service or combine several. A single consultant can coordinate your tickets, stay, visa and insurance together."
           align="center"
         />
         <Reveal as="nav" className="jump-nav" aria-label="Jump to a service">

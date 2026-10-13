@@ -42,7 +42,7 @@ function Social({ href, label, children }) {
   // Placeholder until official accounts are supplied (see data/site.js → social).
   if (!href) {
     return (
-      <span className="social social--pending" title={`${label} — coming soon`} aria-label={`${label} (coming soon)`} role="img">
+      <span className="social social--pending" title={`${label} (coming soon)`} aria-label={`${label} (coming soon)`} role="img">
         {children}
       </span>
     );

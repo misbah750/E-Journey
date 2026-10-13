@@ -83,7 +83,7 @@ export default function Visa() {
   useSeo({
     title: 'Visa Services, Prices & Requirements from Pakistan',
     description:
-      'Visa prices, document requirements and processing times from e-Journey Travel & Tours, Karachi — Dubai, Malaysia, Thailand, Singapore, Azerbaijan, Sri Lanka, Türkiye, Uzbekistan and more, plus case preparation for the USA, UK, Schengen, Canada and Australia.',
+      'Visa prices, document requirements and processing times from e-Journey Travel & Tours, Karachi: Dubai, Malaysia, Thailand, Singapore, Azerbaijan, Sri Lanka, Türkiye, Uzbekistan and more, plus case preparation for the USA, UK, Schengen, Canada and Australia.',
   });
 
   const list = useMemo(() => {
@@ -104,7 +104,7 @@ export default function Visa() {
         image={images.passport}
         eyebrow="Visa Services"
         title={<>Visa Services &amp; <em>Prices</em></>}
-        lead="e-Visas, sticker visas and full case preparation — clear prices, the documents you need, and how long each visa usually takes."
+        lead="e-Visas, sticker visas and full case preparation, with clear prices, the documents you need, and how long each visa usually takes."
         crumbs={[{ label: 'Visa' }]}
       >
         <a href="#visa-prices" className="btn btn--gold btn--lg">See Visa Prices <ArrowRight size={18} aria-hidden="true" /></a>
@@ -142,7 +142,7 @@ export default function Visa() {
           </ul>
         ) : (
           <div className="visa-empty">
-            <p>We don’t have a listed price for “{query}” yet — ask us and we’ll check the requirements for you.</p>
+            <p>We don’t have a listed price for “{query}” yet. Ask us and we’ll check the requirements for you.</p>
             <a href={whatsappUrl(`Hello e-Journey, do you process visas for ${query}?`)} target="_blank" rel="noopener noreferrer" className="btn btn--whatsapp">
               <WhatsAppIcon size={18} /> Ask on WhatsApp
             </a>
@@ -160,7 +160,7 @@ export default function Visa() {
             <span className="visa-extra__icon"><FolderCheck size={24} aria-hidden="true" /></span>
             <p className="eyebrow eyebrow--light">Case Preparation</p>
             <h2 className="h3">USA, UK, Schengen &amp; more</h2>
-            <p>For visas that need a full application file, we prepare your case and documents and guide you through the appointment. Processing depends on embassy appointments — we’ll advise the current timeline.</p>
+            <p>For visas that need a full application file, we prepare your case and documents and guide you through the appointment. Processing depends on embassy appointments, so we’ll advise the current timeline.</p>
             <ul className="flag-list">
               {casePreparation.map((c) => (
                 <li key={c.country}><Flag code={c.code} size={28} /> {c.country}</li>
@@ -199,7 +199,7 @@ export default function Visa() {
           <Info size={20} aria-hidden="true" />
           <p>
             Visa decisions are made solely by the relevant embassy or consulate. We help you prepare a complete, accurate
-            application and keep you informed — processing times and outcomes remain at the discretion of the issuing
+            application and keep you informed. Processing times and outcomes remain at the discretion of the issuing
             authority.
           </p>
         </Reveal>

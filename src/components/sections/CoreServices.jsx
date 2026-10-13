@@ -25,7 +25,7 @@ export default function CoreServices() {
         />
         <Reveal delay={120} className="section-head-row__aside">
           <p className="lead">
-            A Karachi travel agency for air tickets, holidays, visas, Umrah and travel insurance — with a real consultant
+            A Karachi travel agency for air tickets, holidays, visas, Umrah and travel insurance, with a real consultant
             behind every booking.
           </p>
           <Link to="/about" className="link-arrow link-arrow--strong">

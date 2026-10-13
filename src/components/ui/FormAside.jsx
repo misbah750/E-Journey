@@ -2,7 +2,7 @@ import Img from './Img.jsx';
 
 const STEPS = [
   { title: 'We review your request', text: 'A consultant reads every detail you share.' },
-  { title: 'We get in touch', text: 'By phone, WhatsApp or email — whichever suits you.' },
+  { title: 'We get in touch', text: 'By phone, WhatsApp or email, whichever suits you.' },
   { title: 'You receive your options', text: 'Suggested arrangements and pricing to review.' },
 ];
 

@@ -14,7 +14,7 @@ const regions = [
   { title: 'Pakistan', text: 'City hotels in Karachi, Lahore and Islamabad, and mountain stays across Hunza, Skardu, Swat and Naran.' },
   { title: 'Makkah & Madinah', text: 'Hotels selected for comfortable access to the Haramain for pilgrims.' },
   { title: 'Dubai & the UAE', text: 'City hotels, serviced apartments and desert resorts across the UAE.' },
-  { title: 'Worldwide', text: 'Türkiye, Malaysia, Thailand, Europe and beyond — from budget to deluxe.' },
+  { title: 'Worldwide', text: 'Türkiye, Malaysia, Thailand, Europe and beyond, from budget to deluxe.' },
 ];
 
 const considerations = [
@@ -28,7 +28,7 @@ export default function Hotels() {
   useSeo({
     title: 'Hotels & Accommodation Booking',
     description:
-      'Hotel booking in Pakistan and worldwide with e-Journey Travel & Tours — from budget stays and self-catering units to premium hotels, luxury suites and resorts, including hotels near the Haramain.',
+      'Hotel booking in Pakistan and worldwide with e-Journey Travel & Tours, from budget stays and self-catering units to premium hotels, luxury suites and resorts, including hotels near the Haramain.',
   });
 
   return (
@@ -37,7 +37,7 @@ export default function Hotels() {
         image={images.resortPool}
         eyebrow="Hotels & Accommodation"
         title={<>Stay Somewhere <em>You’ll Love</em></>}
-        lead="Worldwide accommodation from low-budget self-catering units to exclusive deluxe hotels — matched to your destination, budget and travel style."
+        lead="Worldwide accommodation from low-budget self-catering units to exclusive deluxe hotels, matched to your destination, budget and travel style."
         crumbs={[{ label: 'Services', to: '/services' }, { label: 'Hotels & Accommodation' }]}
       >
         <a href="#hotel-inquiry" className="btn btn--gold btn--lg">Find Accommodation <ArrowRight size={18} aria-hidden="true" /></a>
@@ -82,7 +82,7 @@ export default function Hotels() {
           <SectionHeading
             eyebrow="Accommodation Request"
             title={<>Tell Us About <em>Your Stay</em></>}
-            lead="Share your destination, dates and preferences — we’ll suggest options across categories for you to choose from."
+            lead="Share your destination, dates and preferences, and we’ll suggest options across categories for you to choose from."
           >
             <FormAside image={images.shangrila} />
           </SectionHeading>

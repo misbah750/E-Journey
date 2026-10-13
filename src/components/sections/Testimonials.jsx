@@ -59,7 +59,7 @@ export default function Testimonials({ tone = 'sand' }) {
                 <strong>{t.name}</strong>
                 <span>{t.trip} · {t.destination}</span>
                 {!t.verified && (
-                  <em className="placeholder-tag">Customer testimonial — replace with verified customer feedback</em>
+                  <em className="placeholder-tag">Customer testimonial (replace with verified customer feedback)</em>
                 )}
               </figcaption>
             </figure>

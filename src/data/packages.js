@@ -70,7 +70,7 @@ export const packages = [
     nights: 7,
     stars: '4 Star',
     images: [images.watArun, images.thailand],
-    summary: 'Three Thai favourites — Bangkok city sights, Pattaya’s Coral Island and Phuket with a full-day Phi Phi Island tour.',
+    summary: 'Three Thai favourites: Bangkok city sights, Pattaya’s Coral Island and Phuket with a full-day Phi Phi Island tour.',
     hotels: [
       '2 nights in Bangkok at Ambassador Hotel / similar',
       '2 nights in Pattaya at Hotel Amber Pattaya / similar',
@@ -221,7 +221,7 @@ export const packages = [
     nights: 6,
     stars: '3 Star',
     images: [images.langkawi, images.penang],
-    summary: 'Two islands in one trip — Langkawi island hopping and mangroves, then Penang’s heritage city and Penang Hill.',
+    summary: 'Two islands in one trip: Langkawi island hopping and mangroves, then Penang’s heritage city and Penang Hill.',
     hotels: ['3 nights at Nadias Hotel Cenang Langkawi (3 Star)', '3 nights at Merchant Hotel Penang (3 Star)'],
     inclusions: [
       'Daily breakfast',
@@ -230,7 +230,7 @@ export const packages = [
       'Langkawi island hopping tour',
       'Langkawi mangrove tour',
       'Penang city highlights with Penang Hill funicular (ticket included)',
-      'One-way ferry ticket (Langkawi – Penang)',
+      'One-way ferry ticket (Langkawi to Penang)',
     ],
     prices: [{ label: 'Per person', amount: 125000 }],
     validTill: VALID_TILL,
@@ -273,7 +273,7 @@ export const packages = [
     stars: '3 or 4 Star',
     images: [images.sharm, images.redSeaReef],
     summary: 'Red Sea snorkelling at Ras Mohammed and White Island, Naama Bay, the Old Market and Farsha Café.',
-    hotels: ['5 nights — choose 3 Star or 4 Star (see prices)'],
+    hotels: ['5 nights, choose 3 Star or 4 Star (see prices)'],
     inclusions: [
       'All transfers',
       'Daily breakfast',

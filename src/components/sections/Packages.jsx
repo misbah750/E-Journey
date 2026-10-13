@@ -23,7 +23,7 @@ function pickVaried(limit) {
 export default function Packages({
   id = 'packages', tone = 'sand', limit, eyebrow = 'International Tour Packages',
   title = <>Holidays Abroad, <em>Ready to Book</em></>,
-  lead = 'Hotels, breakfast, transfers, sightseeing and visa — put together in one package. Prices per person on twin sharing.',
+  lead = 'Hotels, breakfast, transfers, sightseeing and visa in one package. Prices per person on twin sharing.',
 }) {
   const [filter, setFilter] = useState('all');
   const list = limit ? pickVaried(limit) : packages.filter((p) => filter === 'all' || p.country === filter);

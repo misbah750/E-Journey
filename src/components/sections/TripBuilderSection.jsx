@@ -15,7 +15,7 @@ export default function TripBuilderSection({ id = 'trip-builder', tone = 'sand',
         <Reveal className="builder__intro">
           <p className="eyebrow">Custom Trip Builder</p>
           <H className="h2">Build Your Perfect <em>Journey</em></H>
-          <p className="lead">Your trip should fit you — not the other way around.</p>
+          <p className="lead">Your trip should fit you, not the other way around.</p>
           <p className="body-copy">
             Answer five quick questions and a travel consultant will shape a package around your destination, dates,
             travel companions, style and budget.

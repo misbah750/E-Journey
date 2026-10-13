@@ -41,7 +41,7 @@ const LABELS = {
 
 /** Human-readable summary of an inquiry (used for WhatsApp / email delivery). */
 export function formatInquiry(data, source) {
-  const lines = [`New travel request — ${source || 'e-Journey website'}`, ''];
+  const lines = [`New travel request: ${source || 'e-Journey website'}`, ''];
   Object.entries(data).forEach(([key, value]) => {
     if (value === '' || value == null || value === false || key.startsWith('_')) return;
     const v = Array.isArray(value) ? value.join(', ') : value === true ? 'Yes' : value;
@@ -59,7 +59,7 @@ export function formatInquiry(data, source) {
  */
 export async function submitInquiry(data, source) {
   const message = formatInquiry(data, source);
-  const subject = `Travel request: ${data.travelType || 'General'}${data.name ? ` — ${data.name}` : ''}`;
+  const subject = `Travel request: ${data.travelType || 'General'}${data.name ? ` (${data.name})` : ''}`;
 
   if (data._gotcha) return { delivered: true, message, subject }; // honeypot: silently accept bots
 

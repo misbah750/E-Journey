@@ -15,7 +15,7 @@ import { useSeo } from '../lib/hooks.js';
 export default function Home() {
   useSeo({
     description:
-      'e-Journey Travel & Tours, Karachi — air tickets, international tour packages, Pakistan tours, visa services, Umrah and travel insurance.',
+      'e-Journey Travel & Tours, Karachi: air tickets, international tour packages, Pakistan tours, visa services, Umrah and travel insurance.',
   });
 
   return (
@@ -26,7 +26,7 @@ export default function Home() {
         limit={6}
         eyebrow="Tour Packages"
         title={<>Holidays Abroad, <em>Ready to Book</em></>}
-        lead="Hotels, breakfast, transfers, sightseeing and visa in one price. A few favourites below — see all packages for more."
+        lead="Hotels, breakfast, transfers, sightseeing and visa in one price. Here are a few favourites; see all packages for more."
       />
       <UmrahTypesBand />
       <VisaPreview />

@@ -16,7 +16,7 @@ export const pakistanDestinations = [
     image: images.hunza,
     short: 'Apricot orchards, ancient forts and the peaks of the Karakoram.',
     description:
-      'Hunza is where the Karakoram Highway reveals its most celebrated views — Rakaposhi and Ultar above terraced villages, the forts of Baltit and Altit, and the turquoise waters of Attabad Lake further up the valley.',
+      'Hunza is where the Karakoram Highway reveals its most celebrated views: Rakaposhi and Ultar above terraced villages, the forts of Baltit and Altit, and the turquoise waters of Attabad Lake further up the valley.',
     highlights: ['Baltit & Altit forts', 'Attabad Lake', 'Passu Cones', 'Khunjerab Pass'],
     idealFor: ['Families', 'Couples', 'Photography'],
   },
@@ -27,7 +27,7 @@ export const pakistanDestinations = [
     image: images.skardu,
     short: 'Cold deserts, alpine lakes and the gateway to the world’s great peaks.',
     description:
-      'Skardu sits where the Indus widens between towering ranges — a base for the Shangrila and Upper Kachura lakes, the high Deosai Plains and the historic valleys of Shigar and Khaplu.',
+      'Skardu sits where the Indus widens between towering ranges and is the base for the Shangrila and Upper Kachura lakes, the high Deosai Plains and the historic valleys of Shigar and Khaplu.',
     highlights: ['Shangrila & Upper Kachura', 'Deosai Plains', 'Shigar Fort', 'Katpana cold desert'],
     idealFor: ['Adventure', 'Couples', 'Groups'],
   },
@@ -38,7 +38,7 @@ export const pakistanDestinations = [
     image: images.fairyMeadows,
     short: 'Alpine meadows at the foot of Nanga Parbat.',
     description:
-      'A jeep ride and a mountain trail lead to Fairy Meadows, a pine-ringed plateau with one of the most dramatic mountain views on earth — the Rakhiot face of Nanga Parbat.',
+      'A jeep ride and a mountain trail lead to Fairy Meadows, a pine-ringed plateau with one of the most dramatic mountain views on earth: the Rakhiot face of Nanga Parbat.',
     highlights: ['Nanga Parbat viewpoint', 'Beyal Camp trek', 'Stargazing', 'Log-cabin stays'],
     idealFor: ['Adventure', 'Friends', 'Photography'],
   },
@@ -49,7 +49,7 @@ export const pakistanDestinations = [
     image: images.minimarg,
     short: 'A remote alpine valley of pine forests, meadows and clear streams.',
     description:
-      'Tucked away in Astore District near the Line of Control, Minimarg is one of Pakistan’s most unspoilt valleys — pine forests, wildflower meadows and clear mountain streams, with the colourful Rainbow Lake at Domel close by. Visits require prior permission; our consultants advise on the latest requirements.',
+      'Tucked away in Astore District near the Line of Control, Minimarg is one of Pakistan’s most unspoilt valleys: pine forests, wildflower meadows and clear mountain streams, with the colourful Rainbow Lake at Domel close by. Visits require prior permission; our consultants advise on the latest requirements.',
     highlights: ['Rainbow Lake, Domel', 'Pine forests & meadows', 'Burzil Pass route', 'Astore Valley'],
     idealFor: ['Adventure', 'Nature lovers', 'Photography'],
   },
@@ -69,7 +69,7 @@ export const pakistanDestinations = [
     name: 'Swat',
     region: 'Khyber Pakhtunkhwa',
     image: images.swat,
-    short: 'The “Switzerland of the East” — rivers, forests and lakes.',
+    short: 'The “Switzerland of the East”: rivers, forests and lakes.',
     description:
       'From Mingora’s Buddhist heritage to the forests of Kalam and the lakes of the Usho Valley, Swat offers green, easily reached mountain escapes for every kind of traveller.',
     highlights: ['Kalam & Usho forest', 'Mahodand Lake', 'Malam Jabba', 'Buddhist heritage sites'],
@@ -118,7 +118,7 @@ export const internationalDestinations = [
     image: images.cappadocia,
     short: 'Ottoman heritage, Bosphorus views and balloon-filled skies.',
     description:
-      'Istanbul’s mosques, bazaars and waterfront meet Cappadocia’s fairy chimneys and sunrise balloon flights — with the coast of Antalya for those who want to linger.',
+      'Istanbul’s mosques, bazaars and waterfront meet Cappadocia’s fairy chimneys and sunrise balloon flights, with the coast of Antalya for those who want to linger.',
     highlights: ['Istanbul old city', 'Cappadocia balloons', 'Bosphorus cruise', 'Antalya coast'],
     idealFor: ['Honeymoon', 'Culture', 'Families'],
   },
@@ -140,7 +140,7 @@ export const internationalDestinations = [
     image: images.thailand,
     short: 'Island-hopping, turquoise bays and vibrant city life.',
     description:
-      'Bangkok’s temples and markets, then the Andaman coast — Phuket, Krabi and the Phi Phi islands — for longtail boats, limestone cliffs and beaches.',
+      'Bangkok’s temples and markets, then the Andaman coast (Phuket, Krabi and the Phi Phi islands) for longtail boats, limestone cliffs and beaches.',
     highlights: ['Phi Phi Islands', 'Phuket', 'Krabi', 'Bangkok'],
     idealFor: ['Honeymoon', 'Friends', 'Beaches'],
   },
@@ -151,7 +151,7 @@ export const internationalDestinations = [
     image: images.europe,
     short: 'Alpine valleys, historic capitals and scenic rail journeys.',
     description:
-      'Multi-country journeys through Switzerland’s valleys, Paris, and beyond — with Schengen visa guidance and travel insurance handled alongside your itinerary.',
+      'Multi-country journeys through Switzerland’s valleys, Paris, and beyond, with Schengen visa guidance and travel insurance handled alongside your itinerary.',
     highlights: ['Swiss Alps', 'Paris', 'Scenic rail', 'Schengen visa support'],
     idealFor: ['Honeymoon', 'Families', 'Luxury'],
   },

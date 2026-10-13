@@ -20,7 +20,7 @@ export default function Destinations() {
   useSeo({
     title: 'Destinations & Tour Packages',
     description:
-      'Explore e-Journey destinations — international tour packages to Thailand, Malaysia, Bali, Sri Lanka, Uzbekistan, Azerbaijan and Egypt, and Hunza, Skardu and Northern Pakistan tours.',
+      'Explore e-Journey destinations: international tour packages to Thailand, Malaysia, Bali, Sri Lanka, Uzbekistan, Azerbaijan and Egypt, and Hunza, Skardu and Northern Pakistan tours.',
   });
 
   return (
@@ -29,7 +29,7 @@ export default function Destinations() {
         image={images.dubaiSunset}
         eyebrow="Destinations Catalog"
         title={<>Explore Our <em>Journeys.</em></>}
-        lead="Ready-to-book tour packages abroad and the mountain valleys of Pakistan — every destination planned with care and peace of mind."
+        lead="Ready-to-book tour packages abroad and the mountain valleys of Pakistan, each planned with care and peace of mind."
         crumbs={[{ label: 'Destinations' }]}
       />
 

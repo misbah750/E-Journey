@@ -30,7 +30,7 @@ export default function InquirySuccess({ result, onReset }) {
           <p>
             {result.failed
               ? 'We couldn’t send your request automatically. Send it to our consultants in one tap and we’ll contact you shortly.'
-              : 'Send it to our travel consultants in one tap — we’ll contact you shortly.'}
+              : 'Send it to our travel consultants in one tap. We’ll contact you shortly.'}
           </p>
           <div className="inquiry-success__actions">
             <a className="btn btn--whatsapp" href={links.whatsapp} target="_blank" rel="noopener noreferrer">

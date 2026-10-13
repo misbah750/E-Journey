@@ -21,7 +21,7 @@ export default function Accommodation({ cta = true, tone = 'sand' }) {
         <Reveal delay={120} className="section-head-row__aside">
           <p className="lead">
             From low-budget self-catering units to exclusive deluxe hotels, e-Journey arranges accommodation across every
-            category and destination — matched to how you like to travel.
+            category and destination, matched to how you like to travel.
           </p>
           {cta && (
             <Link to="/hotels" className="btn btn--forest">

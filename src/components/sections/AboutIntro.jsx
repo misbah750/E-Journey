@@ -35,8 +35,8 @@ export default function AboutIntro() {
           </Reveal>
           <Reveal delay={120}>
             <p className="lead">
-              e-Journey Travel &amp; Tours provides comprehensive travel services — from Umrah to holidays across
-              Pakistan and around the world — for individuals, families, groups, companies and Pakistanis living abroad.
+              e-Journey Travel &amp; Tours provides comprehensive travel services, from Umrah to holidays across
+              Pakistan and around the world, for individuals, families, groups, companies and Pakistanis living abroad.
             </p>
           </Reveal>
           <Reveal delay={170} className="about-intro__pilgrim">

@@ -34,7 +34,7 @@ const divisions = [
   {
     no: '01',
     title: 'Pilgrim Services Desk',
-    text: 'Experienced coordinators, advised by religious scholars, who guide pilgrims before and during Umrah — overseeing hotels, transfers and Ziyarat across Makkah and Madinah.',
+    text: 'Experienced coordinators, advised by religious scholars, who guide pilgrims before and during Umrah, overseeing hotels, transfers and Ziyarat across Makkah and Madinah.',
     foot: 'Makkah & Madinah specialists',
   },
   {
@@ -55,7 +55,7 @@ export default function About() {
   useSeo({
     title: 'About Us',
     description:
-      'About e-Journey Travel & Tours — a Karachi-based tour operator offering customized independent tours, packaged group departures, Umrah, visa assistance and corporate travel.',
+      'About e-Journey Travel & Tours, a Karachi-based tour operator offering customized independent tours, packaged group departures, Umrah, visa assistance and corporate travel.',
   });
 
   return (
@@ -81,8 +81,8 @@ export default function About() {
                 management and pilgrimage operations for groups and individuals travelling to and from the country.
               </p>
               <p className="body-copy">
-                We handle domestic and international travel — from Pakistan’s Northern Areas to destinations around the
-                world — with expert consultation at every step. Guided by our commitment to value for money and client
+                We handle domestic and international travel, from Pakistan’s Northern Areas to destinations around the
+                world, with expert consultation at every step. Guided by our commitment to value for money and client
                 satisfaction, our annual traveller volume has grown more than tenfold, supported by continuous investment
                 in contemporary travel technology and uncompromising quality standards.
               </p>
@@ -111,7 +111,7 @@ export default function About() {
             <p className="eyebrow">Our Promise</p>
             <p className="brand-band__quote">“{site.promise}”</p>
             <p className="body-copy">
-              A journey in motion, guided with care — from the first conversation to the moment you return home. It is the
+              A journey in motion, guided with care, from the first conversation to the moment you return home. It is the
               standard behind every ticket, stay and itinerary we arrange.
             </p>
           </Reveal>
@@ -139,7 +139,7 @@ export default function About() {
           <Reveal className="way-card">
             <span className="way-card__icon"><Route size={24} aria-hidden="true" /></span>
             <h3 className="h3">Customized Independent Tours</h3>
-            <p>Your destination, your dates, your pace. We design the itinerary around you — flights, stays, transfers and experiences included.</p>
+            <p>Your destination, your dates, your pace. We design the itinerary around you: flights, stays, transfers and experiences included.</p>
             <ul className="check-list check-list--single">
               <li><Check size={16} aria-hidden="true" /> Built entirely around your preferences</li>
               <li><Check size={16} aria-hidden="true" /> Ideal for couples, families and private groups</li>

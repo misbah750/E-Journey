@@ -101,7 +101,7 @@ export default function ContactSection({ variant = 'short', tone = 'white', eyeb
           <SectionHeading
             eyebrow={eyebrow}
             title={title || <>Talk to a <em>Travel Consultant</em></>}
-            lead={lead || 'Visit our Karachi office, call, or send a request — we’ll respond personally.'}
+            lead={lead || 'Visit our Karachi office, call, or send a request and we’ll respond personally.'}
           />
           <Reveal delay={100}>
             <ContactCards />

@@ -13,7 +13,7 @@ const pad = (n) => String(n).padStart(2, '0');
 export const describeUmrahChoice = (group, index) => {
   const p = group.packages[index];
   const next = nextDeparture(group);
-  return `${group.airline} ${group.nights} Nights${next ? ` (departs ${formatDay(next)})` : ''} — Package ${pad(index + 1)}: ${p.makkah.name} / ${p.madinah.name}`;
+  return `${group.airline} ${group.nights} Nights${next ? ` (departs ${formatDay(next)})` : ''}, Package ${pad(index + 1)}: ${p.makkah.name} / ${p.madinah.name}`;
 };
 
 /**
@@ -82,7 +82,7 @@ export default function UmrahPackages({ onBook }) {
 
         {!next && (
           <p className="umrah-panel__note">
-            All departures on this flyer have left — ask us for the next dates and current rates.
+            All departures on this flyer have left. Ask us for the next dates and current rates.
           </p>
         )}
 
@@ -98,7 +98,7 @@ export default function UmrahPackages({ onBook }) {
                 </span>
                 {f.legs.map((l) => (
                   <span key={l.flight + l.date} className="umrah-flights__leg">
-                    <strong>{l.flight}</strong> {formatDay(l.date)} · {l.from} → {l.to} · {l.dep} – {l.arr}
+                    <strong>{l.flight}</strong> {formatDay(l.date)} · {l.from} → {l.to} · {l.dep} / {l.arr}
                   </span>
                 ))}
               </li>

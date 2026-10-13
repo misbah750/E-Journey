@@ -23,9 +23,9 @@ const styles = [
 
 export default function PakistanTours() {
   useSeo({
-    title: 'Pakistan Tours — Hunza, Skardu & Northern Areas',
+    title: 'Pakistan Tours: Hunza, Skardu & Northern Areas',
     description:
-      'Northern Pakistan tours from Karachi: Hunza, Skardu, Fairy Meadows, Naran & Kaghan, Minimarg, Swat, Neelum Valley and Murree — customized or group departures by e-Journey Travel & Tours.',
+      'Northern Pakistan tours from Karachi: Hunza, Skardu, Fairy Meadows, Naran & Kaghan, Minimarg, Swat, Neelum Valley and Murree. Customized or group departures by e-Journey Travel & Tours.',
   });
 
   return (
@@ -34,7 +34,7 @@ export default function PakistanTours() {
         image={images.hunza}
         eyebrow="Pakistan Tours"
         title={<>Discover the Beauty of <em>Pakistan</em></>}
-        lead="Glacial lakes, alpine meadows and some of the highest peaks on earth — journeys through the Northern Areas and beyond, planned end to end."
+        lead="Glacial lakes, alpine meadows and some of the highest peaks on earth. Journeys through the Northern Areas and beyond, planned end to end."
         crumbs={[{ label: 'Destinations', to: '/destinations' }, { label: 'Pakistan Tours' }]}
       >
         <a href="#plan" className="btn btn--gold btn--lg">Explore Pakistan Tours <ArrowRight size={18} aria-hidden="true" /></a>
@@ -48,10 +48,10 @@ export default function PakistanTours() {
           </Reveal>
           <Reveal delay={120}>
             <p className="lead" style={{ marginTop: 0 }}>
-              We arrange domestic flights, road journeys, hotels and guided sightseeing across Pakistan — with particular
+              We arrange domestic flights, road journeys, hotels and guided sightseeing across Pakistan, with particular
               expertise in the Northern Areas. Choose a customized independent tour or join a packaged group departure.
             </p>
-            <p className="rate-note"><CalendarClock size={16} aria-hidden="true" /> Domestic tour packages will be shared soon — meanwhile, ask us for a custom quote.</p>
+            <p className="rate-note"><CalendarClock size={16} aria-hidden="true" /> Domestic tour packages will be shared soon. Meanwhile, ask us for a custom quote.</p>
             <ul className="style-chips" aria-label="Tour styles">
               {styles.map(({ icon: Icon, label }) => (
                 <li key={label}><Icon size={17} aria-hidden="true" /> {label}</li>

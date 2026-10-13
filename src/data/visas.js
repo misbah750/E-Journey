@@ -10,7 +10,7 @@
  * Processing times are indicative and set by the embassy — review them with the visa desk and adjust here.
  */
 const BASIC = [
-  'Passport scan — valid for at least 6 months',
+  'Passport scan (valid for at least 6 months)',
   'Recent photo with white background',
   'CNIC copy',
 ];

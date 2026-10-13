@@ -18,7 +18,7 @@ export default function UmrahTypesBand() {
           <h2 className="h2">A Journey of <em>Faith</em></h2>
           <Ornament />
           <p className="lead">
-            Visa, tickets, hotels near the Haramain and scholar guidance — arranged for you, so your heart stays on worship.
+            Visa, tickets, hotels near the Haramain and scholar guidance are arranged for you, so your heart stays on worship.
           </p>
           {from && (
             <p className="umrah-band__from">

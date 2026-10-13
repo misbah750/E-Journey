@@ -33,10 +33,10 @@ const DEFS = {
   to: { label: 'To', required: true, placeholder: 'e.g. Dubai' },
   travelClass: { label: 'Class', type: 'select', options: ['Economy', 'Premium Economy', 'Business', 'First'], placeholder: 'Select class' },
   sharing: { label: 'Room Sharing', type: 'select', options: ['Sharing', 'Quad', 'Triple', 'Double', 'Not sure'], placeholder: 'Select sharing' },
-  package: { label: 'Package', full: true, placeholder: 'e.g. PIA 20 Nights — Package 02' },
+  package: { label: 'Package', full: true, placeholder: 'e.g. PIA 20 Nights, Package 02' },
   configuration: { label: 'Travelling As', type: 'select', options: ['Per Person', 'Duo / Couple', 'Family', 'Group'], placeholder: 'Select' },
   requirement: { label: 'Services Needed', type: 'select', options: ['Full travel management', 'Flights', 'Hotels', 'Visa assistance', 'Travel insurance', 'Group / incentive trip', 'Emergency travel'], placeholder: 'Select' },
-  message: { label: 'Additional Requirements', type: 'textarea', full: true, placeholder: 'Tell us anything that will help us plan — preferences, special occasions, accessibility needs…' },
+  message: { label: 'Additional Requirements', type: 'textarea', full: true, placeholder: 'Tell us anything that will help us plan: preferences, special occasions, accessibility needs…' },
 };
 
 const VARIANTS = {

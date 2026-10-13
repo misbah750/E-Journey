@@ -66,7 +66,7 @@ export const audiences = [
 
 export const whyUs = [
   { icon: Award, title: 'Expertise', text: 'Experienced travel professionals who know the destinations, the airlines and the details that matter.' },
-  { icon: Sparkles, title: 'Personalization', text: 'Travel solutions designed around individual needs — never a one-size-fits-all itinerary.' },
+  { icon: Sparkles, title: 'Personalization', text: 'Travel solutions designed around individual needs, never a one-size-fits-all itinerary.' },
   { icon: Waypoints, title: 'Flexibility', text: 'Choose a customized independent tour or join a packaged group departure.' },
   { icon: HandCoins, title: 'Value', text: 'Cost-conscious solutions built on strong airline and hotel relationships.' },
   { icon: LifeBuoy, title: 'Support', text: 'Responsive travel assistance before you leave and while you are away.' },
@@ -110,11 +110,11 @@ export const testimonials = [
 
 export const faqs = [
   { q: 'Can I customize my tour?', a: 'Yes. We offer both customized independent tours designed entirely around you and packaged group departures. Share your plans and a consultant will shape the itinerary with you.' },
-  { q: 'Do you provide domestic travel services?', a: 'Yes. We provide domestic travel services — including tours of Pakistan’s Northern Areas, domestic ticketing and hotels — as well as international travel.' },
+  { q: 'Do you provide domestic travel services?', a: 'Yes. We provide domestic travel services, including tours of Pakistan’s Northern Areas, domestic ticketing and hotels, as well as international travel.' },
   { q: 'Do you provide Umrah services?', a: 'Yes. e-Journey provides Umrah packages with travel, accommodation and support, with religious scholars guiding you before and during your pilgrimage. For Hajj, please contact us to discuss your plans.' },
   { q: 'Do you provide visa assistance?', a: 'Yes. Our visa assistance includes guidance through the application process and the relevant requirements, and we keep you informed at each stage. Final decisions always rest with the embassy or consulate concerned.' },
   { q: 'Do you provide corporate travel services?', a: 'Yes. Our corporate travel services include travel management, ticketing, hotels, visa services, insurance and emergency travel support.' },
-  { q: 'Can you arrange hotels?', a: 'Yes. We arrange accommodation across categories — from budget stays and self-catering units to premium and deluxe hotels and resorts.' },
+  { q: 'Can you arrange hotels?', a: 'Yes. We arrange accommodation across categories, from budget stays and self-catering units to premium and deluxe hotels and resorts.' },
 ];
 
 export const coreValues = [
@@ -134,9 +134,9 @@ export const contactTravelTypes = travelTypes.flatMap((t) => (t === 'Umrah' ? ['
 
 export const budgetRanges = [
   'Under PKR 150,000',
-  'PKR 150,000 – 300,000',
-  'PKR 300,000 – 600,000',
-  'PKR 600,000 – 1,000,000',
+  'PKR 150,000 to 300,000',
+  'PKR 300,000 to 600,000',
+  'PKR 600,000 to 1,000,000',
   'Above PKR 1,000,000',
   'Not sure yet',
 ];

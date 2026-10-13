@@ -18,9 +18,9 @@ const scopes = [
 
 export default function Ticketing() {
   useSeo({
-    title: 'Air Tickets — Domestic & International Flights from Pakistan',
+    title: 'Air Tickets: Domestic & International Flights from Pakistan',
     description:
-      'Domestic and international air ticketing from Karachi by e-Journey Travel & Tours — Skardu, Gilgit and city-to-city flights in Pakistan, and one-way, return and multi-city fares worldwide.',
+      'Domestic and international air ticketing from Karachi by e-Journey Travel & Tours: Skardu, Gilgit and city-to-city flights in Pakistan, and one-way, return and multi-city fares worldwide.',
   });
 
   return (
@@ -29,7 +29,7 @@ export default function Ticketing() {
         image={images.wing}
         eyebrow="Ticketing"
         title={<>Air Tickets, <em>Domestic &amp; International</em></>}
-        lead="Tell us where and when — we compare the options and book the fare that fits your schedule, with help on date changes and reissues."
+        lead="Tell us where and when. We compare the options and book the fare that fits your schedule, with help on date changes and reissues."
         crumbs={[{ label: 'Ticketing' }]}
       >
         <a href="#fare-request" className="btn btn--gold btn--lg">Request a Fare <ArrowRight size={18} aria-hidden="true" /></a>

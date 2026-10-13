@@ -75,7 +75,7 @@ export function Family() {
             <p className="eyebrow">Family Travel</p>
             <h2 className="h2">More Than a Vacation. <em>A Memory You’ll Keep.</em></h2>
             <p className="lead">
-              Holidays that give everyone something to remember — planned with the practical details families care about.
+              Holidays that give everyone something to remember, planned with the practical details families care about.
             </p>
           </Reveal>
           <ul className="feature-list">

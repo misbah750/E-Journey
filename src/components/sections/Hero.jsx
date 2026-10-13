@@ -26,7 +26,7 @@ export default function Hero() {
             Travel Beyond <em>Destinations.</em>
           </h1>
           <p className="hero__text hero-anim" style={{ '--i': 2 }}>
-            Air tickets, tour packages, visas, Umrah and travel insurance — planned by a Karachi team that takes care
+            Air tickets, tour packages, visas, Umrah and travel insurance, all planned by a Karachi team that takes care
             of every detail.
           </p>
           <div className="hero__actions hero-anim" style={{ '--i': 3 }}>

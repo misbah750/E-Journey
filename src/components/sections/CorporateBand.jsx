@@ -25,7 +25,7 @@ export default function CorporateBand({ showCta = true }) {
             <h2 className="h2">Business Travel, <em>Simplified.</em></h2>
             <p className="lead">
               A dedicated corporate travel operation for companies that need cost-effective arrangements and responsive
-              service — so your people arrive prepared and your travel budget goes further.
+              service, so your people arrive prepared and your travel budget goes further.
             </p>
           </Reveal>
           <ul className="icon-grid">

@@ -24,7 +24,7 @@ export default function Logo({ onClick, light = false }) {
       to="/"
       className={`logo ${light ? 'logo--light' : ''}`}
       onClick={onClick}
-      aria-label="e-Journey Travel & Tours — home"
+      aria-label="e-Journey Travel & Tours home page"
     >
       <img className="logo__img logo__img--dark" src={BRAND.wordmark} alt="" width="738" height="180" decoding="async" />
       <img className="logo__img logo__img--light" src={BRAND.wordmarkLight} alt="" width="738" height="180" decoding="async" />
@@ -38,7 +38,7 @@ export function BrandLogo({ light = false, className = '', width = 900 }) {
     <img
       className={`brand-logo ${className}`}
       src={light ? BRAND.fullLight : BRAND.full}
-      alt="e-Journey Travel & Tours — Your Travel Peace Is Our Guarantee"
+      alt="e-Journey Travel & Tours: Your Travel Peace Is Our Guarantee"
       width={width}
       height={Math.round((width * 712) / 900)}
       loading="lazy"

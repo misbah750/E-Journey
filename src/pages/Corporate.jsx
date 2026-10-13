@@ -31,7 +31,7 @@ export default function Corporate() {
   useSeo({
     title: 'Corporate Travel Management in Pakistan',
     description:
-      'Corporate travel services from e-Journey Travel & Tours, Karachi — business flight bookings, hotel reservations, visa assistance, travel insurance and emergency travel support for companies.',
+      'Corporate travel services from e-Journey Travel & Tours, Karachi: business flight bookings, hotel reservations, visa assistance, travel insurance and emergency travel support for companies.',
   });
 
   return (
@@ -40,7 +40,7 @@ export default function Corporate() {
         image={images.cabin}
         eyebrow="Corporate Travel"
         title={<>Corporate Travel <em>Management</em></>}
-        lead="Cost-effective travel management for companies — business flights, hotels, visas, insurance and support, coordinated by one dedicated team."
+        lead="Cost-effective travel management for companies: business flights, hotels, visas, insurance and support, coordinated by one dedicated team."
         crumbs={[{ label: 'Corporate Travel' }]}
       >
         <a href="#corporate-inquiry" className="btn btn--gold btn--lg">Talk to Corporate Travel Team <ArrowRight size={18} aria-hidden="true" /></a>
@@ -74,7 +74,7 @@ export default function Corporate() {
           <SectionHeading
             eyebrow="Corporate Inquiry"
             title={<>Plan Your Company’s <em>Travel</em></>}
-            lead="Tell us about your team’s travel needs — a one-off trip or ongoing travel management — and our corporate desk will be in touch."
+            lead="Tell us about your team’s travel needs, whether a one-off trip or ongoing travel management, and our corporate desk will be in touch."
           >
             <FormAside image={images.dubai} />
           </SectionHeading>

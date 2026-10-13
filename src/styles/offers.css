@@ -195,8 +195,8 @@
   color: var(--green-800);
 }
 .visa-card__docs summary::-webkit-details-marker { display: none; }
-.visa-card__docs summary::after { content: '+'; margin-left: auto; font-size: 1.1rem; line-height: 1; color: var(--gold-deep); }
-.visa-card__docs[open] summary::after { content: '–'; }
+.visa-card__docs summary::after { content: '+'; display: inline-block; margin-left: auto; transition: transform 0.2s; font-size: 1.1rem; line-height: 1; color: var(--gold-deep); }
+.visa-card__docs[open] summary::after { transform: rotate(45deg); }
 .visa-card__docs summary svg { color: var(--gold-deep); }
 .visa-card__docs ul { display: grid; gap: 6px; padding: 0 14px 12px 34px; list-style: disc; font-size: 0.84rem; line-height: 1.45; color: var(--ink-soft); }
 .visa-footnote { display: flex; align-items: center; justify-content: center; gap: 8px; max-width: 760px; margin: 28px auto 0; text-align: center; font-size: 0.84rem; color: var(--muted); }

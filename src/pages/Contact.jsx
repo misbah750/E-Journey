@@ -20,7 +20,7 @@ export default function Contact() {
   useSeo({
     title: 'Contact Us',
     description:
-      'Contact e-Journey Travel & Tours — Office 08, Akbar Paradise, Block 10, Gulshan-e-Iqbal, Karachi. Call or WhatsApp +92 335 5100991, or email info@ejourney.net.',
+      'Contact e-Journey Travel & Tours at Office 08, Akbar Paradise, Block 10, Gulshan-e-Iqbal, Karachi. Call or WhatsApp +92 335 5100991, or email info@ejourney.net.',
   });
 
   const quick = [
@@ -62,7 +62,7 @@ export default function Contact() {
             <SectionHeading
               eyebrow="Talk to a Travel Consultant"
               title={<>We’re Here to <em>Help</em></>}
-              lead="Visit our Karachi office, call or message us — or send a detailed request and a consultant will respond personally."
+              lead="Visit our Karachi office, call or message us, or send a detailed request and a consultant will respond personally."
             />
             <Reveal delay={100}><ContactCards /></Reveal>
             <Reveal delay={160}><MapEmbed /></Reveal>

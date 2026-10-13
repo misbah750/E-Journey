@@ -70,7 +70,7 @@ export default function PakistanGallery() {
           <SectionHeading
             eyebrow="Northern Areas & Beyond"
             title={<span id="pk-title">Discover the Beauty of <em>Pakistan</em></span>}
-            lead="Glacial lakes, alpine meadows and some of the highest peaks on earth — journeys through Pakistan’s north, planned by people who know the road."
+            lead="Glacial lakes, alpine meadows and some of the highest peaks on earth. Journeys through Pakistan’s north, planned by people who know the road."
           />
           <Reveal delay={120} className="section-head-row__aside section-head-row__aside--end">
             <div className="gallery__controls">

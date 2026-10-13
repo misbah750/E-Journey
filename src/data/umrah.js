@@ -241,7 +241,7 @@ export const umrahTypes = [
     title: 'Individual Umrah',
     tagline: 'Your dates, your pace',
     image: images.madinah,
-    text: 'Umrah planned around your own dates and family — choose your hotels, room type and length of stay.',
+    text: 'Umrah planned around your own dates and family. Choose your hotels, room type and length of stay.',
     points: ['Travel on your own dates', 'Choice of hotels & room type', 'Transfers between the holy cities', 'Visa and tickets arranged'],
     price: null,
     validTill: null,
