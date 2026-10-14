@@ -8,7 +8,8 @@
  * The Reviews section on the homepage appears automatically once there is a review, a summary or a link.
  */
 export const reviewLinks = {
-  google: 'https://share.google/wOU7KDMD2nRQpwv8g',
+  // Opens the Google reviews list directly (Google place ID of the business profile).
+  google: 'https://search.google.com/local/reviews?placeid=ChIJSyqNwF45sz4R9c2z8AeOAQQ',
   facebook: 'https://www.facebook.com/ejourneytravels/reviews',
 };
 
