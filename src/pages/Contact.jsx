@@ -20,14 +20,14 @@ export default function Contact() {
   useSeo({
     title: 'Contact Us',
     description:
-      'Contact e-Journey Travel & Tours at Office 08, Akbar Paradise, Block 10, Gulshan-e-Iqbal, Karachi. Call or WhatsApp +92 335 5100991, or email info@ejourney.net.',
+      'Contact e-Journey Travel & Tours at 3rd Floor, JF Plaza, Block-D, North Nazimabad, Karachi. Call or WhatsApp +92 335 5100991, or email info@ejourney.net.',
   });
 
   const quick = [
     { href: `tel:${site.mobiles[0].tel}`, icon: Phone, label: 'Call us', value: site.mobiles[0].label },
     { href: whatsappUrl(), icon: WhatsAppIcon, label: 'WhatsApp', value: site.whatsappLabel, external: true },
     { href: `mailto:${site.email}`, icon: Mail, label: 'Email', value: site.email },
-    { href: mapLinkUrl, icon: MapPin, label: 'Visit us', value: 'Gulshan-e-Iqbal, Karachi', external: true },
+    { href: mapLinkUrl, icon: MapPin, label: 'Visit us', value: site.address.area, external: true },
   ];
 
   return (

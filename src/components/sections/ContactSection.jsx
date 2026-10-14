@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Phone, Smartphone, Mail, ExternalLink, Map } from 'lucide-react';
+import { MapPin, Phone, Smartphone, Mail, ExternalLink, Map, UserRound } from 'lucide-react';
 import Reveal from '../ui/Reveal.jsx';
 import Section, { SectionHeading } from '../ui/Section.jsx';
 import { WhatsAppIcon } from '../ui/BrandIcons.jsx';
@@ -37,6 +37,14 @@ export function ContactCards() {
           <a href={`mailto:${site.emailAlt}`}>{site.emailAlt}</a>
         </span>
       </li>
+      <li className="contact-card contact-card--wide">
+        <span className="contact-card__icon"><UserRound size={20} aria-hidden="true" /></span>
+        <span>
+          <strong>{site.director.title}</strong>
+          <span className="contact-card__name">{site.director.name}</span>
+          <a href={`mailto:${site.director.email}`}>{site.director.email}</a>
+        </span>
+      </li>
       <li className="contact-card contact-card--wa contact-card--wide">
         <span className="contact-card__icon"><WhatsAppIcon size={20} /></span>
         <span>
@@ -55,7 +63,7 @@ export function MapEmbed() {
     <div className="map">
       {load ? (
         <iframe
-          title="Map showing the e-Journey office in Gulshan-e-Iqbal, Karachi"
+          title={`Map showing the e-Journey office in ${site.address.area}`}
           src={mapEmbedUrl}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -63,8 +71,8 @@ export function MapEmbed() {
       ) : (
         <button type="button" className="map__placeholder" onClick={() => setLoad(true)}>
           <span className="map__pin"><Map size={22} aria-hidden="true" /></span>
-          <strong>Akbar Paradise, Gulshan-e-Iqbal</strong>
-          <small>Main Rashid Minhas Road, Karachi</small>
+          <strong>3rd Floor, JF Plaza</strong>
+          <small>Block-D, North Nazimabad, Karachi</small>
           <span className="map__cta">Show interactive map</span>
         </button>
       )}

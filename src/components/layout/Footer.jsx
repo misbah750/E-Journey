@@ -93,7 +93,7 @@ export default function Footer() {
               <li>
                 <a href={mapLinkUrl} target="_blank" rel="noopener noreferrer">
                   <MapPin size={16} aria-hidden="true" />
-                  <span>Office 08, Akbar Paradise, Block 10, Gulshan-e-Iqbal, Karachi</span>
+                  <span>{site.address.oneLine}</span>
                 </a>
               </li>
               {site.mobiles.slice(0, 2).map((p) => (

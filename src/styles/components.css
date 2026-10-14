@@ -677,6 +677,7 @@
 .contact-card strong { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); }
 .contact-card a:not(.link-arrow) { font-weight: 600; color: var(--green-900); overflow-wrap: break-word; }
 .contact-card a:not(.link-arrow):hover { color: var(--gold-deep); }
+.contact-card__name { font-weight: 700; color: var(--ink); }
 .contact-card address { display: flex; flex-direction: column; color: var(--ink-soft); line-height: 1.55; }
 .contact-card .link-arrow { margin-top: 6px; font-size: 0.82rem; }
 @media (max-width: 520px) { .contact-cards { grid-template-columns: 1fr; } }

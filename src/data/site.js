@@ -11,9 +11,10 @@ export const site = {
     'Personalized journeys, trusted expertise, and unforgettable experiences from Pakistan to the world.',
 
   address: {
-    lines: ['Office 08, Akbar Paradise,', 'Block 10, Gulshan-e-Iqbal,', 'Main Rashid Minhas Road,', 'Karachi, Pakistan'],
-    oneLine: 'Office 08, Akbar Paradise, Block 10, Gulshan-e-Iqbal, Main Rashid Minhas Road, Karachi, Pakistan',
-    mapQuery: 'Akbar Paradise, Block 10, Gulshan-e-Iqbal, Rashid Minhas Road, Karachi',
+    lines: ['3rd Floor, JF Plaza,', 'Block-D, North Nazimabad,', 'Karachi, Pakistan'],
+    oneLine: '3rd Floor, JF Plaza, Block-D, North Nazimabad, Karachi, Pakistan',
+    area: 'North Nazimabad, Karachi',
+    mapQuery: 'JF Plaza, Block D, North Nazimabad, Karachi',
   },
 
   /** Mobile numbers — the first one is used wherever a single "call us" number is shown. */
@@ -23,6 +24,7 @@ export const site = {
     { label: '0332-6665977', tel: '+923326665977' },
   ],
   email: 'info@ejourney.net',
+  director: { name: 'Shaikh Mohamid Irtaqa', title: 'Director', email: 'mohamid@ejourney.net' },
   emailAlt: 'ejourneytravel@gmail.com',
 
   /** WhatsApp number in international format without "+" (+92 335 5100991). */
