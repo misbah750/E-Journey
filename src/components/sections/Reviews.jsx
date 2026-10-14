@@ -1,8 +1,8 @@
-import { ExternalLink, Star } from 'lucide-react';
+import { ExternalLink, Star, ThumbsUp } from 'lucide-react';
 import Reveal from '../ui/Reveal.jsx';
 import Section, { SectionHeading } from '../ui/Section.jsx';
 import { FacebookIcon } from '../ui/BrandIcons.jsx';
-import { reviews, reviewLinks } from '../../data/reviews.js';
+import { reviews, reviewLinks, reviewSummary } from '../../data/reviews.js';
 
 function GoogleMark() {
   return (
@@ -24,25 +24,51 @@ export default function Reviews({ tone = 'sand' }) {
     reviewLinks.google && { href: reviewLinks.google, label: 'Read our Google reviews', icon: <GoogleMark /> },
     reviewLinks.facebook && { href: reviewLinks.facebook, label: 'Read our Facebook reviews', icon: <FacebookIcon size={16} /> },
   ].filter(Boolean);
-  if (!reviews.length && !links.length) return null;
+  const summaries = [
+    reviewSummary.facebook && { source: 'Facebook', icon: <FacebookIcon size={22} />, ...reviewSummary.facebook },
+    reviewSummary.google && { source: 'Google', icon: <GoogleMark />, ...reviewSummary.google },
+  ].filter(Boolean);
+  if (!reviews.length && !links.length && !summaries.length) return null;
+  const sources = [...new Set([...summaries.map((x) => x.source), ...reviews.map((r) => r.source)])];
 
   return (
     <Section id="reviews" tone={tone} className="reviews">
       <SectionHeading
         eyebrow="Reviews"
         title={<>What Our Travellers <em>Say</em></>}
-        lead="Feedback from customers on Google and Facebook."
+        lead={`Feedback from our customers on ${sources.join(' and ') || 'Google and Facebook'}.`}
         align="center"
       />
+      {summaries.length > 0 && (
+        <ul className="reviews__summary">
+          {summaries.map((x) => (
+            <Reveal as="li" key={x.source} className="review-score">
+              <span className="review-score__icon">{x.icon}</span>
+              <span className="review-score__body">
+                {x.recommendPercent != null ? (
+                  <><strong>{x.recommendPercent}%</strong> recommend e-Journey</>
+                ) : (
+                  <><strong>{x.rating}</strong> out of 5</>
+                )}
+                <small>Based on {x.count} {x.source} reviews</small>
+              </span>
+            </Reveal>
+          ))}
+        </ul>
+      )}
       {reviews.length > 0 && (
         <ul className="reviews__grid">
           {reviews.map((r, i) => (
             <Reveal as="li" key={`${r.name}-${i}`} delay={(i % 3) * 90} className="review-card">
-              <div className="review-card__stars" role="img" aria-label={`${r.rating} out of 5 stars`}>
-                {Array.from({ length: 5 }, (_, s) => (
-                  <Star key={s} size={16} aria-hidden="true" className={s < r.rating ? 'is-on' : ''} />
-                ))}
-              </div>
+              {r.rating ? (
+                <div className="review-card__stars" role="img" aria-label={`${r.rating} out of 5 stars`}>
+                  {Array.from({ length: 5 }, (_, s) => (
+                    <Star key={s} size={16} aria-hidden="true" className={s < r.rating ? 'is-on' : ''} />
+                  ))}
+                </div>
+              ) : (
+                <p className="review-card__rec"><ThumbsUp size={15} aria-hidden="true" /> Recommends e-Journey</p>
+              )}
               <blockquote>{r.text}</blockquote>
               <p className="review-card__by">
                 <strong>{r.name}</strong>

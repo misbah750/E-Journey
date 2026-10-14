@@ -32,7 +32,7 @@ export const site = {
 
   /** Placeholder social links — replace with the official accounts when available. */
   social: {
-    facebook: '',
+    facebook: 'https://www.facebook.com/ejourneytravels',
     instagram: '',
     linkedin: '',
   },
