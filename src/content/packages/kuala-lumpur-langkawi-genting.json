@@ -1,0 +1,44 @@
+{
+  "title": "Kuala Lumpur, Langkawi & Genting",
+  "region": "International",
+  "country": "Malaysia",
+  "cities": [
+    "Kuala Lumpur",
+    "Langkawi",
+    "Genting Highlands"
+  ],
+  "nights": 6,
+  "days": 7,
+  "stars": "4 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1472017053394-b29fded587cd",
+    "https://images.unsplash.com/photo-1771220262024-f06807deaaed"
+  ],
+  "summary": "Kuala Lumpur and Genting Highlands with Batu Caves, then island time in Langkawi with a mangrove tour.",
+  "hotels": [
+    "3 nights at ibis Styles Kuala Lumpur / similar",
+    "3 nights at Nadias Hotel Cenang Langkawi / similar"
+  ],
+  "inclusions": [
+    "Daily breakfast",
+    "Twin sharing basis",
+    "Genting Highlands tour",
+    "Batu Caves tour",
+    "Kuala Lumpur city tour",
+    "Langkawi mangrove tour",
+    "All transfers",
+    "Malaysia e-Visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 139000,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/malaysia-kl-langkawi-genting.webp",
+  "order": 80,
+  "published": true
+}

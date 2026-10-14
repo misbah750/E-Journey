@@ -89,3 +89,20 @@ export const images = {
 /** Build an Unsplash CDN URL for a photo id. */
 export const unsplash = (id, w = 1200, q = 75) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`;
+
+const byId = new Map(Object.values(images).map((im) => [im.id, im]));
+
+/**
+ * Turns a photo value from the content files into an image entry.
+ * Accepts an Unsplash photo URL (keeps the responsive sizes and alt text of a known photo)
+ * or an uploaded file path such as /uploads/my-photo.jpg.
+ */
+export const resolvePhoto = (ref, alt = '') => {
+  if (!ref) return null;
+  const match = /images\.unsplash\.com\/photo-([0-9a-z-]+?)(?:\?|$)/i.exec(ref);
+  if (match) return byId.get(match[1]) || { id: match[1], alt };
+  return { src: ref, alt };
+};
+
+/** A plain URL for an image entry (for social sharing tags). */
+export const imageUrl = (image, w = 1200) => (image?.src ? image.src : unsplash(image.id, w));

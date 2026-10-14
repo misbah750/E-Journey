@@ -1,0 +1,18 @@
+{
+  "country": "South Africa",
+  "code": "za",
+  "options": [
+    {
+      "label": "30 days",
+      "type": "sticker",
+      "currency": "PKR",
+      "amount": 28000,
+      "sc": false
+    }
+  ],
+  "processing": "15–20 working days",
+  "docs": "full",
+  "link": "",
+  "order": 210,
+  "published": true
+}

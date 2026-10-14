@@ -1,0 +1,25 @@
+{
+  "country": "Singapore",
+  "code": "sg",
+  "options": [
+    {
+      "label": "Online application",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 14500,
+      "sc": false
+    },
+    {
+      "label": "Through consulate",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 12500,
+      "sc": false
+    }
+  ],
+  "processing": "5–7 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 50,
+  "published": true
+}

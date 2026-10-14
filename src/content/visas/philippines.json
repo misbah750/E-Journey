@@ -1,0 +1,32 @@
+{
+  "country": "Philippines",
+  "code": "ph",
+  "options": [
+    {
+      "label": "30 days",
+      "type": "sticker",
+      "currency": "PKR",
+      "amount": 18500,
+      "sc": false
+    },
+    {
+      "label": "6 months · multiple entry",
+      "type": "sticker",
+      "currency": "PKR",
+      "amount": 30000,
+      "sc": false
+    },
+    {
+      "label": "1 year · multiple entry",
+      "type": "sticker",
+      "currency": "PKR",
+      "amount": 42000,
+      "sc": false
+    }
+  ],
+  "processing": "10–15 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 200,
+  "published": true
+}

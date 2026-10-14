@@ -1,0 +1,25 @@
+{
+  "country": "Nepal",
+  "code": "np",
+  "options": [
+    {
+      "label": "Invitation · 30 days",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 5500,
+      "sc": false
+    },
+    {
+      "label": "Invitation · 90 days",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 6500,
+      "sc": false
+    }
+  ],
+  "processing": "3–5 working days",
+  "docs": "basic",
+  "link": "",
+  "order": 150,
+  "published": true
+}

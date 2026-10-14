@@ -1,27 +1,29 @@
+import settings from '../content/settings/reviews.json';
+
 /**
- * Customer reviews from Google and Facebook.
+ * Customer reviews, edited from the admin page (/admin → Settings → Reviews).
  *
- * 1. Add the public profile links below (Google Business Profile reviews link and Facebook page reviews link).
- * 2. `summary` holds the rating shown on each profile. Update it when the numbers change on Facebook / Google.
- * 3. Copy reviews exactly as posted: reviewer name, rating, text, source and date. Never edit or invent them.
+ * - Links open the Google and Facebook review pages.
+ * - Ratings are typed in as shown on each profile; update them when the numbers change.
+ * - Reviews are copied exactly as posted: name, rating (Google) or "recommends" (Facebook), text, date.
  *
- * The Reviews section on the homepage appears automatically once there is a review, a summary or a link.
+ * The Reviews section on the homepage appears once there is a rating, a link or a review.
  */
+const toNumber = (v) => (v === '' || v == null || Number.isNaN(Number(v)) ? null : Number(v));
+
 export const reviewLinks = {
-  // Opens the Google reviews list directly (Google place ID of the business profile).
-  google: 'https://search.google.com/local/reviews?placeid=ChIJSyqNwF45sz4R9c2z8AeOAQQ',
-  facebook: 'https://www.facebook.com/ejourneytravels/reviews',
+  google: settings.googleLink || '',
+  facebook: settings.facebookLink || '',
 };
 
-/**
- * Ratings as shown on each profile, checked 14 Oct 2026:
- * Google "5.0 (11 Google reviews)", Facebook "100% recommend (9 reviews)".
- */
+const googleRating = toNumber(settings.googleRating);
+const facebookPercent = toNumber(settings.facebookRecommendPercent);
+
 export const reviewSummary = {
-  google: { rating: 5.0, count: 11 },
-  facebook: { recommendPercent: 100, count: 9 },
+  google: googleRating != null ? { rating: googleRating, count: toNumber(settings.googleCount) || 0 } : null,
+  facebook: facebookPercent != null ? { recommendPercent: facebookPercent, count: toNumber(settings.facebookCount) || 0 } : null,
 };
 
-export const reviews = [
-  // { name: 'Reviewer name', source: 'Facebook', rating: 5, text: 'Review text exactly as posted.', date: '2026-10-01' },
-];
+export const reviews = (settings.reviews || [])
+  .filter((r) => r.name && r.text)
+  .map((r) => ({ name: r.name, source: r.source || 'Google', rating: toNumber(r.rating), text: r.text, date: r.date || '' }));

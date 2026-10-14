@@ -1,0 +1,18 @@
+{
+  "country": "Türkiye",
+  "code": "tr",
+  "options": [
+    {
+      "label": "Tourist visa",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 23500,
+      "sc": false
+    }
+  ],
+  "processing": "10–15 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 70,
+  "published": true
+}

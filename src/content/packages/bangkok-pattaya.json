@@ -1,0 +1,42 @@
+{
+  "title": "Bangkok & Pattaya",
+  "region": "International",
+  "country": "Thailand",
+  "cities": [
+    "Bangkok",
+    "Pattaya"
+  ],
+  "nights": 7,
+  "days": 8,
+  "stars": "3 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1613672803979-a6edfc5a179b",
+    "https://images.unsplash.com/photo-1625492206717-61c584a8b11e"
+  ],
+  "summary": "Bangkok’s temples and a Chao Phraya dinner cruise, then Pattaya’s beaches and a Coral Island day trip.",
+  "hotels": [
+    "4 nights at Ibis Bangkok Sukhumvit 4 / similar",
+    "3 nights at Golden Sea Pattaya / similar"
+  ],
+  "inclusions": [
+    "Daily breakfast",
+    "Twin sharing basis",
+    "All transfers",
+    "Bangkok city highlights tour",
+    "Chao Phraya cruise with dinner",
+    "Pattaya Coral Island tour with lunch",
+    "Thailand e-Visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 109999,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": true,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/bangkok-pattaya.webp",
+  "order": 20,
+  "published": true
+}

@@ -1,0 +1,18 @@
+{
+  "country": "Cambodia",
+  "code": "kh",
+  "options": [
+    {
+      "label": "Tourist visa",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 20500,
+      "sc": false
+    }
+  ],
+  "processing": "3–5 working days",
+  "docs": "ticket",
+  "link": "",
+  "order": 160,
+  "published": true
+}

@@ -1,0 +1,25 @@
+{
+  "country": "Dubai (UAE)",
+  "code": "ae",
+  "options": [
+    {
+      "label": "30 days",
+      "type": "e-visa",
+      "currency": "AED",
+      "amount": 320,
+      "sc": false
+    },
+    {
+      "label": "60 days",
+      "type": "e-visa",
+      "currency": "AED",
+      "amount": 490,
+      "sc": false
+    }
+  ],
+  "processing": "3–5 working days",
+  "docs": "ticket",
+  "link": "",
+  "order": 10,
+  "published": true
+}

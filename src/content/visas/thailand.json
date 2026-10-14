@@ -1,0 +1,25 @@
+{
+  "country": "Thailand",
+  "code": "th",
+  "options": [
+    {
+      "label": "Single entry",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 16000,
+      "sc": false
+    },
+    {
+      "label": "Multiple entry",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 70000,
+      "sc": false
+    }
+  ],
+  "processing": "10–15 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 40,
+  "published": true
+}

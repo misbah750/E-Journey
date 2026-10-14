@@ -13,13 +13,12 @@ import InquiryForm from '../components/forms/InquiryForm.jsx';
 import { WhatsAppIcon, FacebookIcon } from '../components/ui/BrandIcons.jsx';
 import NotFound from './NotFound.jsx';
 import {
-  packages, getPackage, legacyPackageRedirects, formatPKR, formatDate, isExpired, lowestPrice,
+  allPackages, getPackage, legacyPackageRedirects, formatPKR, formatDate, isExpired, lowestPrice, durationLabel,
 } from '../data/packages.js';
-import { unsplash } from '../data/images.js';
+import { imageUrl } from '../data/images.js';
 import { whatsappUrl } from '../data/site.js';
 import { useSeo } from '../lib/hooks.js';
 
-const pad = (n) => String(n).padStart(2, '0');
 
 function ShareLinks({ title }) {
   const [copied, setCopied] = useState(false);
@@ -57,21 +56,21 @@ export default function PackageDetail() {
     pkg
       ? {
           title: `${pkg.title} Tour Package from Pakistan`,
-          description: `${pkg.title}: ${pkg.nights} nights, ${pkg.stars} hotels. ${pkg.summary}${expired ? '' : ` From ${formatPKR(lowestPrice(pkg))} per person.`}`,
-          image: unsplash(pkg.images[0].id, 1200),
+          description: `${pkg.title}${durationLabel(pkg) ? `, ${durationLabel(pkg)}` : ''}. ${pkg.summary}${expired ? '' : ` From ${formatPKR(lowestPrice(pkg))} per person.`}`,
+          image: imageUrl(pkg.images[0]),
           jsonLd: {
             '@context': 'https://schema.org',
             '@type': 'TouristTrip',
             name: pkg.title,
             description: pkg.summary,
-            image: unsplash(pkg.images[0].id, 1200),
+            image: imageUrl(pkg.images[0]),
             itinerary: pkg.cities.map((c) => ({ '@type': 'Place', name: c })),
             provider: { '@type': 'TravelAgency', name: 'e-Journey Travel & Tours' },
             ...(expired
               ? {}
               : {
                   offers: pkg.prices.map((p) => ({
-                    '@type': 'Offer', price: p.amount, priceCurrency: 'PKR', description: `${p.label}, twin sharing`, priceValidUntil: pkg.validTill,
+                    '@type': 'Offer', price: p.amount, priceCurrency: 'PKR', description: `${p.label}, twin sharing`, priceValidUntil: pkg.validTill || undefined,
                   })),
                 }),
           },
@@ -85,35 +84,37 @@ export default function PackageDetail() {
   }
 
   const multi = pkg.prices.length > 1;
+  const domestic = pkg.region === 'Domestic';
   const chosen = pkg.prices[option];
   const packageLabel = multi ? `${pkg.title} (${chosen.label})` : pkg.title;
   const related = [
-    ...packages.filter((p) => p.slug !== pkg.slug && p.country === pkg.country),
-    ...packages.filter((p) => p.country !== pkg.country),
+    ...allPackages.filter((p) => p.slug !== pkg.slug && p.region === pkg.region && p.country === pkg.country),
+    ...allPackages.filter((p) => p.slug !== pkg.slug && p.region === pkg.region && p.country !== pkg.country),
+    ...allPackages.filter((p) => p.region !== pkg.region),
   ].slice(0, 3);
 
   return (
     <>
       <PageHero
         image={pkg.images[0]}
-        eyebrow={`${pkg.country} · ${pkg.stars}`}
+        eyebrow={[pkg.country, pkg.stars].filter(Boolean).join(' · ')}
         title={<>{pkg.title}</>}
         lead={pkg.summary}
-        crumbs={[{ label: 'International Tours', to: '/international-tours' }, { label: pkg.title }]}
+        crumbs={[domestic ? { label: 'Pakistan Tours', to: '/pakistan-tours' } : { label: 'International Tours', to: '/international-tours' }, { label: pkg.title }]}
       >
         <a href="#book" className="btn btn--gold btn--lg">Book Now <ArrowRight size={18} aria-hidden="true" /></a>
-        <a href={pkg.flyer} download className="btn btn--ghost-light btn--lg"><Download size={18} aria-hidden="true" /> Download Flyer</a>
+        {pkg.flyer && <a href={pkg.flyer} download className="btn btn--ghost-light btn--lg"><Download size={18} aria-hidden="true" /> Download Flyer</a>}
       </PageHero>
 
       <section className="facts-strip facts-strip--package" aria-label="Package summary">
         <div className="container">
           <ul>
-            <li><Moon size={22} aria-hidden="true" /><span><small>Duration</small><strong>{pad(pkg.nights)} Nights · {pad(pkg.days)} Days</strong></span></li>
+            {durationLabel(pkg) && <li><Moon size={22} aria-hidden="true" /><span><small>Duration</small><strong>{durationLabel(pkg)}</strong></span></li>}
             <li><MapPin size={22} aria-hidden="true" /><span><small>Destinations</small><strong>{pkg.cities.join(' · ')}</strong></span></li>
-            <li><Hotel size={22} aria-hidden="true" /><span><small>Hotels</small><strong>{pkg.stars} · Twin sharing</strong></span></li>
+            <li><Hotel size={22} aria-hidden="true" /><span><small>Hotels</small><strong>{pkg.stars ? `${pkg.stars} · Twin sharing` : 'Twin sharing'}</strong></span></li>
             <li>
               <CalendarClock size={22} aria-hidden="true" />
-              <span><small>Price validity</small><strong>{expired ? 'Ask for current price' : `Valid till ${formatDate(pkg.validTill)}`}</strong></span>
+              <span><small>Price validity</small><strong>{expired ? 'Ask for current price' : pkg.validTill ? `Valid till ${formatDate(pkg.validTill)}` : 'Current price'}</strong></span>
             </li>
           </ul>
         </div>
@@ -149,6 +150,7 @@ export default function PackageDetail() {
               <p className="pd-note">Terms and conditions apply. Hotels are as named or similar; final details are confirmed by your consultant at the time of booking.</p>
             </Reveal>
 
+            {pkg.flyer && (
             <Reveal className="pd-flyer">
               <a href={pkg.flyer} target="_blank" rel="noopener noreferrer" className="pd-flyer__img" aria-label={`Open the ${pkg.title} flyer`}>
                 <img src={pkg.flyer} alt={`${pkg.title} package flyer`} loading="lazy" decoding="async" width="1100" height="1400" />
@@ -160,10 +162,11 @@ export default function PackageDetail() {
                 <a href={pkg.flyer} download className="btn btn--forest"><Download size={18} aria-hidden="true" /> Download Flyer</a>
               </div>
             </Reveal>
+            )}
 
             <div className="pd-media">
               {pkg.images.map((im, i) => (
-                <Reveal key={im.id} variant="mask" delay={i * 120} className="pd-media__item">
+                <Reveal key={im.id || im.src} variant="mask" delay={i * 120} className="pd-media__item">
                   <Img image={im} sizes="(max-width: 900px) 50vw, 30vw" maxWidth={1080} />
                 </Reveal>
               ))}
@@ -173,7 +176,7 @@ export default function PackageDetail() {
           <aside className="pd__aside" aria-label="Pricing and booking">
             <div className="price-card">
               <div className="price-card__top">
-                <span><Moon size={15} aria-hidden="true" /> {pad(pkg.nights)} Nights · {pad(pkg.days)} Days</span>
+                <span>{durationLabel(pkg) && <><Moon size={15} aria-hidden="true" /> {durationLabel(pkg)}</>}</span>
                 <span>{pkg.stars}</span>
               </div>
 
@@ -201,7 +204,7 @@ export default function PackageDetail() {
                   <strong className="price-card__amount">{formatPKR(chosen.amount)}</strong>
                   <span className="price-card__basis">(Per person, twin sharing)</span>
                   {chosen.hotel && <span className="price-card__note">{chosen.hotel}</span>}
-                  <span className="price-card__valid"><CalendarClock size={15} aria-hidden="true" /> Valid till {formatDate(pkg.validTill)}</span>
+                  {pkg.validTill && <span className="price-card__valid"><CalendarClock size={15} aria-hidden="true" /> Valid till {formatDate(pkg.validTill)}</span>}
                 </>
               )}
               {pkg.airfareNotIncluded && <span className="price-card__note">*Airline ticket not included</span>}
@@ -209,7 +212,7 @@ export default function PackageDetail() {
               <p className="price-card__guarantee"><CircleCheck size={17} aria-hidden="true" /> Your Travel Peace Is Our Guarantee</p>
 
               <a href="#book" className="btn btn--gold btn--lg btn--block">Confirm &amp; Book Now</a>
-              <a href={pkg.flyer} download className="btn btn--ghost-light btn--block"><Download size={17} aria-hidden="true" /> Download Flyer</a>
+              {pkg.flyer && <a href={pkg.flyer} download className="btn btn--ghost-light btn--block"><Download size={17} aria-hidden="true" /> Download Flyer</a>}
             </div>
 
             <div className="consult-card">
@@ -257,7 +260,7 @@ export default function PackageDetail() {
           ))}
         </div>
         <Reveal className="pkg-more">
-          <Link to="/international-tours#packages" className="btn btn--outline">View all packages <ArrowRight size={18} aria-hidden="true" /></Link>
+          <Link to={domestic ? '/pakistan-tours' : '/international-tours#packages'} className="btn btn--outline">View all packages <ArrowRight size={18} aria-hidden="true" /></Link>
         </Reveal>
       </Section>
     </>

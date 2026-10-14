@@ -34,17 +34,19 @@ export function ContactCards() {
         <span>
           <strong>Email</strong>
           <a href={`mailto:${site.email}`}>{site.email}</a>
-          <a href={`mailto:${site.emailAlt}`}>{site.emailAlt}</a>
+          {site.emailAlt && <a href={`mailto:${site.emailAlt}`}>{site.emailAlt}</a>}
         </span>
       </li>
-      <li className="contact-card contact-card--wide">
-        <span className="contact-card__icon"><UserRound size={20} aria-hidden="true" /></span>
-        <span>
-          <strong>{site.director.title}</strong>
-          <span className="contact-card__name">{site.director.name}</span>
-          <a href={`mailto:${site.director.email}`}>{site.director.email}</a>
-        </span>
-      </li>
+      {site.director.name && (
+        <li className="contact-card contact-card--wide">
+          <span className="contact-card__icon"><UserRound size={20} aria-hidden="true" /></span>
+          <span>
+            <strong>{site.director.title}</strong>
+            <span className="contact-card__name">{site.director.name}</span>
+            {site.director.email && <a href={`mailto:${site.director.email}`}>{site.director.email}</a>}
+          </span>
+        </li>
+      )}
       <li className="contact-card contact-card--wa contact-card--wide">
         <span className="contact-card__icon"><WhatsAppIcon size={20} /></span>
         <span>

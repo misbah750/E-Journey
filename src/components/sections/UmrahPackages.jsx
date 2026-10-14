@@ -22,7 +22,8 @@ export const describeUmrahChoice = (group, index) => {
  */
 export default function UmrahPackages({ onBook }) {
   const groups = sortedUmrahPackages();
-  const [activeId, setActiveId] = useState(groups[0].id);
+  const [activeId, setActiveId] = useState(groups[0]?.id);
+  if (!groups.length) return null;
   const g = groups.find((x) => x.id === activeId) || groups[0];
   const next = nextDeparture(g);
 
@@ -62,21 +63,27 @@ export default function UmrahPackages({ onBook }) {
         <div className="umrah-panel__head">
           <div>
             <p className="umrah-panel__airline"><Plane size={16} aria-hidden="true" /> {g.airline}{g.via ? ` · via ${g.via}` : ''}</p>
-            <h3 className="umrah-panel__title">{g.nights} Nights · {g.days} Days <span>from Karachi</span></h3>
+            <h3 className="umrah-panel__title">
+              {[g.nights && `${g.nights} Nights`, g.days && `${g.days} Days`].filter(Boolean).join(' · ')} <span>from Karachi</span>
+            </h3>
             <ul className="umrah-panel__facts">
-              <li>{g.makkah} nights Makkah</li>
-              <li>{g.madinah} nights Madinah</li>
-              <li>{g.baggage}</li>
+              {g.makkah && <li>{g.makkah} nights Makkah</li>}
+              {g.madinah && <li>{g.madinah} nights Madinah</li>}
+              {g.baggage && <li>{g.baggage}</li>}
             </ul>
             <ul className="umrah-panel__incl">
               {UMRAH_INCLUDES.map((i) => <li key={i}><Check size={15} aria-hidden="true" /> {i}</li>)}
             </ul>
           </div>
           <div className="umrah-panel__from">
-            <span>Packages from</span>
-            <strong>{formatPKR(groupFrom(g))}</strong>
-            <small>per person</small>
-            <a href={g.flyer} download className="btn btn--ghost-light btn--sm"><Download size={16} aria-hidden="true" /> Download Flyer</a>
+            {groupFrom(g) != null && (
+              <>
+                <span>Packages from</span>
+                <strong>{formatPKR(groupFrom(g))}</strong>
+                <small>per person</small>
+              </>
+            )}
+            {g.flyer && <a href={g.flyer} download className="btn btn--ghost-light btn--sm"><Download size={16} aria-hidden="true" /> Download Flyer</a>}
           </div>
         </div>
 
@@ -135,8 +142,8 @@ export default function UmrahPackages({ onBook }) {
         </ul>
 
         <p className="umrah-panel__child">
-          <strong>Child (without bed):</strong> {formatPKR(g.child)} <span aria-hidden="true">·</span>{' '}
-          <strong>Infant:</strong> {formatPKR(g.infant)} <span aria-hidden="true">·</span>{' '}
+          {g.child != null && <><strong>Child (without bed):</strong> {formatPKR(g.child)} <span aria-hidden="true">·</span>{' '}</>}
+          {g.infant != null && <><strong>Infant:</strong> {formatPKR(g.infant)} <span aria-hidden="true">·</span>{' '}</>}
           Hotels as named or similar. Terms and conditions apply.
         </p>
       </div>

@@ -1,0 +1,42 @@
+{
+  "title": "Kuala Lumpur & Genting Highlands",
+  "region": "International",
+  "country": "Malaysia",
+  "cities": [
+    "Kuala Lumpur",
+    "Genting Highlands"
+  ],
+  "nights": 5,
+  "days": 6,
+  "stars": "4 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1472017053394-b29fded587cd",
+    "https://images.unsplash.com/photo-1591181409255-71b68751e7b7"
+  ],
+  "summary": "Kuala Lumpur city sights and Batu Caves, the cool Genting Highlands, and a day at Sunway Lagoon theme park.",
+  "hotels": [
+    "5 nights at ibis Styles Kuala Lumpur / similar"
+  ],
+  "inclusions": [
+    "Twin sharing basis",
+    "Daily breakfast",
+    "Kuala Lumpur city tour",
+    "Genting Highlands tour",
+    "Batu Caves tour",
+    "Sunway Lagoon theme park ticket with transfers",
+    "All transfers",
+    "Malaysia e-Visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 125000,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/kuala-lumpur-genting.webp",
+  "order": 70,
+  "published": true
+}

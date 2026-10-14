@@ -1,0 +1,25 @@
+{
+  "country": "Malaysia",
+  "code": "my",
+  "options": [
+    {
+      "label": "e-Visa",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 12500,
+      "sc": false
+    },
+    {
+      "label": "Sticker visa",
+      "type": "sticker",
+      "currency": "PKR",
+      "amount": 17500,
+      "sc": false
+    }
+  ],
+  "processing": "3–5 working days (sticker visa 7–10 working days)",
+  "docs": "tourist",
+  "link": "",
+  "order": 30,
+  "published": true
+}

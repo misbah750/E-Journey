@@ -1,0 +1,18 @@
+{
+  "country": "Tanzania",
+  "code": "tz",
+  "options": [
+    {
+      "label": "Tourist visa",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 65000,
+      "sc": false
+    }
+  ],
+  "processing": "10–15 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 180,
+  "published": true
+}

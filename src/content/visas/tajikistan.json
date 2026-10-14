@@ -1,0 +1,18 @@
+{
+  "country": "Tajikistan",
+  "code": "tj",
+  "options": [
+    {
+      "label": "30 days",
+      "type": "sticker",
+      "currency": "USD",
+      "amount": 185,
+      "sc": false
+    }
+  ],
+  "processing": "5–7 working days",
+  "docs": "basic",
+  "link": "",
+  "order": 220,
+  "published": true
+}

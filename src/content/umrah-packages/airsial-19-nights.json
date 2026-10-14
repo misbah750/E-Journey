@@ -1,0 +1,225 @@
+{
+  "title": "Airsial 19 Nights (from 01 Oct)",
+  "airline": "Airsial",
+  "via": "",
+  "nights": 19,
+  "days": 20,
+  "makkah": 11,
+  "madinah": 8,
+  "baggage": "20 KG + 30 KG · 7 KG hand carry · meals",
+  "flights": [
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PF-714",
+          "date": "2026-10-01",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "02:05",
+          "arr": "04:45"
+        },
+        {
+          "flight": "PF-715",
+          "date": "2026-10-20",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "05:35",
+          "arr": "11:35"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PF-714",
+          "date": "2026-10-04",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "02:05",
+          "arr": "04:45"
+        },
+        {
+          "flight": "PF-715",
+          "date": "2026-10-23",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "05:35",
+          "arr": "11:35"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PF-714",
+          "date": "2026-10-06",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "02:05",
+          "arr": "04:45"
+        },
+        {
+          "flight": "PF-715",
+          "date": "2026-10-25",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "05:35",
+          "arr": "11:35"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PF-714",
+          "date": "2026-10-07",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "02:05",
+          "arr": "04:45"
+        },
+        {
+          "flight": "PF-715",
+          "date": "2026-10-26",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "05:35",
+          "arr": "11:35"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PF-714",
+          "date": "2026-10-08",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "02:05",
+          "arr": "04:45"
+        },
+        {
+          "flight": "PF-715",
+          "date": "2026-10-27",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "05:35",
+          "arr": "11:35"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PF-714",
+          "date": "2026-10-09",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "02:05",
+          "arr": "04:45"
+        },
+        {
+          "flight": "PF-715",
+          "date": "2026-10-28",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "05:35",
+          "arr": "11:35"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PF-714",
+          "date": "2026-10-11",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "02:05",
+          "arr": "04:45"
+        },
+        {
+          "flight": "PF-715",
+          "date": "2026-10-30",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "05:35",
+          "arr": "11:35"
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "makkahHotel": "Masarat Masmara",
+      "makkahNote": "Shuttle service",
+      "madinahHotel": "Abraj Al Diyafah",
+      "madinahNote": "Shuttle service",
+      "sharing": 215000,
+      "quad": 220000,
+      "triple": 225000,
+      "double": 235000
+    },
+    {
+      "makkahHotel": "Masarat Masmara",
+      "makkahNote": "Shuttle service",
+      "madinahHotel": "Masarat Majd Taybah",
+      "madinahNote": "650–700 m",
+      "sharing": 220000,
+      "quad": 225000,
+      "triple": 230000,
+      "double": 245000
+    },
+    {
+      "makkahHotel": "Rawdat Al Shrouq",
+      "makkahNote": "1100 m",
+      "madinahHotel": "Masarat Majd Taybah",
+      "madinahNote": "650–700 m",
+      "sharing": 232000,
+      "quad": 240000,
+      "triple": 255000,
+      "double": 280000
+    },
+    {
+      "makkahHotel": "Masarat Silver",
+      "makkahNote": "600 m",
+      "madinahHotel": "Naseem Al Sharia",
+      "madinahNote": "650 m",
+      "sharing": 237000,
+      "quad": 248000,
+      "triple": 265000,
+      "double": 300000
+    },
+    {
+      "makkahHotel": "Masarat Silver",
+      "makkahNote": "600 m",
+      "madinahHotel": "Zahra 2",
+      "madinahNote": "500 m",
+      "sharing": 240000,
+      "quad": 250000,
+      "triple": 270000,
+      "double": 308000
+    },
+    {
+      "makkahHotel": "Masarat Silver",
+      "makkahNote": "600 m",
+      "madinahHotel": "Diyar Al Nakheel",
+      "madinahNote": "200–250 m",
+      "sharing": 265000,
+      "quad": 280500,
+      "triple": 309000,
+      "double": 365000
+    }
+  ],
+  "child": 185000,
+  "infant": 85000,
+  "flyer": "/flyers/umrah-airsial-19-nights.webp",
+  "published": true
+}

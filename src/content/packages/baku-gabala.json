@@ -1,0 +1,41 @@
+{
+  "title": "Baku & Gabala",
+  "region": "International",
+  "country": "Azerbaijan",
+  "cities": [
+    "Baku",
+    "Gabala"
+  ],
+  "nights": 5,
+  "days": 6,
+  "stars": "4 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1785608149074-3fbacbe1ab6d",
+    "https://images.unsplash.com/photo-1588369281132-55b5f37e6818"
+  ],
+  "summary": "Baku’s Flame Towers and old city, the Gobustan and Absheron tour, and a full day in green Gabala with the cable car.",
+  "hotels": [
+    "5 nights at Austin Hotel / similar (4 Star)"
+  ],
+  "inclusions": [
+    "Daily breakfast",
+    "Twin sharing basis",
+    "All transfers",
+    "Full-day Gabala tour (cable car ticket included)",
+    "Gobustan & Absheron tour (entry tickets included)",
+    "Baku city tour",
+    "Azerbaijan e-Visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 139999,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/baku-gabala.webp",
+  "order": 10,
+  "published": true
+}

@@ -1,0 +1,41 @@
+{
+  "title": "Bali, Indonesia",
+  "region": "International",
+  "country": "Indonesia",
+  "cities": [
+    "Bali"
+  ],
+  "nights": 5,
+  "days": 6,
+  "stars": "4 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1555400038-63f5ba517a47",
+    "https://images.unsplash.com/photo-1664918706173-6349ca225dd0"
+  ],
+  "summary": "The Monkey Forest and Ceking rice terraces, Uluwatu Temple on its sea cliffs, and Padang Beach.",
+  "hotels": [
+    "5 nights at The ONE Legian Hotel / similar (4 Star)"
+  ],
+  "inclusions": [
+    "Daily breakfast",
+    "All transfers",
+    "Full-day Monkey Forest & Ceking rice terraces tour",
+    "Full-day Uluwatu Temple tour",
+    "Padang Beach tour",
+    "Half-day Bali city tour",
+    "Twin sharing",
+    "Indonesia e-Visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 133999,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/bali-indonesia.webp",
+  "order": 60,
+  "published": true
+}

@@ -1,0 +1,42 @@
+{
+  "title": "Samarkand & Tashkent",
+  "region": "International",
+  "country": "Uzbekistan",
+  "cities": [
+    "Samarkand",
+    "Tashkent"
+  ],
+  "nights": 5,
+  "days": 6,
+  "stars": "4 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1728565721798-cf65c7bf1efe",
+    "https://images.unsplash.com/photo-1654861857666-1e8c438cbe4a"
+  ],
+  "summary": "Samarkand’s Silk Road monuments and Tashkent, linked by train, with a day out to Amirsoy, Chimgan and Charvak.",
+  "hotels": [
+    "2 nights in Samarkand at Savitsky Plaza / similar (4 Star)",
+    "3 nights in Tashkent at Wyndham Garden / similar (4 Star)"
+  ],
+  "inclusions": [
+    "Daily breakfast",
+    "Twin sharing",
+    "All transfers",
+    "Train ticket",
+    "Full-day tour from Tashkent: Amirsoy, Chimgan & Charvak",
+    "City tours in both cities",
+    "Uzbekistan sticker visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 199999,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/samarkand-tashkent.webp",
+  "order": 100,
+  "published": true
+}

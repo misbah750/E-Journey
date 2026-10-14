@@ -1,0 +1,25 @@
+{
+  "country": "Indonesia",
+  "code": "id",
+  "options": [
+    {
+      "label": "Tourist visa",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 34000,
+      "sc": false
+    },
+    {
+      "label": "1 year · multiple entry",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 105000,
+      "sc": false
+    }
+  ],
+  "processing": "5–7 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 90,
+  "published": true
+}

@@ -1,6 +1,12 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import { packages } from './src/data/packages.js';
+import { readdirSync, readFileSync } from 'node:fs';
+
+/** Published tour package addresses, read straight from the content files (edited in /admin). */
+const packageSlugs = readdirSync('./src/content/packages')
+  .filter((f) => f.endsWith('.json'))
+  .filter((f) => JSON.parse(readFileSync(`./src/content/packages/${f}`, 'utf8')).published !== false)
+  .map((f) => f.replace(/\.json$/, ''));
 
 const ROUTES = [
   '/',
@@ -17,7 +23,7 @@ const ROUTES = [
   '/travel-insurance',
   '/contact',
   '/plan-your-trip',
-  ...packages.map((p) => `/packages/${p.slug}`),
+  ...packageSlugs.map((slug) => `/packages/${slug}`),
 ];
 
 /**
@@ -30,7 +36,7 @@ function seoFiles(siteUrl) {
     apply: 'build',
     generateBundle() {
       const base = (siteUrl || '').replace(/\/$/, '');
-      const robots = ['User-agent: *', 'Allow: /', base ? `Sitemap: ${base}/sitemap.xml` : ''].filter(Boolean).join('\n');
+      const robots = ['User-agent: *', 'Allow: /', 'Disallow: /admin/', base ? `Sitemap: ${base}/sitemap.xml` : ''].filter(Boolean).join('\n');
       this.emitFile({ type: 'asset', fileName: 'robots.txt', source: robots + '\n' });
       if (!base) return;
       const today = new Date().toISOString().slice(0, 10);

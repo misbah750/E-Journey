@@ -5,11 +5,13 @@ import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import Section, { SectionHeading } from '../components/ui/Section.jsx';
 import DestinationRows from '../components/sections/DestinationRows.jsx';
+import PackageCard from '../components/sections/PackageCard.jsx';
 import PakistanGallery from '../components/sections/PakistanGallery.jsx';
 import InquiryForm from '../components/forms/InquiryForm.jsx';
 import FinalCTA from '../components/sections/FinalCTA.jsx';
 import { images } from '../data/images.js';
 import { pakistanDestinations } from '../data/destinations.js';
+import { domesticPackages } from '../data/packages.js';
 import { useSeo } from '../lib/hooks.js';
 
 const styles = [
@@ -51,7 +53,12 @@ export default function PakistanTours() {
               We arrange domestic flights, road journeys, hotels and guided sightseeing across Pakistan, with particular
               expertise in the Northern Areas. Choose a customized independent tour or join a packaged group departure.
             </p>
-            <p className="rate-note"><CalendarClock size={16} aria-hidden="true" /> Domestic tour packages will be shared soon. Meanwhile, ask us for a custom quote.</p>
+            <p className="rate-note">
+              <CalendarClock size={16} aria-hidden="true" />{' '}
+              {domesticPackages.length
+                ? 'Domestic tour packages are refreshed every two months. Ask us for the current departures.'
+                : 'Domestic tour packages will be shared soon. Meanwhile, ask us for a custom quote.'}
+            </p>
             <ul className="style-chips" aria-label="Tour styles">
               {styles.map(({ icon: Icon, label }) => (
                 <li key={label}><Icon size={17} aria-hidden="true" /> {label}</li>
@@ -60,6 +67,24 @@ export default function PakistanTours() {
           </Reveal>
         </div>
       </Section>
+
+      {domesticPackages.length > 0 && (
+        <Section id="packages" tone="sand" className="packages">
+          <SectionHeading
+            eyebrow="Domestic Tour Packages"
+            title={<>Pakistan Tours, <em>Ready to Book</em></>}
+            lead="Current packages across Pakistan. Prices are per person; your consultant confirms dates and hotels."
+            align="center"
+          />
+          <div className={`pkg-grid ${domesticPackages.length === 1 ? 'pkg-grid--single' : ''}`}>
+            {domesticPackages.map((p, i) => (
+              <Reveal key={p.slug} delay={(i % 3) * 100}>
+                <PackageCard pkg={p} />
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section tone="white" className="dest-rows-section">
         <DestinationRows items={pakistanDestinations} tourDetails />

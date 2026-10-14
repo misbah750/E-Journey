@@ -1,0 +1,120 @@
+{
+  "title": "PIA 20 Nights (from 28 Oct)",
+  "airline": "PIA",
+  "via": "",
+  "nights": 20,
+  "days": 21,
+  "makkah": 12,
+  "madinah": 8,
+  "baggage": "20 KG + 30 KG · 7 KG hand carry · meals",
+  "flights": [
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PK731",
+          "date": "2026-10-28",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "21:50",
+          "arr": "00:30"
+        },
+        {
+          "flight": "PK832",
+          "date": "2026-11-17",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "22:20",
+          "arr": "04:15"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "PK761",
+          "date": "2026-10-30",
+          "from": "KHI",
+          "to": "JED",
+          "dep": "21:50",
+          "arr": "00:30"
+        },
+        {
+          "flight": "PK732",
+          "date": "2026-11-19",
+          "from": "JED",
+          "to": "KHI",
+          "dep": "02:00",
+          "arr": "08:05"
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "makkahHotel": "Masarat Masmara",
+      "makkahNote": "Shuttle service",
+      "madinahHotel": "Abraj Al Diyafah",
+      "madinahNote": "Shuttle service",
+      "sharing": 214000,
+      "quad": 219000,
+      "triple": 226000,
+      "double": 241000
+    },
+    {
+      "makkahHotel": "Masarat Masmara",
+      "makkahNote": "Shuttle service",
+      "madinahHotel": "Masarat Majd Taybah",
+      "madinahNote": "650–700 m",
+      "sharing": 219000,
+      "quad": 225000,
+      "triple": 234000,
+      "double": 253000
+    },
+    {
+      "makkahHotel": "Rawdat Al Shrouq",
+      "makkahNote": "1100 m",
+      "madinahHotel": "Masarat Majd Taybah",
+      "madinahNote": "650–700 m",
+      "sharing": 232000,
+      "quad": 240000,
+      "triple": 255000,
+      "double": 285000
+    },
+    {
+      "makkahHotel": "Masarat Silver",
+      "makkahNote": "600 m",
+      "madinahHotel": "Naseem Al Sharia",
+      "madinahNote": "650 m",
+      "sharing": 248000,
+      "quad": 260000,
+      "triple": 282000,
+      "double": 325000
+    },
+    {
+      "makkahHotel": "Masarat Silver",
+      "makkahNote": "600 m",
+      "madinahHotel": "Zahra 2",
+      "madinahNote": "500 m",
+      "sharing": 250000,
+      "quad": 264000,
+      "triple": 286000,
+      "double": 332000
+    },
+    {
+      "makkahHotel": "Masarat Silver",
+      "makkahNote": "600 m",
+      "madinahHotel": "Diyar Al Nakheel",
+      "madinahNote": "200–250 m",
+      "sharing": 269000,
+      "quad": 287000,
+      "triple": 318000,
+      "double": 379000
+    }
+  ],
+  "child": 185000,
+  "infant": 85000,
+  "flyer": "/flyers/umrah-pia-20-nights-28-oct.webp",
+  "published": true
+}

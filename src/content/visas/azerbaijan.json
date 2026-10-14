@@ -1,0 +1,25 @@
+{
+  "country": "Azerbaijan",
+  "code": "az",
+  "options": [
+    {
+      "label": "Normal",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 11500,
+      "sc": false
+    },
+    {
+      "label": "Urgent",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 23500,
+      "sc": false
+    }
+  ],
+  "processing": "Normal 3–5 working days · urgent 1–2 working days",
+  "docs": "basic",
+  "link": "",
+  "order": 60,
+  "published": true
+}

@@ -1,0 +1,18 @@
+{
+  "country": "Morocco",
+  "code": "ma",
+  "options": [
+    {
+      "label": "Tourist visa",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 38000,
+      "sc": false
+    }
+  ],
+  "processing": "7–10 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 190,
+  "published": true
+}

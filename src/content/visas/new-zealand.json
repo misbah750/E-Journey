@@ -1,0 +1,18 @@
+{
+  "country": "New Zealand",
+  "code": "nz",
+  "options": [
+    {
+      "label": "Visitor visa",
+      "type": "e-visa",
+      "currency": "NZD",
+      "amount": 442,
+      "sc": true
+    }
+  ],
+  "processing": "4–6 weeks",
+  "docs": "full",
+  "link": "",
+  "order": 240,
+  "published": true
+}

@@ -1,0 +1,42 @@
+{
+  "title": "Colombo, Sri Lanka",
+  "region": "International",
+  "country": "Sri Lanka",
+  "cities": [
+    "Colombo",
+    "Galle",
+    "Bentota"
+  ],
+  "nights": 5,
+  "days": 6,
+  "stars": "3 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1612862862126-865765df2ded",
+    "https://images.unsplash.com/photo-1509982724584-2ce0d4366d8b"
+  ],
+  "summary": "Colombo city, the southern coast at Galle and Bentota, and Pinnawala with a visit to a tea factory.",
+  "hotels": [
+    "5 nights at Mirage Colombo Hotel / similar (3 Star)"
+  ],
+  "inclusions": [
+    "All transfers",
+    "Twin sharing basis",
+    "Daily breakfast",
+    "Galle & Bentota day tour",
+    "Full-day Colombo city tour",
+    "Full-day Pinnawala & tea factory",
+    "Sri Lanka e-Visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 119999,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/colombo-sri-lanka.webp",
+  "order": 50,
+  "published": true
+}

@@ -1,0 +1,42 @@
+{
+  "title": "Langkawi & Penang Islands",
+  "region": "International",
+  "country": "Malaysia",
+  "cities": [
+    "Langkawi",
+    "Penang"
+  ],
+  "nights": 6,
+  "days": 7,
+  "stars": "3 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1771220262024-f06807deaaed",
+    "https://images.unsplash.com/photo-1620488212381-dea91f7dd69a"
+  ],
+  "summary": "Two islands in one trip: Langkawi island hopping and mangroves, then Penang’s heritage city and Penang Hill.",
+  "hotels": [
+    "3 nights at Nadias Hotel Cenang Langkawi (3 Star)",
+    "3 nights at Merchant Hotel Penang (3 Star)"
+  ],
+  "inclusions": [
+    "Daily breakfast",
+    "Twin sharing basis",
+    "All transfers",
+    "Langkawi island hopping tour",
+    "Langkawi mangrove tour",
+    "Penang city highlights with Penang Hill funicular (ticket included)",
+    "One-way ferry ticket (Langkawi to Penang)"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 125000,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/langkawi-penang.webp",
+  "order": 90,
+  "published": true
+}

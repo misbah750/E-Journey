@@ -32,22 +32,58 @@ npm run preview    # serve the production build locally
 | `/plan-your-trip` | Five-step custom trip builder (accepts `?package=`, `?style=`, `?destination=`) |
 | `/packages/:slug` | Package detail: hotels, inclusions, price options, validity, flyer download, booking request |
 
-## Editing content
+## Editing the website from /admin (no code)
 
-Everything the agency is likely to change lives in `src/data/`:
+Day-to-day changes are made in the browser at **https://YOUR-SITE/admin**:
 
-- `site.js` — address, phone numbers, email, **WhatsApp number**, social links
-- `packages.js` — international tour packages from the flyers (prices, hotels, inclusions, `validTill`, flyer file in `public/flyers/`).
-  Packages run on roughly two-month validity: once `validTill` passes, the price is hidden automatically and
-  visitors are asked for the current price, so update the price and date (and the flyer) when a new offer comes out.
-- `visas.js` — visa prices by country (e-Visa / sticker, `sc: true` for “+ SC”), `docs` checklists, `processing` times, case preparation list
-- `umrah.js` — current Umrah group packages from the flyers (`umrahPackages`: flights, hotels, prices, child/infant
-  rates, flyer file); departed flight dates are marked automatically. Also the Umrah types. Rates change every 15 days to a month: set `price` and `validTill` on a type to publish
-  a rate; it hides itself after that date and visitors are asked for the current rate
+| Section | What you can change |
+| --- | --- |
+| **Tour Packages** | Add, edit, hide or delete international and domestic packages: photos, cities, hotels, inclusions, prices, "valid till" date, flyer |
+| **Umrah Packages** | One entry per Umrah flyer: airline, flight dates and times, hotels, Sharing / Quad / Triple / Double prices, child and infant rates, flyer |
+| **Visa Prices** | Countries, prices, processing time, documents checklist |
+| **Settings** | Contact details (address, numbers, emails, Director, social links), Umrah visa price and rate note, Google / Facebook ratings and reviews |
+
+Press **Publish** and the change is saved to GitHub; Vercel rebuilds the live site automatically in about 1 to 2 minutes.
+Uploaded photos and flyers are stored in `public/uploads/`. Turning off **Show on website** hides an item without deleting it.
+
+### One-time setup (about 5 minutes)
+
+The admin page logs in with GitHub. It needs a GitHub "OAuth app" and two keys in Vercel:
+
+1. In GitHub, open **Settings → Developer settings → OAuth Apps → New OAuth App** and fill in:
+   - **Application name:** e-Journey Admin
+   - **Homepage URL:** your live address, e.g. `https://www.ejourney.net` (or the `...vercel.app` address until the domain is moved)
+   - **Authorization callback URL:** the same address followed by `/api/callback`, e.g. `https://www.ejourney.net/api/callback`
+2. Click **Register application**, copy the **Client ID**, then click **Generate a new client secret** and copy it.
+3. In Vercel, open the project → **Settings → Environment Variables** and add:
+   - `OAUTH_GITHUB_CLIENT_ID` = the Client ID
+   - `OAUTH_GITHUB_CLIENT_SECRET` = the client secret
+4. In Vercel → **Deployments**, open the latest deployment's menu and choose **Redeploy**.
+5. Open `https://YOUR-SITE/admin` and click **Login with GitHub**.
+
+Notes:
+- Everyone who edits needs a GitHub account with write access to the repository
+  (GitHub repo → **Settings → Collaborators → Add people**).
+- When the website moves to a new domain, update the OAuth app's Homepage and callback URLs to the new domain.
+- The login asks for access to public repositories. If the repository is ever made private, change
+  `auth_scope: 'public_repo'` to `auth_scope: 'repo'` in `public/admin/config.js`.
+- If you also edit code on your computer, run `git pull` first so you have the latest admin changes.
+
+## Editing content in code
+
+Editable content lives in `src/content/` as JSON (the same files the admin page edits):
+
+- `packages/*.json` — tour packages (file name = web address `/packages/<name>`). Once `validTill` passes, the
+  price is hidden automatically and visitors are asked for the current price.
+- `umrah-packages/*.json` — Umrah flyers (flights, hotels, prices); departed flight dates are marked automatically.
+- `visas/*.json` — visa prices, processing times and document checklist (`basic`, `ticket`, `tourist`, `full`, `umrah`).
+- `settings/contact.json`, `settings/umrah.json`, `settings/reviews.json`.
+
+Other content is in `src/data/`:
+
 - `destinations.js` — Pakistan and international destination guides
 - `services.js` — the 12 services
 - `content.js` — navigation, FAQs, process steps, values, **testimonials**
-- `reviews.js` — Google / Facebook review links and reviews (the homepage Reviews section appears once filled)
 - `images.js` — every photo (Unsplash id + alt text). Swap an `id` to change a photo.
 
 ## Logo

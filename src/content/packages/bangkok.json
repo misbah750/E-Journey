@@ -1,0 +1,38 @@
+{
+  "title": "Bangkok",
+  "region": "International",
+  "country": "Thailand",
+  "cities": [
+    "Bangkok"
+  ],
+  "nights": 4,
+  "days": 5,
+  "stars": "4 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1613672803979-a6edfc5a179b"
+  ],
+  "summary": "A short Bangkok break with the city’s highlights and a cruise on the Chao Phraya River.",
+  "hotels": [
+    "4 nights at Ibis Bangkok Sukhumvit 4 / similar"
+  ],
+  "inclusions": [
+    "Daily breakfast",
+    "Twin sharing",
+    "All transfers",
+    "Bangkok city highlights tour",
+    "Chao Phraya River cruise",
+    "Thailand e-Visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 81999,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": true,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/bangkok.webp",
+  "order": 40,
+  "published": true
+}

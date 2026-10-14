@@ -1,0 +1,18 @@
+{
+  "country": "Canada",
+  "code": "ca",
+  "options": [
+    {
+      "label": "Visitor visa",
+      "type": "sticker",
+      "currency": "CAD",
+      "amount": 185,
+      "sc": true
+    }
+  ],
+  "processing": "6–10 weeks",
+  "docs": "full",
+  "link": "",
+  "order": 250,
+  "published": true
+}

@@ -1,0 +1,18 @@
+{
+  "country": "Egypt",
+  "code": "eg",
+  "options": [
+    {
+      "label": "Tourist visa",
+      "type": "sticker",
+      "currency": "PKR",
+      "amount": 17000,
+      "sc": false
+    }
+  ],
+  "processing": "10–15 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 110,
+  "published": true
+}

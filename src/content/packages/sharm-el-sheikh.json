@@ -1,0 +1,47 @@
+{
+  "title": "Sharm el-Sheikh, Egypt",
+  "region": "International",
+  "country": "Egypt",
+  "cities": [
+    "Sharm el-Sheikh"
+  ],
+  "nights": 5,
+  "days": 6,
+  "stars": "3 or 4 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1681158077449-77f23f629f0d",
+    "https://images.unsplash.com/photo-1651871756929-09d7bde4e97d"
+  ],
+  "summary": "Red Sea snorkelling at Ras Mohammed and White Island, Naama Bay, the Old Market and Farsha Café.",
+  "hotels": [
+    "5 nights, choose 3 Star or 4 Star (see prices)"
+  ],
+  "inclusions": [
+    "All transfers",
+    "Daily breakfast",
+    "Twin sharing basis",
+    "Full-day Ras Mohammed & White Island snorkelling",
+    "Half-day city tour",
+    "Old Market tour",
+    "Farsha Café tour",
+    "Naama Bay walking tour",
+    "On-arrival visa approval"
+  ],
+  "prices": [
+    {
+      "label": "3 Star",
+      "amount": 109999,
+      "hotel": "Falcon Naama Hotel / similar"
+    },
+    {
+      "label": "4 Star",
+      "amount": 136999,
+      "hotel": "Oriental Rivoli Hotel & Spa / similar"
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/sharm-el-sheikh.webp",
+  "order": 110,
+  "published": true
+}

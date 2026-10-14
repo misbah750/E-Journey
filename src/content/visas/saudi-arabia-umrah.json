@@ -1,0 +1,18 @@
+{
+  "country": "Saudi Arabia (Umrah)",
+  "code": "sa",
+  "options": [
+    {
+      "label": "Umrah visa · 28 days",
+      "type": "e-visa",
+      "currency": "SAR",
+      "amount": null,
+      "sc": false
+    }
+  ],
+  "processing": "2–4 working days",
+  "docs": "umrah",
+  "link": "/umrah",
+  "order": 20,
+  "published": true
+}

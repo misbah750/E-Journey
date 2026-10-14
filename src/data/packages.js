@@ -1,321 +1,49 @@
-import { images } from './images.js';
+import { resolvePhoto } from './images.js';
 
 /**
- * International tour packages — transcribed from e-Journey's own package flyers (public/flyers/).
+ * Tour packages. Each package is one file in src/content/packages/, edited from the admin page
+ * (/admin → Tour Packages). The file name is the package's web address: /packages/<file-name>.
  *
- * Updating packages (international packages run on roughly two-month validity):
- *  - edit price(s), inclusions and `validTill` (YYYY-MM-DD), and replace the flyer file;
- *  - once `validTill` has passed, the site automatically hides the old price and shows
- *    "ask for the current price" until the package is updated or removed.
- * `prices` holds one entry, or several when a flyer offers options (e.g. 3 Star / 4 Star).
+ * - `region` is International (International Tours page) or Domestic (Pakistan Tours page).
+ * - Once `validTill` has passed, the price is hidden automatically and visitors are asked
+ *   for the current price, until the package is updated or unpublished.
+ * - `published: false` hides a package without deleting it.
  */
-const VALID_TILL = '2026-10-30';
+const files = import.meta.glob('../content/packages/*.json', { eager: true, import: 'default' });
 
-export const packages = [
-  {
-    slug: 'baku-gabala',
-    country: 'Azerbaijan',
-    title: 'Baku & Gabala',
-    cities: ['Baku', 'Gabala'],
-    days: 6,
-    nights: 5,
-    stars: '4 Star',
-    images: [images.baku, images.caucasus],
-    summary: 'Baku’s Flame Towers and old city, the Gobustan and Absheron tour, and a full day in green Gabala with the cable car.',
-    hotels: ['5 nights at Austin Hotel / similar (4 Star)'],
-    inclusions: [
-      'Daily breakfast',
-      'Twin sharing basis',
-      'All transfers',
-      'Full-day Gabala tour (cable car ticket included)',
-      'Gobustan & Absheron tour (entry tickets included)',
-      'Baku city tour',
-      'Azerbaijan e-Visa',
-    ],
-    prices: [{ label: 'Per person', amount: 139999 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/baku-gabala.webp',
-  },
-  {
-    slug: 'bangkok-pattaya',
-    country: 'Thailand',
-    title: 'Bangkok & Pattaya',
-    cities: ['Bangkok', 'Pattaya'],
-    days: 8,
-    nights: 7,
-    stars: '3 Star',
-    images: [images.watArun, images.pattaya],
-    summary: 'Bangkok’s temples and a Chao Phraya dinner cruise, then Pattaya’s beaches and a Coral Island day trip.',
-    hotels: ['4 nights at Ibis Bangkok Sukhumvit 4 / similar', '3 nights at Golden Sea Pattaya / similar'],
-    inclusions: [
-      'Daily breakfast',
-      'Twin sharing basis',
-      'All transfers',
-      'Bangkok city highlights tour',
-      'Chao Phraya cruise with dinner',
-      'Pattaya Coral Island tour with lunch',
-      'Thailand e-Visa',
-    ],
-    prices: [{ label: 'Per person', amount: 109999 }],
-    airfareNotIncluded: true,
-    validTill: VALID_TILL,
-    flyer: '/flyers/bangkok-pattaya.webp',
-  },
-  {
-    slug: 'bangkok-phuket-pattaya',
-    country: 'Thailand',
-    title: 'Bangkok, Phuket & Pattaya',
-    cities: ['Bangkok', 'Phuket', 'Pattaya'],
-    days: 8,
-    nights: 7,
-    stars: '4 Star',
-    images: [images.watArun, images.thailand],
-    summary: 'Three Thai favourites: Bangkok city sights, Pattaya’s Coral Island and Phuket with a full-day Phi Phi Island tour.',
-    hotels: [
-      '2 nights in Bangkok at Ambassador Hotel / similar',
-      '2 nights in Pattaya at Hotel Amber Pattaya / similar',
-      '3 nights in Phuket at Holiday Inn Resort Phuket / similar',
-    ],
-    inclusions: [
-      'Daily breakfast',
-      'Twin sharing',
-      'Half-day Bangkok city tour',
-      'Pattaya Coral Island tour',
-      'Half-day Phuket city tour',
-      'Full-day Phi Phi Island tour',
-      'All transfers',
-    ],
-    prices: [{ label: 'Per person', amount: 144999 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/bangkok-phuket-pattaya.webp',
-  },
-  {
-    slug: 'bangkok',
-    country: 'Thailand',
-    title: 'Bangkok',
-    cities: ['Bangkok'],
-    days: 5,
-    nights: 4,
-    stars: '4 Star',
-    images: [images.watArun],
-    summary: 'A short Bangkok break with the city’s highlights and a cruise on the Chao Phraya River.',
-    hotels: ['4 nights at Ibis Bangkok Sukhumvit 4 / similar'],
-    inclusions: [
-      'Daily breakfast',
-      'Twin sharing',
-      'All transfers',
-      'Bangkok city highlights tour',
-      'Chao Phraya River cruise',
-      'Thailand e-Visa',
-    ],
-    prices: [{ label: 'Per person', amount: 81999 }],
-    airfareNotIncluded: true,
-    validTill: VALID_TILL,
-    flyer: '/flyers/bangkok.webp',
-  },
-  {
-    slug: 'colombo-sri-lanka',
-    country: 'Sri Lanka',
-    title: 'Colombo, Sri Lanka',
-    cities: ['Colombo', 'Galle', 'Bentota'],
-    days: 6,
-    nights: 5,
-    stars: '3 Star',
-    images: [images.sigiriya, images.galle],
-    summary: 'Colombo city, the southern coast at Galle and Bentota, and Pinnawala with a visit to a tea factory.',
-    hotels: ['5 nights at Mirage Colombo Hotel / similar (3 Star)'],
-    inclusions: [
-      'All transfers',
-      'Twin sharing basis',
-      'Daily breakfast',
-      'Galle & Bentota day tour',
-      'Full-day Colombo city tour',
-      'Full-day Pinnawala & tea factory',
-      'Sri Lanka e-Visa',
-    ],
-    prices: [{ label: 'Per person', amount: 119999 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/colombo-sri-lanka.webp',
-  },
-  {
-    slug: 'bali-indonesia',
-    country: 'Indonesia',
-    title: 'Bali, Indonesia',
-    cities: ['Bali'],
-    days: 6,
-    nights: 5,
-    stars: '4 Star',
-    images: [images.baliTerraces, images.uluwatu],
-    summary: 'The Monkey Forest and Ceking rice terraces, Uluwatu Temple on its sea cliffs, and Padang Beach.',
-    hotels: ['5 nights at The ONE Legian Hotel / similar (4 Star)'],
-    inclusions: [
-      'Daily breakfast',
-      'All transfers',
-      'Full-day Monkey Forest & Ceking rice terraces tour',
-      'Full-day Uluwatu Temple tour',
-      'Padang Beach tour',
-      'Half-day Bali city tour',
-      'Twin sharing',
-      'Indonesia e-Visa',
-    ],
-    prices: [{ label: 'Per person', amount: 133999 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/bali-indonesia.webp',
-  },
-  {
-    slug: 'kuala-lumpur-genting',
-    country: 'Malaysia',
-    title: 'Kuala Lumpur & Genting Highlands',
-    cities: ['Kuala Lumpur', 'Genting Highlands'],
-    days: 6,
-    nights: 5,
-    stars: '4 Star',
-    images: [images.petronas, images.genting],
-    summary: 'Kuala Lumpur city sights and Batu Caves, the cool Genting Highlands, and a day at Sunway Lagoon theme park.',
-    hotels: ['5 nights at ibis Styles Kuala Lumpur / similar'],
-    inclusions: [
-      'Twin sharing basis',
-      'Daily breakfast',
-      'Kuala Lumpur city tour',
-      'Genting Highlands tour',
-      'Batu Caves tour',
-      'Sunway Lagoon theme park ticket with transfers',
-      'All transfers',
-      'Malaysia e-Visa',
-    ],
-    prices: [{ label: 'Per person', amount: 125000 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/kuala-lumpur-genting.webp',
-  },
-  {
-    slug: 'kuala-lumpur-langkawi-genting',
-    country: 'Malaysia',
-    title: 'Kuala Lumpur, Langkawi & Genting',
-    cities: ['Kuala Lumpur', 'Langkawi', 'Genting Highlands'],
-    days: 7,
-    nights: 6,
-    stars: '4 Star',
-    images: [images.petronas, images.langkawi],
-    summary: 'Kuala Lumpur and Genting Highlands with Batu Caves, then island time in Langkawi with a mangrove tour.',
-    hotels: ['3 nights at ibis Styles Kuala Lumpur / similar', '3 nights at Nadias Hotel Cenang Langkawi / similar'],
-    inclusions: [
-      'Daily breakfast',
-      'Twin sharing basis',
-      'Genting Highlands tour',
-      'Batu Caves tour',
-      'Kuala Lumpur city tour',
-      'Langkawi mangrove tour',
-      'All transfers',
-      'Malaysia e-Visa',
-    ],
-    prices: [{ label: 'Per person', amount: 139000 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/malaysia-kl-langkawi-genting.webp',
-  },
-  {
-    slug: 'langkawi-penang',
-    country: 'Malaysia',
-    title: 'Langkawi & Penang Islands',
-    cities: ['Langkawi', 'Penang'],
-    days: 7,
-    nights: 6,
-    stars: '3 Star',
-    images: [images.langkawi, images.penang],
-    summary: 'Two islands in one trip: Langkawi island hopping and mangroves, then Penang’s heritage city and Penang Hill.',
-    hotels: ['3 nights at Nadias Hotel Cenang Langkawi (3 Star)', '3 nights at Merchant Hotel Penang (3 Star)'],
-    inclusions: [
-      'Daily breakfast',
-      'Twin sharing basis',
-      'All transfers',
-      'Langkawi island hopping tour',
-      'Langkawi mangrove tour',
-      'Penang city highlights with Penang Hill funicular (ticket included)',
-      'One-way ferry ticket (Langkawi to Penang)',
-    ],
-    prices: [{ label: 'Per person', amount: 125000 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/langkawi-penang.webp',
-  },
-  {
-    slug: 'samarkand-tashkent',
-    country: 'Uzbekistan',
-    title: 'Samarkand & Tashkent',
-    cities: ['Samarkand', 'Tashkent'],
-    days: 6,
-    nights: 5,
-    stars: '4 Star',
-    images: [images.samarkand, images.tashkent],
-    summary: 'Samarkand’s Silk Road monuments and Tashkent, linked by train, with a day out to Amirsoy, Chimgan and Charvak.',
-    hotels: [
-      '2 nights in Samarkand at Savitsky Plaza / similar (4 Star)',
-      '3 nights in Tashkent at Wyndham Garden / similar (4 Star)',
-    ],
-    inclusions: [
-      'Daily breakfast',
-      'Twin sharing',
-      'All transfers',
-      'Train ticket',
-      'Full-day tour from Tashkent: Amirsoy, Chimgan & Charvak',
-      'City tours in both cities',
-      'Uzbekistan sticker visa',
-    ],
-    prices: [{ label: 'Per person', amount: 199999 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/samarkand-tashkent.webp',
-  },
-  {
-    slug: 'sharm-el-sheikh',
-    country: 'Egypt',
-    title: 'Sharm el-Sheikh, Egypt',
-    cities: ['Sharm el-Sheikh'],
-    days: 6,
-    nights: 5,
-    stars: '3 or 4 Star',
-    images: [images.sharm, images.redSeaReef],
-    summary: 'Red Sea snorkelling at Ras Mohammed and White Island, Naama Bay, the Old Market and Farsha Café.',
-    hotels: ['5 nights, choose 3 Star or 4 Star (see prices)'],
-    inclusions: [
-      'All transfers',
-      'Daily breakfast',
-      'Twin sharing basis',
-      'Full-day Ras Mohammed & White Island snorkelling',
-      'Half-day city tour',
-      'Old Market tour',
-      'Farsha Café tour',
-      'Naama Bay walking tour',
-      'On-arrival visa approval',
-    ],
-    prices: [
-      { label: '3 Star', amount: 109999, hotel: 'Falcon Naama Hotel / similar' },
-      { label: '4 Star', amount: 136999, hotel: 'Oriental Rivoli Hotel & Spa / similar' },
-    ],
-    validTill: VALID_TILL,
-    flyer: '/flyers/sharm-el-sheikh.webp',
-  },
-  {
-    slug: 'tashkent',
-    country: 'Uzbekistan',
-    title: 'Tashkent, Uzbekistan',
-    cities: ['Tashkent'],
-    days: 5,
-    nights: 4,
-    stars: '4 Star',
-    images: [images.tashkent, images.tashkentSquare],
-    summary: 'Tashkent city tour and a full day out to the mountains and lake at Amirsoy, Chimgan and Charvak.',
-    hotels: ['4 nights at Wyndham Garden Tashkent / similar (4 Star)'],
-    inclusions: [
-      'Daily breakfast',
-      'Twin sharing',
-      'All transfers',
-      'City tour',
-      'Full-day tour from Tashkent: Amirsoy, Chimgan & Charvak',
-      'Uzbekistan sticker visa',
-    ],
-    prices: [{ label: 'Per person', amount: 170000 }],
-    validTill: VALID_TILL,
-    flyer: '/flyers/tashkent.webp',
-  },
-];
+const toNumber = (v) => (v === '' || v == null || Number.isNaN(Number(v)) ? null : Number(v));
+
+const normalize = (slug, d) => ({
+  slug,
+  title: d.title,
+  region: d.region === 'Domestic' ? 'Domestic' : 'International',
+  country: d.country || '',
+  cities: d.cities?.length ? d.cities : [d.title],
+  nights: toNumber(d.nights),
+  days: toNumber(d.days),
+  stars: d.stars || '',
+  images: (d.photos || []).map((ref) => resolvePhoto(ref, d.title)).filter(Boolean),
+  summary: d.summary || '',
+  hotels: d.hotels || [],
+  inclusions: d.inclusions || [],
+  prices: (d.prices || [])
+    .map((p) => ({ label: p.label || 'Per person', amount: toNumber(p.amount), hotel: p.hotel || '' }))
+    .filter((p) => p.amount),
+  airfareNotIncluded: !!d.airfareNotIncluded,
+  validTill: d.validTill || '',
+  flyer: d.flyer || '',
+  order: toNumber(d.order) ?? 999,
+  published: d.published !== false,
+});
+
+/** Every published package, in display order. */
+export const allPackages = Object.entries(files)
+  .map(([file, data]) => normalize(file.split('/').pop().replace(/\.json$/, ''), data))
+  .filter((p) => p.published && p.title && p.images.length)
+  .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+
+export const packages = allPackages.filter((p) => p.region === 'International');
+export const domesticPackages = allPackages.filter((p) => p.region === 'Domestic');
 
 /** Older package links that should land somewhere useful. */
 export const legacyPackageRedirects = {
@@ -327,10 +55,10 @@ export const legacyPackageRedirects = {
   'qatar-doha-15-night-grand-discovery': '/international-tours',
 };
 
-export const getPackage = (slug) => packages.find((p) => p.slug === slug);
+export const getPackage = (slug) => allPackages.find((p) => p.slug === slug);
 
 /** Countries in display order, for filters. */
-export const packageCountries = [...new Set(packages.map((p) => p.country))];
+export const packageCountries = [...new Set(packages.map((p) => p.country).filter(Boolean))];
 
 export const formatPKR = (n) => `PKR ${n.toLocaleString('en-US')}`;
 
@@ -339,5 +67,12 @@ export const lowestPrice = (pkg) => Math.min(...pkg.prices.map((p) => p.amount))
 export const formatDate = (iso) =>
   new Date(`${iso}T00:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
-/** True once the end of the validity day has passed (local time). */
-export const isExpired = (pkg) => !!pkg.validTill && new Date(`${pkg.validTill}T23:59:59`) < new Date();
+/** True when there is no price to show: none entered, or the validity date has passed (local time). */
+export const isExpired = (pkg) =>
+  !pkg.prices.length || (!!pkg.validTill && new Date(`${pkg.validTill}T23:59:59`) < new Date());
+
+const pad2 = (n) => String(n).padStart(2, '0');
+
+/** "05 Nights · 06 Days", or an empty string when the duration was left blank. */
+export const durationLabel = (pkg) =>
+  [pkg.nights && `${pad2(pkg.nights)} Nights`, pkg.days && `${pad2(pkg.days)} Days`].filter(Boolean).join(' · ');

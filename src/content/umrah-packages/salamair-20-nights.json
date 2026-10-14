@@ -1,0 +1,253 @@
+{
+  "title": "SalamAir 20 Nights (from 01 Oct)",
+  "airline": "SalamAir",
+  "via": "Muscat",
+  "nights": 20,
+  "days": 21,
+  "makkah": 12,
+  "madinah": 8,
+  "baggage": "20 KG + 30 KG · 7 KG hand carry · meals",
+  "flights": [
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "OV 514",
+          "date": "2026-10-01",
+          "from": "KHI",
+          "to": "MCT",
+          "dep": "06:40",
+          "arr": "07:30"
+        },
+        {
+          "flight": "OV 283",
+          "date": "2026-10-01",
+          "from": "MCT",
+          "to": "JED",
+          "dep": "08:40",
+          "arr": "11:00"
+        },
+        {
+          "flight": "OV 286",
+          "date": "2026-10-21",
+          "from": "JED",
+          "to": "MCT",
+          "dep": "17:00",
+          "arr": "21:15"
+        },
+        {
+          "flight": "OV 513",
+          "date": "2026-10-22",
+          "from": "MCT",
+          "to": "KHI",
+          "dep": "03:15",
+          "arr": "05:55"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "OV 514",
+          "date": "2026-10-06",
+          "from": "KHI",
+          "to": "MCT",
+          "dep": "06:40",
+          "arr": "07:30"
+        },
+        {
+          "flight": "OV 283",
+          "date": "2026-10-06",
+          "from": "MCT",
+          "to": "JED",
+          "dep": "08:40",
+          "arr": "11:00"
+        },
+        {
+          "flight": "OV 286",
+          "date": "2026-10-26",
+          "from": "JED",
+          "to": "MCT",
+          "dep": "16:55",
+          "arr": "20:50"
+        },
+        {
+          "flight": "OV 513",
+          "date": "2026-10-27",
+          "from": "MCT",
+          "to": "KHI",
+          "dep": "03:15",
+          "arr": "05:55"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "OV 514",
+          "date": "2026-10-07",
+          "from": "KHI",
+          "to": "MCT",
+          "dep": "06:40",
+          "arr": "07:30"
+        },
+        {
+          "flight": "OV 283",
+          "date": "2026-10-07",
+          "from": "MCT",
+          "to": "JED",
+          "dep": "08:40",
+          "arr": "11:00"
+        },
+        {
+          "flight": "OV 286",
+          "date": "2026-10-27",
+          "from": "JED",
+          "to": "MCT",
+          "dep": "16:45",
+          "arr": "20:40"
+        },
+        {
+          "flight": "OV 513",
+          "date": "2026-10-28",
+          "from": "MCT",
+          "to": "KHI",
+          "dep": "03:15",
+          "arr": "05:55"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "OV 514",
+          "date": "2026-10-08",
+          "from": "KHI",
+          "to": "MCT",
+          "dep": "06:40",
+          "arr": "07:30"
+        },
+        {
+          "flight": "OV 283",
+          "date": "2026-10-08",
+          "from": "MCT",
+          "to": "JED",
+          "dep": "08:40",
+          "arr": "11:00"
+        },
+        {
+          "flight": "OV 286",
+          "date": "2026-10-28",
+          "from": "JED",
+          "to": "MCT",
+          "dep": "17:00",
+          "arr": "20:55"
+        },
+        {
+          "flight": "OV 513",
+          "date": "2026-10-29",
+          "from": "MCT",
+          "to": "KHI",
+          "dep": "03:15",
+          "arr": "05:55"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "legs": [
+        {
+          "flight": "OV 514",
+          "date": "2026-10-11",
+          "from": "KHI",
+          "to": "MCT",
+          "dep": "06:40",
+          "arr": "07:30"
+        },
+        {
+          "flight": "OV 283",
+          "date": "2026-10-11",
+          "from": "MCT",
+          "to": "JED",
+          "dep": "08:40",
+          "arr": "11:00"
+        },
+        {
+          "flight": "OV 286",
+          "date": "2026-10-31",
+          "from": "JED",
+          "to": "MCT",
+          "dep": "16:55",
+          "arr": "20:50"
+        },
+        {
+          "flight": "OV 513",
+          "date": "2026-11-01",
+          "from": "MCT",
+          "to": "KHI",
+          "dep": "03:15",
+          "arr": "05:55"
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "makkahHotel": "Masarat Masmara",
+      "makkahNote": "Shuttle service",
+      "madinahHotel": "Abraj Al Diyafah",
+      "madinahNote": "Shuttle service",
+      "sharing": 195000,
+      "quad": 200000,
+      "triple": 205000,
+      "double": 220500
+    },
+    {
+      "makkahHotel": "Masarat Masmara",
+      "makkahNote": "Shuttle service",
+      "madinahHotel": "Masarat Majd Taybah",
+      "madinahNote": "650–700 m",
+      "sharing": 205000,
+      "quad": 210000,
+      "triple": 220000,
+      "double": 240000
+    },
+    {
+      "makkahHotel": "Rawdat Al Shrouq",
+      "makkahNote": "1100 m",
+      "madinahHotel": "Masarat Majd Taybah",
+      "madinahNote": "650–700 m",
+      "sharing": 215000,
+      "quad": 225000,
+      "triple": 240000,
+      "double": 270000
+    },
+    {
+      "makkahHotel": "Masarat Al Khalil",
+      "makkahNote": "750–800 m",
+      "madinahHotel": "Masarat Majd Taybah",
+      "madinahNote": "650–700 m",
+      "sharing": 225000,
+      "quad": 236000,
+      "triple": 255000,
+      "double": 296000
+    },
+    {
+      "makkahHotel": "Masarat Silver",
+      "makkahNote": "600 m",
+      "madinahHotel": "Zahra 2",
+      "madinahNote": "500 m",
+      "sharing": 232000,
+      "quad": 245000,
+      "triple": 270000,
+      "double": 315000
+    }
+  ],
+  "child": 175000,
+  "infant": 80000,
+  "flyer": "/flyers/umrah-salamair-20-nights.webp",
+  "published": true
+}

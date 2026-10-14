@@ -1,0 +1,18 @@
+{
+  "country": "Kenya",
+  "code": "ke",
+  "options": [
+    {
+      "label": "Tourist visa",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 21500,
+      "sc": false
+    }
+  ],
+  "processing": "3–7 working days",
+  "docs": "tourist",
+  "link": "",
+  "order": 170,
+  "published": true
+}

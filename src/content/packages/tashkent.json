@@ -1,0 +1,39 @@
+{
+  "title": "Tashkent, Uzbekistan",
+  "region": "International",
+  "country": "Uzbekistan",
+  "cities": [
+    "Tashkent"
+  ],
+  "nights": 4,
+  "days": 5,
+  "stars": "4 Star",
+  "photos": [
+    "https://images.unsplash.com/photo-1654861857666-1e8c438cbe4a",
+    "https://images.unsplash.com/photo-1622021109028-8ba1d5374161"
+  ],
+  "summary": "Tashkent city tour and a full day out to the mountains and lake at Amirsoy, Chimgan and Charvak.",
+  "hotels": [
+    "4 nights at Wyndham Garden Tashkent / similar (4 Star)"
+  ],
+  "inclusions": [
+    "Daily breakfast",
+    "Twin sharing",
+    "All transfers",
+    "City tour",
+    "Full-day tour from Tashkent: Amirsoy, Chimgan & Charvak",
+    "Uzbekistan sticker visa"
+  ],
+  "prices": [
+    {
+      "label": "Per person",
+      "amount": 170000,
+      "hotel": ""
+    }
+  ],
+  "airfareNotIncluded": false,
+  "validTill": "2026-10-30",
+  "flyer": "/flyers/tashkent.webp",
+  "order": 120,
+  "published": true
+}

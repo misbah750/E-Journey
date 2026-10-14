@@ -1,0 +1,18 @@
+{
+  "country": "Hong Kong",
+  "code": "hk",
+  "options": [
+    {
+      "label": "30 days",
+      "type": "e-visa",
+      "currency": "PKR",
+      "amount": 38000,
+      "sc": false
+    }
+  ],
+  "processing": "4–6 weeks",
+  "docs": "tourist",
+  "link": "",
+  "order": 130,
+  "published": true
+}

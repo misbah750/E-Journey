@@ -15,6 +15,7 @@ import { whatsappUrl } from '../data/site.js';
 import { useSeo } from '../lib/hooks.js';
 
 export function Flag({ code, size = 40 }) {
+  if (!code) return null;
   return <img className="flag" src={flagUrl(code)} alt="" width={size} height={Math.round(size * 0.75)} loading="lazy" decoding="async" />;
 }
 
