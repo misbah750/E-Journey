@@ -8,12 +8,16 @@
  * The Reviews section on the homepage appears automatically once there is a review, a summary or a link.
  */
 export const reviewLinks = {
-  google: '',
+  google: 'https://share.google/wOU7KDMD2nRQpwv8g',
   facebook: 'https://www.facebook.com/ejourneytravels/reviews',
 };
 
-/** Rating as shown on the profile (Facebook: "100% recommend (9 reviews)", checked 14 Oct 2026). */
+/**
+ * Ratings as shown on each profile, checked 14 Oct 2026:
+ * Google "5.0 (11 Google reviews)", Facebook "100% recommend (9 reviews)".
+ */
 export const reviewSummary = {
+  google: { rating: 5.0, count: 11 },
   facebook: { recommendPercent: 100, count: 9 },
 };
 

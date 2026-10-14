@@ -394,3 +394,6 @@
 .review-score__body strong { font-family: var(--font-display); font-size: 2.4rem; font-weight: 400; line-height: 1; color: var(--green-900); margin-right: 6px; }
 .review-score__body small { font-size: 0.84rem; font-weight: 600; color: var(--muted); }
 .review-card__rec { display: inline-flex; align-items: center; gap: 6px; font-size: 0.84rem; font-weight: 700; color: #1877f2; }
+.review-score--google .review-score__icon { background: var(--white); border: 1px solid var(--line-strong); }
+.review-score__rating { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.review-score__rating .review-card__stars { flex-basis: 100%; }

@@ -4,9 +4,9 @@ import Section, { SectionHeading } from '../ui/Section.jsx';
 import { FacebookIcon } from '../ui/BrandIcons.jsx';
 import { reviews, reviewLinks, reviewSummary } from '../../data/reviews.js';
 
-function GoogleMark() {
+function GoogleMark({ size = 16 }) {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
       <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.2-2.1 3.5-5.1 3.5-8.7Z" />
       <path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24Z" />
       <path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6h-4a12 12 0 0 0 0 10.8l4-3.1Z" />
@@ -25,8 +25,8 @@ export default function Reviews({ tone = 'sand' }) {
     reviewLinks.facebook && { href: reviewLinks.facebook, label: 'Read our Facebook reviews', icon: <FacebookIcon size={16} /> },
   ].filter(Boolean);
   const summaries = [
+    reviewSummary.google && { source: 'Google', icon: <GoogleMark size={26} />, ...reviewSummary.google },
     reviewSummary.facebook && { source: 'Facebook', icon: <FacebookIcon size={22} />, ...reviewSummary.facebook },
-    reviewSummary.google && { source: 'Google', icon: <GoogleMark />, ...reviewSummary.google },
   ].filter(Boolean);
   if (!reviews.length && !links.length && !summaries.length) return null;
   const sources = [...new Set([...summaries.map((x) => x.source), ...reviews.map((r) => r.source)])];
@@ -42,13 +42,22 @@ export default function Reviews({ tone = 'sand' }) {
       {summaries.length > 0 && (
         <ul className="reviews__summary">
           {summaries.map((x) => (
-            <Reveal as="li" key={x.source} className="review-score">
+            <Reveal as="li" key={x.source} className={`review-score review-score--${x.source.toLowerCase()}`}>
               <span className="review-score__icon">{x.icon}</span>
               <span className="review-score__body">
                 {x.recommendPercent != null ? (
                   <><strong>{x.recommendPercent}%</strong> recommend e-Journey</>
                 ) : (
-                  <><strong>{x.rating}</strong> out of 5</>
+                  <>
+                    <span className="review-score__rating">
+                      <strong>{x.rating.toFixed(1)}</strong> out of 5
+                      <span className="review-card__stars" role="img" aria-label={`${x.rating.toFixed(1)} out of 5 stars`}>
+                        {Array.from({ length: 5 }, (_, s) => (
+                          <Star key={s} size={15} aria-hidden="true" className={s < Math.round(x.rating) ? 'is-on' : ''} />
+                        ))}
+                      </span>
+                    </span>
+                  </>
                 )}
                 <small>Based on {x.count} {x.source} reviews</small>
               </span>
