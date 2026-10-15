@@ -1,6 +1,7 @@
 {
   "country": "South Africa",
   "code": "za",
+  "region": "Africa",
   "options": [
     {
       "label": "30 days",

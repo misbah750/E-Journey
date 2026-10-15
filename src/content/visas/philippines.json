@@ -1,6 +1,7 @@
 {
   "country": "Philippines",
   "code": "ph",
+  "region": "Asia",
   "options": [
     {
       "label": "30 days",

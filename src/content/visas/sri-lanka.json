@@ -1,6 +1,7 @@
 {
   "country": "Sri Lanka",
   "code": "lk",
+  "region": "Asia",
   "options": [
     {
       "label": "Tourist visa",

@@ -36,6 +36,9 @@ export const DOCS = {
   umrah: [...BASIC, 'Meningitis vaccination certificate'],
 };
 
+/** Region groups for the rate sheet, in display order. */
+export const VISA_REGIONS = ['Gulf & Middle East', 'Asia', 'Central Asia', 'Africa', 'Americas & Oceania'];
+
 export const visaTypes = [
   { id: 'all', label: 'All Visas' },
   { id: 'e-visa', label: 'e-Visa / Paper Visa' },
@@ -54,6 +57,7 @@ export const visas = Object.values(files)
   .map((v) => ({
     country: v.country,
     code: (v.code || '').trim().toLowerCase(),
+    region: VISA_REGIONS.includes(v.region) ? v.region : 'Asia',
     link: v.link || '',
     processing: v.processing || '',
     docs: DOCS[v.docs] || DOCS.basic,

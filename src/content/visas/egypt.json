@@ -1,6 +1,7 @@
 {
   "country": "Egypt",
   "code": "eg",
+  "region": "Africa",
   "options": [
     {
       "label": "Tourist visa",

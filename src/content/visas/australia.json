@@ -1,6 +1,7 @@
 {
   "country": "Australia",
   "code": "au",
+  "region": "Americas & Oceania",
   "options": [
     {
       "label": "Multiple entry",

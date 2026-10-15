@@ -1,6 +1,7 @@
 {
   "country": "Nepal",
   "code": "np",
+  "region": "Asia",
   "options": [
     {
       "label": "Invitation · 30 days",

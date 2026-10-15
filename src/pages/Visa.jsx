@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Info, Search, FolderCheck, Clock, FileText, MessageCircle } from 'lucide-react';
+import { ArrowRight, Info, Search, FolderCheck, Clock, FileText, MessageCircle, ChevronDown } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
 import FormAside from '../components/ui/FormAside.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
@@ -9,76 +9,85 @@ import InquiryForm from '../components/forms/InquiryForm.jsx';
 import { WhatsAppIcon } from '../components/ui/BrandIcons.jsx';
 import { images } from '../data/images.js';
 import {
-  visas, visaTypes, casePreparation, DOCS, TYPE_LABEL, flagUrl, formatVisaPrice, sharedType,
+  visas, VISA_REGIONS, casePreparation, DOCS, TYPE_LABEL, flagUrl, formatVisaPrice, sharedType,
 } from '../data/visas.js';
 import { whatsappUrl } from '../data/site.js';
 import { useSeo } from '../lib/hooks.js';
 
 export function Flag({ code, size = 40 }) {
   if (!code) return null;
-  return <img className="flag" src={flagUrl(code)} alt="" width={size} height={Math.round(size * 0.75)} loading="lazy" decoding="async" />;
+  return (
+    <img
+      className="flag"
+      src={flagUrl(code)}
+      alt=""
+      width={size}
+      height={Math.round(size * 0.75)}
+      loading="lazy"
+      decoding="async"
+      onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }}
+    />
+  );
 }
 
-function VisaCard({ visa, onApply }) {
+const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+/** One country on the rate sheet: prices at a glance, documents and actions when opened. */
+function RateRow({ visa, open, onToggle, onApply }) {
   const type = sharedType(visa);
+  const panelId = `visa-${slugify(visa.country)}`;
   return (
-    <li className="visa-card">
-      <div className="visa-card__head">
-        <Flag code={visa.code} />
-        <h3>{visa.country}</h3>
-        {type && <span className={`visa-card__type visa-card__type--${type}`}>{TYPE_LABEL[type]}</span>}
-      </div>
+    <li className={`rate ${open ? 'is-open' : ''}`}>
+      <button type="button" className="rate__head" aria-expanded={open} aria-controls={panelId} onClick={onToggle}>
+        <span className="rate__flag"><Flag code={visa.code} size={36} /></span>
+        <span className="rate__country">
+          <strong>{visa.country}</strong>
+          {type && <small>{TYPE_LABEL[type]}</small>}
+        </span>
+        <span className="rate__time">
+          {visa.processing && <><Clock size={14} aria-hidden="true" /> {visa.processing}</>}
+        </span>
+        <span className="rate__opts">
+          {visa.options.map((o) => (
+            <span key={o.label} className="rate__opt">
+              <span>{o.label}</span>
+              <strong className={o.amount == null ? 'is-ask' : ''}>{formatVisaPrice(o)}</strong>
+            </span>
+          ))}
+        </span>
+        <ChevronDown size={18} aria-hidden="true" className="rate__chev" />
+      </button>
 
-      <ul className="visa-card__opts">
-        {visa.options.map((o) => (
-          <li key={o.label}>
-            <span>{o.label}</span>
-            <strong className={o.amount == null ? 'is-ask' : ''}>{formatVisaPrice(o)}</strong>
-          </li>
-        ))}
-      </ul>
-
-      {visa.processing && (
-        <p className="visa-card__time">
-          <Clock size={15} aria-hidden="true" />
-          <span><strong>Processing:</strong> approx. {visa.processing}</span>
-        </p>
-      )}
-
-      {visa.docs && (
-        <details className="visa-card__docs">
-          <summary><FileText size={15} aria-hidden="true" /> Documents required ({visa.docs.length})</summary>
+      <div className="rate__more" id={panelId} hidden={!open}>
+        <div className="rate__docs">
+          <p><FileText size={15} aria-hidden="true" /> Documents required</p>
           <ul>
             {visa.docs.map((d) => <li key={d}>{d}</li>)}
           </ul>
-        </details>
-      )}
-
-      <div className="visa-card__actions">
-        <a href="#visa-inquiry" onClick={() => onApply(visa.country)} className="link-arrow">
-          Apply <ArrowRight size={15} aria-hidden="true" />
-        </a>
-        {visa.link ? (
-          <Link to={visa.link} className="visa-card__wa">Umrah packages</Link>
-        ) : (
+        </div>
+        <div className="rate__actions">
+          <a href="#visa-inquiry" onClick={() => onApply(visa.country)} className="btn btn--forest btn--sm">
+            Apply <ArrowRight size={16} aria-hidden="true" />
+          </a>
           <a
             href={whatsappUrl(`Hello e-Journey, I'd like to apply for a ${visa.country} visa.`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="visa-card__wa"
-            aria-label={`Ask about a ${visa.country} visa on WhatsApp`}
+            className="btn btn--outline btn--sm"
           >
             <WhatsAppIcon size={16} /> WhatsApp
           </a>
-        )}
+          {visa.link && <Link to={visa.link} className="link-arrow">Umrah packages <ArrowRight size={15} aria-hidden="true" /></Link>}
+        </div>
       </div>
     </li>
   );
 }
 
 export default function Visa() {
-  const [type, setType] = useState('all');
+  const [region, setRegion] = useState('all');
   const [query, setQuery] = useState('');
+  const [openCountry, setOpenCountry] = useState('');
   const [country, setCountry] = useState('');
 
   useSeo({
@@ -87,17 +96,13 @@ export default function Visa() {
       'Visa prices, document requirements and processing times from e-Journey Travel & Tours, Karachi: Dubai, Malaysia, Thailand, Singapore, Azerbaijan, Sri Lanka, Türkiye, Uzbekistan and more, plus case preparation for the USA, UK, Schengen, Canada and Australia.',
   });
 
-  const list = useMemo(() => {
+  const regions = useMemo(() => VISA_REGIONS.filter((r) => visas.some((v) => v.region === r)), []);
+
+  const groups = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return visas
-      .filter((v) => !q || v.country.toLowerCase().includes(q))
-      .map((v) => {
-        if (type === 'all') return v;
-        const options = v.options.filter((o) => o.type === type);
-        return options.length ? { ...v, options } : null;
-      })
-      .filter(Boolean);
-  }, [type, query]);
+    const list = visas.filter((v) => (region === 'all' || v.region === region) && (!q || v.country.toLowerCase().includes(q)));
+    return regions.map((r) => ({ region: r, items: list.filter((v) => v.region === r) })).filter((g) => g.items.length);
+  }, [region, query, regions]);
 
   return (
     <>
@@ -116,31 +121,51 @@ export default function Visa() {
 
       <Section id="visa-prices" tone="ivory">
         <SectionHeading
-          eyebrow="Visa Prices"
-          title={<>Choose Your <em>Destination</em></>}
-          lead="Prices are per applicant. “+ SC” means service charges are added to the listed fee. Open “Documents required” on any card for the checklist."
+          eyebrow="Visa Price List"
+          title={<>Visa Prices at a <em>Glance</em></>}
+          lead="Prices are per applicant. “+ SC” means service charges are added to the listed fee. Tap a country for the documents you need."
           align="center"
         />
 
-        <Reveal className="visa-tools">
-          <div className="filter-chips" role="group" aria-label="Filter by visa type">
-            {visaTypes.map((t) => (
-              <button key={t.id} type="button" aria-pressed={type === t.id} onClick={() => setType(t.id)}>
-                {t.label}
-              </button>
-            ))}
-          </div>
+        <Reveal className="rate-tools">
           <label className="visa-search">
             <Search size={18} aria-hidden="true" />
             <span className="sr-only">Search country</span>
             <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search country…" />
           </label>
+          <div className="filter-chips" role="group" aria-label="Filter by region">
+            {['all', ...regions].map((r) => (
+              <button key={r} type="button" aria-pressed={region === r} onClick={() => setRegion(r)}>
+                {r === 'all' ? 'All' : r}
+              </button>
+            ))}
+          </div>
         </Reveal>
 
-        {list.length ? (
-          <ul className="visa-grid">
-            {list.map((v) => <VisaCard key={v.country} visa={v} onApply={setCountry} />)}
-          </ul>
+        {groups.length ? (
+          <div className="rate-sheet">
+            <div className="rate-sheet__labels" aria-hidden="true">
+              <span>Country</span>
+              <span>Processing</span>
+              <span>Visa and price</span>
+            </div>
+            {groups.map((g) => (
+              <section key={g.region} className="rate-group" aria-label={g.region}>
+                <h3 className="rate-group__title">{g.region}</h3>
+                <ul className="rate-list">
+                  {g.items.map((v) => (
+                    <RateRow
+                      key={v.country}
+                      visa={v}
+                      open={openCountry === v.country}
+                      onToggle={() => setOpenCountry((c) => (c === v.country ? '' : v.country))}
+                      onApply={setCountry}
+                    />
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
         ) : (
           <div className="visa-empty">
             <p>We don’t have a listed price for “{query}” yet. Ask us and we’ll check the requirements for you.</p>

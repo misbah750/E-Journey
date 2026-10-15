@@ -1,6 +1,7 @@
 {
   "country": "Azerbaijan",
   "code": "az",
+  "region": "Central Asia",
   "options": [
     {
       "label": "Normal",

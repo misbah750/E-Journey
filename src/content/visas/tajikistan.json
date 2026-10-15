@@ -1,6 +1,7 @@
 {
   "country": "Tajikistan",
   "code": "tj",
+  "region": "Central Asia",
   "options": [
     {
       "label": "30 days",

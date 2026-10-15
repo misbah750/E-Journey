@@ -1,6 +1,7 @@
 {
   "country": "Cambodia",
   "code": "kh",
+  "region": "Asia",
   "options": [
     {
       "label": "Tourist visa",

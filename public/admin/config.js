@@ -183,12 +183,20 @@
     delete: true,
     slug: '{{slug}}',
     identifier_field: 'country',
-    summary: '{{country}}',
+    summary: '{{country}} · {{region}}',
     sortable_fields: ['order', 'country'],
     editor: { preview: false },
     fields: [
       text('country', 'Country'),
       text('code', 'Flag code', { required: false, hint: 'Two-letter country code for the flag, e.g. ae (UAE), my (Malaysia), th (Thailand).' }),
+      {
+        name: 'region',
+        label: 'Region',
+        widget: 'select',
+        options: ['Gulf & Middle East', 'Asia', 'Central Asia', 'Africa', 'Americas & Oceania'],
+        default: 'Asia',
+        hint: 'The group this country is listed under on the visa page.',
+      },
       {
         name: 'options',
         label: 'Visa options & prices',

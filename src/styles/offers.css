@@ -134,9 +134,9 @@
 @media (max-width: 420px) { .visa-chips { grid-template-columns: 1fr; } }
 
 /* ---------- Visa page ---------- */
-.visa-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 18px; margin-bottom: clamp(28px, 3.4vw, 40px); }
-.visa-tools .filter-chips { margin-bottom: 0; }
-.visa-search { position: relative; display: block; width: min(100%, 280px); }
+.rate-tools { display: grid; justify-items: center; gap: 14px; margin-bottom: clamp(24px, 3vw, 36px); }
+.rate-tools .filter-chips { margin-bottom: 0; }
+.visa-search { position: relative; display: block; width: min(100%, 420px); }
 .visa-search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
 .visa-search input {
   width: 100%;
@@ -150,62 +150,46 @@
   color: var(--ink);
 }
 .visa-search input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.visa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; align-items: start; }
-.visa-card {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 22px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  transition: border-color 0.25s, box-shadow 0.3s;
+.rate-sheet { max-width: 1040px; margin: 0 auto; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.rate-sheet__labels,
+.rate__head { display: grid; grid-template-columns: 40px minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.4fr) 22px; gap: 18px; align-items: center; }
+.rate-sheet__labels { padding: 14px 24px; background: var(--green-900); color: rgba(253, 247, 239, 0.75); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+.rate-sheet__labels span:first-child { grid-column: 1 / 3; }
+.rate-sheet__labels span:last-child { grid-column: 4 / 6; }
+.rate-group__title { padding: 12px 24px; border-top: 1px solid var(--line); background: var(--ivory-2); font-family: var(--font-body); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); }
+.rate { border-top: 1px solid var(--line); }
+.rate__head { width: 100%; padding: 16px 24px; border: 0; background: transparent; font: inherit; color: inherit; text-align: left; cursor: pointer; transition: background 0.2s; }
+.rate__head:hover, .rate.is-open .rate__head { background: var(--ivory); }
+.rate__head:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.rate__flag { display: flex; }
+.rate__flag .flag { width: 36px; height: 27px; }
+.rate__country strong { display: block; font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; line-height: 1.2; color: var(--green-900); }
+.rate__country small { display: inline-block; margin-top: 5px; padding: 2px 8px; border-radius: 999px; background: var(--ivory-2); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green-800); }
+.rate__time { display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; line-height: 1.4; color: var(--ink-soft); }
+.rate__time svg { flex: none; color: var(--gold-deep); }
+.rate__opts { display: grid; gap: 4px; }
+.rate__opt { display: flex; justify-content: space-between; gap: 12px; font-size: 0.9rem; color: var(--ink-soft); }
+.rate__opt strong { font-weight: 800; color: var(--green-800); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.rate__opt strong.is-ask { font-weight: 700; color: var(--gold-deep); }
+.rate__chev { color: var(--muted); transition: transform 0.3s var(--ease), color 0.2s; }
+.rate.is-open .rate__chev { transform: rotate(180deg); color: var(--gold-deep); }
+.rate__more { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; align-items: end; padding: 2px 24px 20px 82px; background: var(--ivory); }
+.rate__more[hidden] { display: none; }
+.rate__docs p { display: inline-flex; align-items: center; gap: 6px; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); }
+.rate__docs ul { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.rate__docs li { padding: 6px 12px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); font-size: 0.84rem; color: var(--ink-soft); }
+.rate__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+@media (max-width: 760px) {
+  .rate-sheet__labels { display: none; }
+  .rate-group__title { padding: 10px 16px; }
+  .rate__head { grid-template-columns: 36px minmax(0, 1fr) 20px; gap: 8px 12px; padding: 14px 16px; }
+  .rate__chev { grid-column: 3; grid-row: 1; }
+  .rate__opts { grid-column: 2 / 4; grid-row: 2; }
+  .rate__time { grid-column: 2 / 4; grid-row: 3; font-size: 0.8rem; }
+  .rate__more { grid-template-columns: 1fr; padding: 2px 16px 18px; }
 }
-.visa-card:hover { border-color: rgba(199, 156, 71, 0.6); box-shadow: var(--shadow-sm); }
-.visa-card__head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
-.visa-card__head h3 { flex: 1 1 auto; font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; line-height: 1.2; color: var(--green-900); }
-.flag { flex: none; width: 40px; height: 30px; border-radius: 6px; object-fit: cover; box-shadow: 0 0 0 1px var(--line); background: var(--ivory-2); }
-.visa-card__type {
-  padding: 3px 10px;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  background: var(--ivory-2);
-  color: var(--green-800);
-}
-.visa-card__type--sticker { background: var(--gold-soft); color: var(--gold-deep); }
-.visa-card__opts { display: grid; margin: 14px 0 12px; border-top: 1px solid var(--line); }
-.visa-card__opts li { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--line-strong); }
-.visa-card__opts span { font-size: 0.9rem; font-weight: 600; color: var(--ink-soft); }
-.visa-card__opts strong.is-ask { font-weight: 700; font-size: 0.86rem; color: var(--gold-deep); }
-.visa-card__time { display: flex; gap: 8px; margin-top: -2px; font-size: 0.84rem; line-height: 1.5; color: var(--ink-soft); }
-.visa-card__time svg { flex: none; margin-top: 3px; color: var(--gold-deep); }
-.visa-card__time strong { color: var(--green-900); }
-.visa-card__docs { margin: 12px 0 16px; border-radius: 14px; background: var(--ivory); border: 1px solid var(--line); }
-.visa-card__docs summary {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  cursor: pointer;
-  list-style: none;
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: var(--green-800);
-}
-.visa-card__docs summary::-webkit-details-marker { display: none; }
-.visa-card__docs summary::after { content: '+'; display: inline-block; margin-left: auto; transition: transform 0.2s; font-size: 1.1rem; line-height: 1; color: var(--gold-deep); }
-.visa-card__docs[open] summary::after { transform: rotate(45deg); }
-.visa-card__docs summary svg { color: var(--gold-deep); }
-.visa-card__docs ul { display: grid; gap: 6px; padding: 0 14px 12px 34px; list-style: disc; font-size: 0.84rem; line-height: 1.45; color: var(--ink-soft); }
 .visa-footnote { display: flex; align-items: center; justify-content: center; gap: 8px; max-width: 760px; margin: 28px auto 0; text-align: center; font-size: 0.84rem; color: var(--muted); }
 .visa-footnote svg { flex: none; color: var(--gold-deep); }
-.visa-extra__docs { display: grid; gap: 8px; margin: 20px 0 28px; padding-left: 20px; list-style: disc; font-size: 0.92rem; line-height: 1.5; color: rgba(253, 247, 239, 0.82); }
-.visa-card__opts strong { flex: none; font-size: 0.98rem; font-weight: 800; color: var(--green-800); white-space: nowrap; }
-.visa-card__actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
-.visa-card__wa { display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; font-weight: 700; color: var(--whatsapp); }
-.visa-card__wa:hover { text-decoration: underline; text-underline-offset: 4px; }
 .visa-empty { display: grid; justify-items: center; gap: 18px; max-width: 520px; margin: 0 auto; padding: 32px; text-align: center; border-radius: 22px; background: var(--white); border: 1px dashed var(--line-strong); color: var(--ink-soft); }
 .visa-extra__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 28px); }
 .visa-extra__card {

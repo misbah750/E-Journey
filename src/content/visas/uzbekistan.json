@@ -1,6 +1,7 @@
 {
   "country": "Uzbekistan",
   "code": "uz",
+  "region": "Central Asia",
   "options": [
     {
       "label": "30 days",

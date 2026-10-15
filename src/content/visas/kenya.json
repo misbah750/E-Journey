@@ -1,6 +1,7 @@
 {
   "country": "Kenya",
   "code": "ke",
+  "region": "Africa",
   "options": [
     {
       "label": "Tourist visa",

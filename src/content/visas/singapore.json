@@ -1,6 +1,7 @@
 {
   "country": "Singapore",
   "code": "sg",
+  "region": "Asia",
   "options": [
     {
       "label": "Online application",

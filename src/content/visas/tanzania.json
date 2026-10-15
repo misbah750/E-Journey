@@ -1,6 +1,7 @@
 {
   "country": "Tanzania",
   "code": "tz",
+  "region": "Africa",
   "options": [
     {
       "label": "Tourist visa",

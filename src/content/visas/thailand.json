@@ -1,6 +1,7 @@
 {
   "country": "Thailand",
   "code": "th",
+  "region": "Asia",
   "options": [
     {
       "label": "Single entry",

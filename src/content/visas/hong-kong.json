@@ -1,6 +1,7 @@
 {
   "country": "Hong Kong",
   "code": "hk",
+  "region": "Asia",
   "options": [
     {
       "label": "30 days",

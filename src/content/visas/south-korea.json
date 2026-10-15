@@ -1,6 +1,7 @@
 {
   "country": "South Korea",
   "code": "kr",
+  "region": "Asia",
   "options": [
     {
       "label": "30 days",
