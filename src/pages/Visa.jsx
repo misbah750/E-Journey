@@ -47,18 +47,25 @@ function RateRow({ visa, open, onToggle, onApply }) {
         <span className="rate__time">
           {visa.processing && <><Clock size={14} aria-hidden="true" /> {visa.processing}</>}
         </span>
-        <span className="rate__opts">
-          {visa.options.map((o) => (
-            <span key={o.label} className="rate__opt">
-              <span>{o.label}</span>
-              <strong className={o.amount == null ? 'is-ask' : ''}>{formatVisaPrice(o)}</strong>
-            </span>
-          ))}
+        <span className="rate__peek">
+          <span className="rate__labels">{visa.options.map((o) => o.label).join(' · ')}</span>
+          <span className="rate__cta">{open ? 'Hide rates' : 'View rates'}</span>
         </span>
         <ChevronDown size={18} aria-hidden="true" className="rate__chev" />
       </button>
 
       <div className="rate__more" id={panelId} hidden={!open}>
+        <div className="rate__prices">
+          <p>Rates</p>
+          <ul className="rate__opts">
+            {visa.options.map((o) => (
+              <li key={o.label} className="rate__opt">
+                <span>{o.label}</span>
+                <strong className={o.amount == null ? 'is-ask' : ''}>{formatVisaPrice(o)}</strong>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="rate__docs">
           <p><FileText size={15} aria-hidden="true" /> Documents required</p>
           <ul>
@@ -123,7 +130,7 @@ export default function Visa() {
         <SectionHeading
           eyebrow="Visa Price List"
           title={<>Visa Prices at a <em>Glance</em></>}
-          lead="Prices are per applicant. “+ SC” means service charges are added to the listed fee. Tap a country for the documents you need."
+          lead="Tap a country to see its rates and the documents you need. Prices are per applicant; “+ SC” means service charges are added."
           align="center"
         />
 
@@ -147,7 +154,7 @@ export default function Visa() {
             <div className="rate-sheet__labels" aria-hidden="true">
               <span>Country</span>
               <span>Processing</span>
-              <span>Visa and price</span>
+              <span>Visa options</span>
             </div>
             {groups.map((g) => (
               <section key={g.region} className="rate-group" aria-label={g.region}>
