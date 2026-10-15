@@ -12,6 +12,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const burgerRef = useRef(null);
+  // Menu the visitor just clicked in: kept closed until the pointer leaves it.
+  const [closedMenu, setClosedMenu] = useState(null);
+  const closeMenu = (label) => (e) => {
+    setClosedMenu(label);
+    e.currentTarget.blur();
+  };
 
   useEffect(() => setOpen(false), [pathname]);
   useBodyLock(open);
@@ -41,9 +47,14 @@ export default function Navbar() {
           <ul>
             {navLinks.map((link) =>
               link.children ? (
-                <li key={link.label} className="nav__item has-menu">
+                <li
+                  key={link.label}
+                  className={`nav__item has-menu ${closedMenu === link.label ? 'is-closed' : ''}`}
+                  onMouseLeave={() => setClosedMenu(null)}
+                >
                   <NavLink
                     to={link.to}
+                    onClick={closeMenu(link.label)}
                     className={({ isActive }) => `nav__link ${isActive || isParentActive(link) ? 'active' : ''}`}
                   >
                     {link.label}
@@ -53,7 +64,7 @@ export default function Navbar() {
                     <ul>
                       {link.children.map((c) => (
                         <li key={c.to + c.label}>
-                          <Link to={c.to}>
+                          <Link to={c.to} onClick={closeMenu(link.label)}>
                             <span>{c.label}</span>
                             <small>{c.desc}</small>
                           </Link>
